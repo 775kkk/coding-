@@ -5,8 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.Random;
 
 public class krestsNuls extends JFrame{
-    //игра крестики нолики, пишу практически поддиктовку тк вообще никак не ориентируюсь в библиотеках которые использую, нам о них ничего не рассказали, сразу с кодинга на них начали... это типа и есть средне специальное образование?
-    //хорошо что они прям итоговый файл выкладывают на ряду с основным' материалом... иначе я бы день или 2+ потратил бы на это все... ладненько черпну хоть для типа архива...
+    
     //private String[][] buttonsFieldZnak = new String[3][3];
     public JButton[][] buttons  = new JButton[3][3];
     public JLabel panel = new JLabel("");
@@ -20,7 +19,7 @@ public class krestsNuls extends JFrame{
         //инициализ игрового поля
         int rows = 3;
         int cols = 3;
-        //ваще хз ч эт пох я по своему сделаю buttons = new JButton[rows][cols];//нах нам две переменные с одинак занчением?
+        
 
         // спавн кнопок в 3 строки в 3 столба
         JPanel fieldbuttonPanel = new JPanel(new GridLayout(rows, cols));//тут было тупа просто setLayont(new GridLayont(rows,cols) и внутри типа мне подчеркивало что незя ничо ставить// нах ты его зачеркнул дурак, я иного не шарю, списываю из файла...
@@ -122,7 +121,7 @@ public class krestsNuls extends JFrame{
                 break;
             }
         }
-    // мы с нейронкой старались, я думал она писала как я думаю... я серьезно через форы я предложил и пример привел, ток с диагоналями не получилось
+    
         //диагонали
         if (buttons[0][0].getText().equals(buttons[1][1].getText()) && buttons[1][1].getText().equals(buttons[2][2].getText()) && !(buttons[1][1].getText().equals("*"))) {
             win = true;
