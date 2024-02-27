@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "krestFOUR",
+            "request": "launch",
+            "mainClass": "krestFOUR",
+            "projectName": "coding-_717065a6"
+        },
+        {
+            "type": "java",
+            "name": "krest4",
+            "request": "launch",
+            "mainClass": "krest4",
+            "projectName": "coding-_717065a6"
+        },
+        {
+            "type": "java",
             "name": "krestsNuls",
             "request": "launch",
             "mainClass": "krestsNuls",
