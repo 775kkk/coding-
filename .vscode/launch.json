@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "krestEIGHT",
+            "request": "launch",
+            "mainClass": "krestEIGHT",
+            "projectName": "coding-_717065a6"
+        },
+        {
+            "type": "java",
             "name": "krestFOUR",
             "request": "launch",
             "mainClass": "krestFOUR",
