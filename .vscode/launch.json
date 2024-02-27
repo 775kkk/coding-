@@ -4,7 +4,34 @@
     // Для получения дополнительной информации посетите: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        
+        {
+            "type": "java",
+            "name": "krestsNuls",
+            "request": "launch",
+            "mainClass": "krestsNuls",
+            "projectName": "coding-_717065a6"
+        },
+        {
+            "type": "java",
+            "name": "ConfrimationDialogApp",
+            "request": "launch",
+            "mainClass": "ConfrimationDialogApp",
+            "projectName": "coding-_717065a6"
+        },
+        {
+            "type": "java",
+            "name": "fafs",
+            "request": "launch",
+            "mainClass": "fafs",
+            "projectName": "coding-_717065a6"
+        },
+        {
+            "type": "java",
+            "name": "fafs",
+            "request": "launch",
+            "mainClass": "krestnul.fafs",
+            "projectName": "coding-_717065a6"
+        },
         {
             "type": "java",
             "name": "Current File",
