@@ -80,7 +80,7 @@ public class krestEIGHT extends JFrame{
     public krestEIGHT(){
         setTitle("Confrimation Dialog App");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(220, 350);
+        setSize(440, 700);
         initializ();
         
         add(panel,BorderLayout.CENTER);
