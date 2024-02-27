@@ -1,3 +1,5 @@
+from functools import lru_cache
+@lru_cache(None)
 def f(x):
     if x>=33:
         return 0
