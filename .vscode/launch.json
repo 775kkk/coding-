@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Example_try_catch",
+            "request": "launch",
+            "mainClass": "Example_try_catch",
+            "projectName": "coding-_717065a6"
+        },
+        {
+            "type": "java",
             "name": "krestEIGHT",
             "request": "launch",
             "mainClass": "krestEIGHT",
