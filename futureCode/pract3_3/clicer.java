@@ -6,9 +6,18 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class clicer extends JFrame {
-    int ClicCount = 0;
-    JLabel panel = new JLabel("результат : " + ClicCount);
-    JButton clicButton = new JButton("кликай");
+    public int ClicCount;
+    public JLabel panel = new JLabel("результат : " + ClicCount);
+    public JButton clicButton = new JButton("кликай");
+    public int getCount() {
+        return ClicCount;
+    }
+    public JLabel getPanel() {
+        return panel;
+    }
+    public JButton getCliButton() {
+        return clicButton;
+    }
 
     public clicer() {
         setTitle("кликер");
@@ -25,7 +34,7 @@ public class clicer extends JFrame {
         clicButton.addMouseListener(adapter);
     }
 
-    MouseAdapter adapter = new MouseAdapter() {
+    public MouseAdapter adapter = new MouseAdapter() {
         @Override
         public void mouseClicked(MouseEvent e) {
             ClicCount++;
