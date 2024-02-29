@@ -1,14 +1,14 @@
-package futureCode.pract3_3;
+package futureCode.pract3_5;
 import javax.swing.*;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class TextConfrim extends JFrame {
-   public JTextField textt = new JTextField();
+public class _modifited_TextConfrim extends JFrame {
+  public  JTextField textt = new JTextField();
 
-    public TextConfrim() {
+    public _modifited_TextConfrim() {
         setTitle("Подтверждение текста");
         setSize(250, 200);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -27,11 +27,18 @@ public class TextConfrim extends JFrame {
         add(buttonPanel, BorderLayout.SOUTH);
         clicButton.addMouseListener(adapter);
     }
-
-   public MouseAdapter adapter = new MouseAdapter() {
+    MouseAdapter adapter = new MouseAdapter() {
         @Override
         public void mouseClicked(MouseEvent e) {
+            try{//тут
+                if (textt.getText().equals("")) {
+                    throw new NULLinputException("");
+                }
             JOptionPane.showMessageDialog(null, "Ты ввел : " + textt.getText());
+            }catch(NULLinputException a){
+                JOptionPane.showMessageDialog(null,"Ты ничего не ввел");
+            }
+        
         }
     };
 
@@ -39,7 +46,7 @@ public class TextConfrim extends JFrame {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new TextConfrim();
+                new _modifited_TextConfrim();
             }
         });
     }

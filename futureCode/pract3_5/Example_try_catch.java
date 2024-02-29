@@ -5,7 +5,6 @@ public class Example_try_catch {
     public static void main(String[] args) {
         int a = 10;
         int b = 0;
-
         try{
             int res = a/b;
             System.out.println("res == "+res);
@@ -16,8 +15,6 @@ public class Example_try_catch {
 
             System.out.println("Ошибка деления");
             //кетчи можно юзать много, примерно по каждому на ошибку...
-            
-
         }finally{
             System.out.println("Конец");
         }
