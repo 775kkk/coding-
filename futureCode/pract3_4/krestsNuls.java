@@ -17,14 +17,13 @@ public class krestsNuls extends JFrame{
         //setupButtons();
         setReturn();//🕵️‍♂️
     }
-    private void setupGameBroad(){//пока не сильно понимаю прямое назначение отличий привате от публик... видимо а точнее более вероятно что я еще не сталкивался с проблемой...
-        //инициализ игрового поля
+    private void setupGameBroad(){
         int rows = 3;
         int cols = 3;
         
 
         // спавн кнопок в 3 строки в 3 столба
-        JPanel fieldbuttonPanel = new JPanel(new GridLayout(rows, cols));//тут было тупа просто setLayont(new GridLayont(rows,cols) и внутри типа мне подчеркивало что незя ничо ставить// нах ты его зачеркнул дурак, я иного не шарю, списываю из файла...
+        JPanel fieldbuttonPanel = new JPanel(new GridLayout(rows, cols));
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 
@@ -62,17 +61,7 @@ public class krestsNuls extends JFrame{
             if (!(win)){chekWinner(buttons);}
         }
     }
-    // private void setupButtons(){
-    //     //кнопки?
-    //     JPanel xodbuttoPanel = new JPanel(new GridLayout(1, 2));
-    //     JButton crossButton = new JButton("X");
-    //     JButton circleButton = new JButton("O");
-    //     xodbuttoPanel.add(crossButton);
-    //     xodbuttoPanel.add(circleButton);
-    //      //там в ФОТОГРАФИИ файла вообще какойто пиздец там ваще джапплет и типа два файла с одинаковым названием один джапплет другой джфрейм бляяяяяяя
-    //     add(xodbuttoPanel, BorderLayout.SOUTH);
-    // }
-       
+    
             private void setReturn(){
             JPanel xodbuttoPanel = new JPanel(new GridLayout(1, 1));
             JButton ButtonZanovo = new JButton("Заново?");
@@ -102,7 +91,6 @@ public class krestsNuls extends JFrame{
         //setupButtons();
         //setupGameBroad();
         initializ();
-        
         add(panel,BorderLayout.CENTER);
         setVisible(true);
         
@@ -132,12 +120,10 @@ public class krestsNuls extends JFrame{
             win = true;
             panel.setText("побеитель : "+ buttons[0][2].getText()); // Пометить победителя, если есть
         }
-          
-        
+                 
        if (!(win)) {
         panel.setText("нет победителя");
-       }
-        
+       }  
     }
     // public void changePanelText(String winner){
     //     panel.setText(""+ winner);
