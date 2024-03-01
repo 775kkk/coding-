@@ -1,4 +1,4 @@
-f=open("C:/Users/admin/Downloads/27-37b__33t98.txt")
+f=open("decisions_ege_2024/dataFile/27-37b__33t98.txt")
 n=int(f.readline())
 a = [int(i) for i in f]
 fa=[0]*10001

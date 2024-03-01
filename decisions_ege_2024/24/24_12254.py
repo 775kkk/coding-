@@ -1,4 +1,4 @@
-f = open("C:/Users/admin/Downloads/24_12254.txt")
+f = open("decisions_ege_2024/dataFile/24_12254.txt")
 s = f.readline()
 #s='SQSQSQSRQRSRQRSRQRSRQSRQRSRSRQRSRSQRRSQRSRQRSRQRSQRSQRSQRSQR'
 # определение начала цепи по началу потом типа внутри этой цепи мы ищем ее конец
