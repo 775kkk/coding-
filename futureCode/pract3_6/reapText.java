@@ -31,7 +31,7 @@ public class reapText {
             System.err.println("Ошибка при записи в файл : "+ e.getMessage());
         }
     }//🔄📂👨‍💻
-    public static void main(String[] args) {
+    public static void main(String[] args) {//№3
         String fileNameRead="futureCode/pract3_6/input.txt";
         String fileNameWrtire="futureCode/pract3_6/output.txt";
         try{

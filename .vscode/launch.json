@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "reap_outinpu",
+            "request": "launch",
+            "mainClass": "futureCode.pract3_6.reap_outinpu",
+            "projectName": "coding-_717065a6"
+        },
+        {
+            "type": "java",
             "name": "inputRead",
             "request": "launch",
             "mainClass": "futureCode.pract3_6.inputRead",

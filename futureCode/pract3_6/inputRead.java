@@ -5,4 +5,4 @@ public class inputRead  extends textRead{
         fileName = "futureCode/pract3_6/input.txt";
         textRead.main(args);
     }
-}
+}//№2❗️

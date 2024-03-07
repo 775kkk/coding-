@@ -3,7 +3,7 @@ package futureCode.pract3_6;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-
+//№1❗️
 public class textRead {
     public static String fileName = "futureCode/pract3_6/userName.txt"; 
     public static int schetWords(String fileName) throws IOException{
@@ -21,9 +21,9 @@ public class textRead {
         }
     }
     public static void main(String[] args) {
-        try{
+        try{//№1❗️
             int wordCount = schetWords(fileName);
-            System.out.println("Количество строк в файле : "+ wordCount);
+            System.out.println("Количество слов в файле : "+ wordCount);
         }catch(IOException e){
             System.err.println("Ошибка при чтении файла! "+ e.getMessage());
             
