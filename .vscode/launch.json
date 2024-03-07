@@ -6,6 +6,41 @@
     "configurations": [
         {
             "type": "java",
+            "name": "inputRead",
+            "request": "launch",
+            "mainClass": "futureCode.pract3_6.inputRead",
+            "projectName": "coding-_717065a6"
+        },
+        {
+            "type": "java",
+            "name": "repTextsimpleFile",
+            "request": "launch",
+            "mainClass": "futureCode.pract3_6.repTextsimpleFile",
+            "projectName": "coding-_717065a6"
+        },
+        {
+            "type": "java",
+            "name": "reapText",
+            "request": "launch",
+            "mainClass": "futureCode.pract3_6.reapText",
+            "projectName": "coding-_717065a6"
+        },
+        {
+            "type": "java",
+            "name": "textRead",
+            "request": "launch",
+            "mainClass": "futureCode.pract3_6.textRead",
+            "projectName": "coding-_717065a6"
+        },
+        {
+            "type": "java",
+            "name": "halo",
+            "request": "launch",
+            "mainClass": "futureCode.pract3_6.halo",
+            "projectName": "coding-_717065a6"
+        },
+        {
+            "type": "java",
             "name": "_modifited_clicRANGE",
             "request": "launch",
             "mainClass": "futureCode.pract3_5._modifited_clicRANGE",
