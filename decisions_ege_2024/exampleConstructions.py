@@ -7,3 +7,10 @@ def prostoe_or_net(x):# from "decisions_ege_2024\exampleConstructions.py"
         return False
     return True
 #❗️❗️❗️❗️
+# сумма цифр числа
+def sum_sufor(x):
+    x1=str(abs(x))
+    x2=0
+    for i in range(len(x1)):
+        x2+=int(x1[i])
+    return x2
