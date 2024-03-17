@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "clicerBooks",
+            "request": "launch",
+            "mainClass": "futureCode.pract3_3.clicerBooks",
+            "projectName": "coding-_717065a6"
+        },
+        {
+            "type": "java",
+            "name": "main",
+            "request": "launch",
+            "mainClass": "futureCode.pract3_8.main",
+            "projectName": "coding-_717065a6"
+        },
+        {
+            "type": "java",
             "name": "naborMethodsFromPlanetHumans",
             "request": "launch",
             "mainClass": "futureCode.pract3_7.naborMethodsFromPlanetHumans",
