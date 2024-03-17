@@ -4,8 +4,6 @@ import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import futureCode.pract3_6.reapText;
-
 public class naborMethodsFromPlanetHumans {
     private static LocalDateTime curDatTime = LocalDateTime.now();
     private static String whatissun(LocalDateTime a){// номер 1
