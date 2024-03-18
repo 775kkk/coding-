@@ -6,260 +6,135 @@
     "configurations": [
         {
             "type": "java",
-            "name": "clicerBooks",
+            "name": "ping_pong",
             "request": "launch",
-            "mainClass": "futureCode.pract3_3.clicerBooks",
-            "projectName": "coding-_717065a6"
-        },
-        {
-            "type": "java",
-            "name": "main",
-            "request": "launch",
-            "mainClass": "futureCode.pract3_8.main",
+            "mainClass": "futureCode.blok_3.pract3_8.ping_pong",
             "projectName": "coding-_717065a6"
         },
         {
             "type": "java",
             "name": "naborMethodsFromPlanetHumans",
             "request": "launch",
-            "mainClass": "futureCode.pract3_7.naborMethodsFromPlanetHumans",
-            "projectName": "coding-_717065a6"
-        },
-        {
-            "type": "java",
-            "name": "naborMethodsFromPlanet",
-            "request": "launch",
-            "mainClass": "futureCode.pract3_7.naborMethodsFromPlanet",
-            "projectName": "coding-_717065a6"
-        },
-        {
-            "type": "java",
-            "name": "task1",
-            "request": "launch",
-            "mainClass": "futureCode.pract3_7.task1",
+            "mainClass": "futureCode.blok_3.pract3_7.naborMethodsFromPlanetHumans",
             "projectName": "coding-_717065a6"
         },
         {
             "type": "java",
             "name": "mainTime",
             "request": "launch",
-            "mainClass": "futureCode.pract3_7.mainTime",
+            "mainClass": "futureCode.blok_3.pract3_7.mainTime",
             "projectName": "coding-_717065a6"
         },
         {
             "type": "java",
             "name": "forcalco",
             "request": "launch",
-            "mainClass": "futureCode.pract3_7.forcalco",
-            "projectName": "coding-_717065a6"
-        },
-        {
-            "type": "java",
-            "name": "main",
-            "request": "launch",
-            "mainClass": "futureCode.pract3_7.main",
-            "projectName": "coding-_717065a6"
-        },
-        {
-            "type": "java",
-            "name": "reap_outinpu",
-            "request": "launch",
-            "mainClass": "futureCode.pract3_6.reap_outinpu",
-            "projectName": "coding-_717065a6"
-        },
-        {
-            "type": "java",
-            "name": "inputRead",
-            "request": "launch",
-            "mainClass": "futureCode.pract3_6.inputRead",
-            "projectName": "coding-_717065a6"
-        },
-        {
-            "type": "java",
-            "name": "repTextsimpleFile",
-            "request": "launch",
-            "mainClass": "futureCode.pract3_6.repTextsimpleFile",
-            "projectName": "coding-_717065a6"
-        },
-        {
-            "type": "java",
-            "name": "reapText",
-            "request": "launch",
-            "mainClass": "futureCode.pract3_6.reapText",
+            "mainClass": "futureCode.blok_3.pract3_7.forcalco",
             "projectName": "coding-_717065a6"
         },
         {
             "type": "java",
             "name": "textRead",
             "request": "launch",
-            "mainClass": "futureCode.pract3_6.textRead",
+            "mainClass": "futureCode.blok_3.pract3_6.textRead",
             "projectName": "coding-_717065a6"
         },
         {
             "type": "java",
-            "name": "halo",
+            "name": "reapText",
             "request": "launch",
-            "mainClass": "futureCode.pract3_6.halo",
+            "mainClass": "futureCode.blok_3.pract3_6.reapText",
             "projectName": "coding-_717065a6"
         },
         {
             "type": "java",
-            "name": "_modifited_clicRANGE",
+            "name": "reap_outinpu",
             "request": "launch",
-            "mainClass": "futureCode.pract3_5._modifited_clicRANGE",
+            "mainClass": "futureCode.blok_3.pract3_6.reap_outinpu",
             "projectName": "coding-_717065a6"
         },
         {
             "type": "java",
-            "name": "_daughter_modforClicer_range",
+            "name": "inputRead",
             "request": "launch",
-            "mainClass": "futureCode.pract3_5._daughter_modforClicer_range",
+            "mainClass": "futureCode.blok_3.pract3_6.inputRead",
             "projectName": "coding-_717065a6"
         },
         {
             "type": "java",
-            "name": "_daughter_TextConfrim",
+            "name": "helo",
             "request": "launch",
-            "mainClass": "futureCode.pract3_5._daughter_TextConfrim",
+            "mainClass": "futureCode.blok_3.pract3_6.helo",
             "projectName": "coding-_717065a6"
         },
         {
             "type": "java",
             "name": "_modifited_TextConfrim",
             "request": "launch",
-            "mainClass": "futureCode.pract3_5._modifited_TextConfrim",
+            "mainClass": "futureCode.blok_3.pract3_5._modifited_TextConfrim",
             "projectName": "coding-_717065a6"
         },
         {
             "type": "java",
-            "name": "TextConfrim",
+            "name": "_modifited_clicRANGE",
             "request": "launch",
-            "mainClass": "futureCode.pract3_3.TextConfrim",
+            "mainClass": "futureCode.blok_3.pract3_5._modifited_clicRANGE",
             "projectName": "coding-_717065a6"
         },
         {
             "type": "java",
-            "name": "modforClicer_range",
+            "name": "_daughter_modforClicer_range",
             "request": "launch",
-            "mainClass": "futureCode.pract3_5.modforClicer_range",
-            "projectName": "coding-_717065a6"
-        },
-        {
-            "type": "java",
-            "name": "clicRANGE",
-            "request": "launch",
-            "mainClass": "futureCode.pract3_5.clicRANGE",
-            "projectName": "coding-_717065a6"
-        },
-        {
-            "type": "java",
-            "name": "clikkerRANGEclick",
-            "request": "launch",
-            "mainClass": "futureCode.pract3_5.clikkerRANGEclick",
-            "projectName": "coding-_717065a6"
-        },
-        {
-            "type": "java",
-            "name": "krestEIGHT",
-            "request": "launch",
-            "mainClass": "futureCode.pract3_4.krestEIGHT",
-            "projectName": "coding-_717065a6"
-        },
-        {
-            "type": "java",
-            "name": "korabli",
-            "request": "launch",
-            "mainClass": "futureCode.arhive.korabli",
-            "projectName": "coding-_717065a6"
-        },
-        {
-            "type": "java",
-            "name": "Example_try_catch",
-            "request": "launch",
-            "mainClass": "Example_try_catch",
-            "projectName": "coding-_717065a6"
-        },
-        {
-            "type": "java",
-            "name": "krestEIGHT",
-            "request": "launch",
-            "mainClass": "krestEIGHT",
-            "projectName": "coding-_717065a6"
-        },
-        {
-            "type": "java",
-            "name": "krestFOUR",
-            "request": "launch",
-            "mainClass": "krestFOUR",
-            "projectName": "coding-_717065a6"
-        },
-        {
-            "type": "java",
-            "name": "krest4",
-            "request": "launch",
-            "mainClass": "krest4",
+            "mainClass": "futureCode.blok_3.pract3_5._daughter_modforClicer_range",
             "projectName": "coding-_717065a6"
         },
         {
             "type": "java",
             "name": "krestsNuls",
             "request": "launch",
-            "mainClass": "krestsNuls",
+            "mainClass": "futureCode.blok_3.pract3_4.krestsNuls",
             "projectName": "coding-_717065a6"
         },
         {
             "type": "java",
-            "name": "ConfrimationDialogApp",
+            "name": "krestFOUR",
             "request": "launch",
-            "mainClass": "ConfrimationDialogApp",
+            "mainClass": "futureCode.blok_3.pract3_4.krestFOUR",
             "projectName": "coding-_717065a6"
         },
         {
             "type": "java",
-            "name": "fafs",
+            "name": "krestEIGHT",
             "request": "launch",
-            "mainClass": "fafs",
-            "projectName": "coding-_717065a6"
-        },
-        {
-            "type": "java",
-            "name": "fafs",
-            "request": "launch",
-            "mainClass": "krestnul.fafs",
-            "projectName": "coding-_717065a6"
-        },
-        {
-            "type": "java",
-            "name": "Current File",
-            "request": "launch",
-            "mainClass": "${file}"
-        },
-        {
-            "type": "java",
-            "name": "TextConfrim",
-            "request": "launch",
-            "mainClass": "TextConfrim",
-            "projectName": "coding-_717065a6"
-        },
-        {
-            "type": "java",
-            "name": "clicer",
-            "request": "launch",
-            "mainClass": "clicer",
+            "mainClass": "futureCode.blok_3.pract3_4.krestEIGHT",
             "projectName": "coding-_717065a6"
         },
         {
             "type": "java",
             "name": "clicerBooks",
             "request": "launch",
-            "mainClass": "clicerBooks",
+            "mainClass": "futureCode.blok_3.pract3_3.clicerBooks",
+            "projectName": "coding-_717065a6"
+        },
+        {
+            "type": "java",
+            "name": "TextConfrim",
+            "request": "launch",
+            "mainClass": "futureCode.blok_3.pract3_3.TextConfrim",
+            "projectName": "coding-_717065a6"
+        },
+        {
+            "type": "java",
+            "name": "clicer",
+            "request": "launch",
+            "mainClass": "futureCode.blok_3.pract3_3.clicer",
             "projectName": "coding-_717065a6"
         },
         {
             "type": "java",
             "name": "korabli",
             "request": "launch",
-            "mainClass": "korabli",
+            "mainClass": "futureCode.blok_3.arhive.korabli",
             "projectName": "coding-_717065a6"
         }
     ]

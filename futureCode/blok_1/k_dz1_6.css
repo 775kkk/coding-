@@ -1,0 +1,21 @@
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        td {
+            background-color: #fff;
+        }
+
+        .weekend {
+            background-color: #ffe6e6;
+        }
+
+        .other {
+            background-color : #bdbdbd;
+        }

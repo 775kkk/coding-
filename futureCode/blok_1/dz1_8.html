@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p> <a href="">Вернуться назад</a></p>
+<script language="JavaScript">
+    alert("Калькулятор приветствует");
+    let n1 =parseInt(prompt("Введите первое число :"));
+    let n2 =parseInt(prompt("Введите второе число :"));
+    let zn =prompt("Введите операцию(+;*;/;-)");
+    function s(){
+        alert(`Результат сложения : ${n1+n2}`);
+    }
+    function ymn(){
+        alert(`Результат умножения : ${n1*n2}`);
+    }
+    function del(){
+        alert(`Результат деления : ${n1/n2}`);
+    }
+    function mins(){
+        alert(`Результат вычитания : ${n1-n2}`);
+    }
+    if (zn ===  "+") {s();}
+    if (zn ===  "/") {del();}
+    if (zn ===  "*") {ymn();}
+    if (zn ===  "-") {mins();}
+    else{alert(`Неправильно введен оператор`)}
+
+</script>
+
+</body>
+</html>
