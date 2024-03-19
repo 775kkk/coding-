@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "main39",
+            "request": "launch",
+            "mainClass": "futureCode.blok_3.pract3_9.main39",
+            "projectName": "coding-_717065a6"
+        },
+        {
+            "type": "java",
             "name": "ping_pong",
             "request": "launch",
             "mainClass": "futureCode.blok_3.pract3_8.ping_pong",
