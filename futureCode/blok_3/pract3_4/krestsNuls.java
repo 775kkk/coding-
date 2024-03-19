@@ -93,6 +93,7 @@ public class krestsNuls extends JFrame{
         initializ();
         add(panel,BorderLayout.CENTER);
         setVisible(true);
+        setLocationRelativeTo(null);
         
     }
     public void chekWinner(JButton[][] buttons){
