@@ -9,4 +9,10 @@ java --enable-preview -jar exampleChat-Bot.jar
 а вот дальше по палну : jar cfe main3_9.jar main3_9 main39.class  чет не сработало тип не шарит за такую команду
 
 хз надо ли но открыл я конкретную папку чтоле в консоле так
-javac --cp src/ cd futureCode\blok_3\pract3_9\
+cd futureCode\blok_3\pract3_9\
+
+#**КАРОЧЕ**
+**юзай это >build jar открыв и поспавив курсор на нужном файле**
+
+
+javac --cp src/ cd futureCode\blok_3\pract3_9\ - это хз че
