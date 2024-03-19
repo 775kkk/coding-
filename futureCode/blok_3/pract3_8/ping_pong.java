@@ -13,7 +13,7 @@ public class ping_pong extends JFrame implements KeyListener{
     private static final int PADDLE_HEIGHT = 90;//изменено
     private static final int BALL_SIZE = 15 ;
     private static final int PADDLE_SPEED = 16;//изменено 2 раза
-    private static final int BALL_SPEED = 8;//изменено 2 раза
+    private static final int BALL_SPEED = 4;//изменено 2 раза
     private static final int MAX_SCORE= 5;
 
     private int paddle1Y;
