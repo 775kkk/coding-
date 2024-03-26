@@ -73,10 +73,10 @@
 
 # filename = "жанры.txt"
 # total_unique_genres = count_unique_genres(filename)
+# print(f"Общее число уникальных жанров: {total_unique_genres}")
 
 
 # МОЙ ахуенный код))) идея свистнута из ячеек хронения
-# print(f"Общее число уникальных жанров: {total_unique_genres}")
 # f = open("python_interesting/artemandyandexdatalens/Zhanry.txt", encoding="utf-8")
 f = open("python_interesting/artemandyandexdatalens/Prodazhi (1).txt", encoding="utf-8")
 a=[i for i in f]
