@@ -89,3 +89,5 @@ for i in range(len(a)):
                          mx=max(mx,c)
                          break
 print(mx)# 182
+# даже без учёта окончаний на klm or kl or k получается 182
+# изначально я просто про окончания забыл
