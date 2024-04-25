@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "dsd",
+            "request": "launch",
+            "mainClass": "futureCode.blok_3.dsd",
+            "projectName": "coding-_5d69ad10"
+        },
+        {
+            "type": "java",
+            "name": "Dsd",
+            "request": "launch",
+            "mainClass": "futureCode.blok_3.Dsd",
+            "projectName": "coding-_5d69ad10"
+        },
+        {
+            "type": "java",
             "name": "main39",
             "request": "launch",
             "mainClass": "futureCode.blok_3.pract3_9.main39",
