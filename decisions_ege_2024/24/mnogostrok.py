@@ -8,9 +8,30 @@ f = open("decisions_ege_2024/dataFile/24-s1.txt")
 # сколько строк чтоб через фор ебнуть?
 # a=len(f.readlines())#тупа f readlines все строки в массив как отдельные элементы запихивает
 # print(a)#1000
-c=0
+# c=0
+# for i in range(1000):
+#     s= f.readline()
+#     if s.count("YZ")>1:
+#         c+=1
+# print(c)#433
+
+
+
+# другая задача
+# найди строку которая содержит минимальное колво букв A 
+# есл таких несколько то взять самую первуя встречную
+# надо определить какая буква чаще всего встречается в этой строке< если таких несколько букв то взять ближнию к концу алфавита
+lm=876555687768768
+c=""
 for i in range(1000):
-    s= f.readline()
-    if s.count("YZ")>1:
-        c+=1
-print(c)#433
+    s=f.readline()
+    if s.count("A")==22:
+        c=s
+        break
+    # lm=min(lm,s.count("A"))
+# print(lm)22
+a="QWERTYUIOPASDFGHJKLZXCVBNM"
+for ii in a:
+    print(ii,c.count(ii))
+print(sorted(a))
+    # otv V51
