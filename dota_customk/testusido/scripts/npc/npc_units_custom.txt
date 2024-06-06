@@ -1,0 +1,181 @@
+// Units File
+"DOTAUnits"
+{
+	"Version"	"1"
+	//=================================================================================	
+	// Creature:
+	//=================================================================================
+	"npc_dota_creps_custom1"	
+	{
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/items/world/towers/dire_tower_2021/dire_tower_2021_right.vmdl"	// Model.
+		"BaseClass"					"npc_dota_creature"
+		"SoundSet"					"Hero_TemplarAssassin"
+		"GameSoundsFile"			"soundevents/game_sounds_creeps.vsndevts"
+		"Level"						"1"
+		"ModelScale" 				"1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"tornado_tempest"			// Ability 1
+		"Ability2"					"greevil_cold_snap"			// Ability 2
+		"Ability3"					""			// Ability 3
+		"Ability4"					""			// Ability 4
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"10"			// Physical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"50"		// Damage range min.
+		"AttackDamageMax"			"56"		// Damage range max.
+		"AttackRate"				"1.6"		// Speed of attack.
+		"AttackAnimationPoint"		"0.4"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"800"		// Range within a target can be acquired.
+		"AttackRange"				"700"		// Range within a target can be attacked.
+		"ProjectileModel"			"particles/econ/world/towers/dire_tower_2021/dire_tower_2021_attack.vpcf" // Particle system model for projectile.
+		"ProjectileSpeed"			"1500"		// Speed of projectile.		     
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"40"
+		"HealthBarOffset"			"170"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"24"		// Experience earn.
+		"BountyGoldMin"				"21"		// Gold earned min.
+		"BountyGoldMax"				"29"		// Gold earned max.
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"300"		// Speed.			
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"750"		// Base health.
+		"StatusHealthRegen"			"0.5"		// Health regeneration rate.
+		"StatusMana"				"0"			// Base mana.
+		"StatusManaRegen"			"0.0"		// Mana regeneration rate.		 
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1000"		// Range of vision during day light.
+		"VisionNighttimeRange"		"600"		// Range of vision at night time.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"						// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			//Level Up
+			"HPGain"					"50"
+			"DamageGain"				"2"
+			"ArmorGain"					"0.25"
+			"MagicResistGain"			"0.1"
+			"MoveSpeedGain"				"1"
+			"BountyGain"				"3"
+			"XPGain"					"15"
+		}
+	}
+	"npc_dota_creps_custom2"
+// ВОТ это мой первый малышок
+	//Creeps: Good Guys Melee Rax MID
+	//npc_dota_creep_badguys_melee_upgraded
+	{
+		//----------------------------------------------------------------
+		"Model"						"models/creeps/lane_creeps/creep_2021_radiant/creep_2021_radiant_flagbearer_melee_mega.vmdl"	
+
+		"BaseClass"					"npc_dota_lone_druid_bear"
+		"SoundSet"					"Creep_Good_Melee_Mega"
+		"GameSoundsFile"			"soundevents/game_sounds_creeps.vsndevts"
+		"Level"						"1"
+		"ModelScale" 				"1.2"
+		//"UnitLabel"					"spirit_bear"
+		"ConsideredHero"			"1"
+		"HasInventory"				"1"
+		//----------------------------------------------------------------		
+		"Ability1"					"flagbearer_creep_aura_effect"				// Ability 1
+		"Ability2"					"ogre_magi_frost_armor"			// Ability 2
+		"Ability3"					"alpha_wolf_critical_strike"				// Ability 3
+		"Ability4"					"fx_test_ability"			// Ability 4
+		"Ability5"					"alpha_wolf_command_aura"
+		"Ability6"					"enraged_wildkin_hurricane"
+		"Ability7"					"enraged_wildkin_toughness_aura"
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"4"
+		"MagicalResistance"			"20"
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"55"		// Damage range min.
+		"AttackDamageMax"			"61"		// Damage range max.
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1.4"			// Speed of attack.
+		"AttackAnimationPoint"		"0.467"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
+		"AttackRange"				"100"		// Range within a target can be attacked.
+		"ProjectileModel"			""			// Particle system model for projectile.
+		"ProjectileSpeed"			""			// Speed of projectile.
+
+		//"AttackSpeedActivityModifiers"
+		//{
+		//	"fast"		"230"
+		//}
+		//----------------------------------------------------------------
+		"AttributePrimary"		"DOTA_ATTRIBUTE_ALL"
+		"AttributeBaseStrength"		"10"			// Base strength
+		"AttributeStrengthGain"		"2"			// Strength bonus per level.
+		"AttributeBaseIntelligence"	"10"			// Base intelligence
+		"AttributeIntelligenceGain"	"1"			// Intelligence bonus per level.
+		"AttributeBaseAgility"		"11"			// Base agility
+		"AttributeAgilityGain"		"2"
+		//----------------------------------------------------------------
+		"RingRadius"				"45"
+		"BoundsHullName"		"DOTA_HULL_SIZE_HERO"
+		"HealthBarOffset"			"170"
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"		
+		"MovementSpeed"				"325"		
+		"MovementTurnRate"			"0.5"	
+		//----------------------------------------------------------------
+		"StatusHealth"				"750"		// Base health.
+		"StatusHealthRegen"			"3"		// Health regeneration rate.
+		"StatusMana"				"200"			// Base mana.
+		"StatusManaRegen"			"2.0"		// Mana regeneration rate.
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1300"		// Range of vision during day light.
+		"VisionNighttimeRange"		"750"		// Range of vision at night time.
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"						// Team name.
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		"MinimapIconSize"			"2000"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		//----------------------------------------------------------------
+		"Creature"
+		//ваще хз че это
+		{
+			//Level Up
+			"HPGain"					"50"
+			"DamageGain"				"2"
+			"ArmorGain"					"0.25"
+			"MagicResistGain"			"0.1"
+			"MoveSpeedGain"				"1"
+			"BountyGain"				"3"
+			"XPGain"					"15"
+		}
+		//----------------------------------------------------------------
+
+	}
+}

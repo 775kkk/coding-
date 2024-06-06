@@ -30,9 +30,24 @@ def fy(x,y):
         s+=str(x%y)
         x//=y
     return s[::-1]
+    ИЛИ
+    while x>0:
+        s= str(x%y)+s
+        x//=y
+    return s
+
 def f4(x):
     s=""
     while x>0:
         s+=str(x%4)
         x//=4
     return s[::-1]
+
+# если система>10:
+def f12(x):
+    s=""
+    a="0123456789AB"
+    while x>0:
+        s=a[x%12]+s
+        x//=12
+    return s

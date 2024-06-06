@@ -1,0 +1,90 @@
+"DOTAHeroes"
+{
+	"Version"		"1"
+	"npc_dota_creps_custom3"
+	{
+		"Model"						"models/creeps/lane_creeps/creep_2021_radiant/creep_2021_radiant_flagbearer_melee_mega.vmdl"
+		"SoundSet"					"Creep_Good_Melee_Mega"
+		"GameSoundsFile"			"soundevents/game_sounds_creeps.vsndevts"
+		"PickSound"		"juggernaut_jug_spawn_03"
+		"BanSound"		"juggernaut_jug_anger_04"
+		"Enabled"		"1"
+		"HeroPool1"		"1"
+		"HeroPool2"		"1"
+		"HeroUnlockOrder"		"3"
+		"Role"			"Pusher"
+		"Rolelevels"	"3"
+		"Complexity"	"1"
+		"Team"		"Good"
+		"BotImplemented"		"0"
+		"Press"		"1"
+		"ModelScale" 				"1.2"
+		"VersusScale"		"1"
+		"LoadoutScale"		"1"
+		"SpectatorLoadoutScale" "1"
+		"HeroGlowColor"		"222 120 36"
+		"CMEnabled"		"1"
+		"workshop_guide_name"		"Juggernaut"
+		"new_player_enable"		"1"
+		"SimilarHeroes"	"18,41,44"
+		"NameAliases"	"creep"
+		"LastHitChallengeRival"		"npc_dota_hero_skeleton_king"
+		"HeroSelectSoundEffect"		"Hero_Juggernaut.Pick"
+
+		"Ability1"					"lone_druid_spirit_bear_return"				// Ability 1
+		"Ability2"					"create_creps"			// Ability 2
+		"Ability3"					"lone_druid_spirit_bear"				// Ability 3
+		"Ability4"					"fx_test_ability"
+
+		"ArmorPhysical"				"4"
+		"MagicalResistance"			"20"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"45"		// Damage range min.
+		"AttackDamageMax"			"51"		// Damage range max.
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1.4"			// Speed of attack.
+		"AttackAnimationPoint"		"0.467"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
+		"AttackRange"				"110"		// Range within a target can be attacked.
+		"ProjectileModel"			""			// Particle system model for projectile.
+		"ProjectileSpeed"			""
+
+		"AttributePrimary"		"DOTA_ATTRIBUTE_ALL"
+		"AttributeBaseStrength"		"10"			// Base strength
+		"AttributeStrengthGain"		"2"			// Strength bonus per level.
+		"AttributeBaseIntelligence"	"10"			// Base intelligence
+		"AttributeIntelligenceGain"	"1"			// Intelligence bonus per level.
+		"AttributeBaseAgility"		"11"			// Base agility
+		"AttributeAgilityGain"		"2"
+
+		"HasAggressiveStance"		"0"
+		"BoundsHullName"		"DOTA_HULL_SIZE_HERO"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"		
+		"MovementSpeed"				"325"		
+		"MovementTurnRate"			"0.5"	
+
+		"StatusHealth"				"350"		// Base health.
+		"StatusHealthRegen"			"2"		// Health regeneration rate.
+		"StatusMana"				"100"			// Base mana.
+		"StatusManaRegen"			"1.0"		// Mana regeneration rate.
+
+		//----------------------------------------------------------------
+
+		"VisionDaytimeRange"		"1300"		// Range of vision during day light.
+		"VisionNighttimeRange"		"750"
+
+		"Creature"
+		{
+			//Level Up
+			"HPGain"					"50"
+			"DamageGain"				"2"
+			"ArmorGain"					"0.25"
+			"MagicResistGain"			"0.1"
+			"MoveSpeedGain"				"1"
+			"BountyGain"				"3"
+			"XPGain"					"15"
+		}
+	}
+}

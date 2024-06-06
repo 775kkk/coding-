@@ -1,0 +1,113 @@
+// Dota Heroes File
+"DOTAAbilities"
+{
+	"Version"		"1"
+
+	"create_creps2"
+	{
+		"override_abilities"	"lone_druid_spirit_bear"
+		"unit_name"		"npc_dota_creps_custom"
+	}
+	"create_creps"
+	{
+		"BaseClass"						"ability_datadriven"
+		"ScriptFile"	"abilities/create_creps.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityManaCost"				"2"
+		"DisplayAdditionalHeroes"	"1"
+		//"RequiredLevel"				"-1"
+		"MaxLevel"					"2"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityCastPoint"				"0.5 0.5 0.5 0.5"
+		//"creep" 	""
+		"OnSpellStart"
+		{
+		"RunScript"
+			{
+				"ScriptFile"						"abilities\create_creps.lua"
+				"Function"							"create"
+			}
+		}
+		"OnHeroLevelUp"
+		{
+			"RunScript"
+			{
+				"ScriptFile"						"abilities/create_creps.lua"
+				"Function"							"creepLevel"
+			}
+		}
+		"Modifiers"
+		{
+		"modifier_spirit_bear"
+		{
+			"IsHidden"		"1"
+
+			"StatusEffectName"		"particles/status_fx/status_effect_spirit_bear.vpcf"
+			"StatusEffectPriority"	"1"
+
+			"OnCreated"
+			{
+				"FireEffect"
+				{
+					"Target"			"TARGET"
+					"EffectName"		"particles/units/heroes/hero_lone_druid/lone_druid_bear_spawn.vpcf"
+					"EffectAttachType"	"follow_origin"
+				}
+			}
+			"OnHeroLevelUp"
+				{
+			"RunScript"
+			{
+				"ScriptFile"						"abilities/create_creps.lua"
+				"Function"							"creepLevel"
+			}
+				}
+
+			//"OnDeath"
+			//{
+			//	"RunScript"
+			//{
+			//	"ScriptFile"						"abilities\create_creps.lua"
+			//	"Function"							""
+			//}
+			//}
+	
+	}
+
+}
+
+}
+
+
+
+
+	"fx_test_ability"
+{
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"             "ability_datadriven"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"    "axe_battle_hunger"
+
+    // Modifiers
+    //-------------------------------------------------------------------------------------------------------------
+    "Modifiers"
+    {
+        "fx_test_modifier"
+        {
+            "Passive" "1"
+            "OnCreated"
+            {
+                "AttachEffect"
+                {
+                    "Target" "CASTER"
+                    "EffectName" "particles/econ/generic/generic_buff_1/generic_buff_1.vpcf"
+                    "EffectAttachType" "follow_overhead"
+                    "EffectLifeDurationScale" "1"
+                    "EffectColorA" "255 255 0"
+                }
+            }
+        }
+    }
+}
+}
