@@ -16,21 +16,30 @@ public class MatrixRain extends JPanel {
         int c = 0;
         g.setColor(new Color(0, 255, 0));// Зеленый цвет
         // Рисуем символы
+
+        String RL="";
+
+        InnerMatrixRain innerMatrixRain = new InnerMatrixRain();
+
         for (int i = 0; i < getWidth() / 10; i++) {
             c++;
             //координаты снизу
             g.drawString(String.valueOf(c), i * 20, getHeight());
             // g.drawString(String.valueOf(i), i * 20, getHeight()-10);
 
+            if (random.nextInt(2)==1) {
+                generate()
+            }
+
 
             // createPlate(g,i);
 
 
-            if (random.nextInt(2)==1) {
+            // if (random.nextInt(2)==1) {
 
-                createChain(i,g,c);
+            //     createChain(i,g,c);
 
-            }
+            // }
             // continuationChain();
 
 
@@ -49,19 +58,29 @@ public class MatrixRain extends JPanel {
         }
     }
     
+    protected class InnerMatrixRain {
+        private int RL=0;//str?
 
-    protected void createPlate(Graphics g,int i){
+        private static int generate(){
+                return random.nextInt(symbols.length())
+        }
 
-
+        
+        
     }
-    protected void createChain(){}
 
-    public void createChain(int i, Graphics g,int c){
-        int x = i * 10;
-        int y = random.nextInt(10,50);//getHeight());//высота
-        char symbol = '1';//symbols.charAt(random.nextInt(symbols.length()));
-        g.drawString(String.valueOf(symbol), x, y);
-    }
+    // protected void createPlate(Graphics g,int i){
+
+
+    // }
+    // protected void createChain(){}
+
+    // public void createChain(int i, Graphics g,int c){
+    //     int x = i * 10;
+    //     int y = random.nextInt(10,50);//getHeight());//высота
+    //     char symbol = '1';//symbols.charAt(random.nextInt(symbols.length()));
+    //     g.drawString(String.valueOf(symbol), x, y);
+    // }
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Matrix Rain");
