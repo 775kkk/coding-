@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "korabli",
+            "request": "launch",
+            "mainClass": "futureCode.blok_3.arhive.korabli",
+            "projectName": "coding-_5d69ad10"
+        },
+        {
+            "type": "java",
+            "name": "MatrixRain",
+            "request": "launch",
+            "mainClass": "java_interesting.MatrixRain",
+            "projectName": "coding-_5d69ad10"
+        },
+        {
+            "type": "java",
             "name": "dsd",
             "request": "launch",
             "mainClass": "futureCode.blok_3.dsd",
