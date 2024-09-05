@@ -22,9 +22,16 @@ public class MatrixRain extends JPanel {
             g.drawString(String.valueOf(c), i * 20, getHeight());
             // g.drawString(String.valueOf(i), i * 20, getHeight()-10);
 
-            //create цепь
-            if (random.nextInt(2)==1){
-            createChain(i,g,c);}
+
+            // createPlate(g,i);
+
+
+            if (random.nextInt(2)==1) {
+
+                createChain(i,g,c);
+
+            }
+            // continuationChain();
 
 
             //доcreate chain
@@ -41,6 +48,13 @@ public class MatrixRain extends JPanel {
             // g.drawString(String.valueOf(symbol), x, y);
         }
     }
+    
+
+    protected void createPlate(Graphics g,int i){
+
+
+    }
+    protected void createChain(){}
 
     public void createChain(int i, Graphics g,int c){
         int x = i * 10;
