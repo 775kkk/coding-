@@ -6,16 +6,23 @@
     "configurations": [
         {
             "type": "java",
-            "name": "korabli",
+            "name": "mr2",
             "request": "launch",
-            "mainClass": "futureCode.blok_3.arhive.korabli",
-            "projectName": "coding-_5d69ad10"
+            "mainClass": "java_interesting.MR.mr2",
+            "projectName": "coding-_95d2d49a"
         },
         {
             "type": "java",
             "name": "MatrixRain",
             "request": "launch",
-            "mainClass": "java_interesting.MatrixRain",
+            "mainClass": "java_interesting.MR.MatrixRain",
+            "projectName": "coding-_95d2d49a"
+        },
+        {
+            "type": "java",
+            "name": "korabli",
+            "request": "launch",
+            "mainClass": "futureCode.blok_3.arhive.korabli",
             "projectName": "coding-_5d69ad10"
         },
         {
