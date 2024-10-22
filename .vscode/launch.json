@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "MatrixRain",
+            "request": "launch",
+            "mainClass": "java_interesting.Mtr.MatrixRain",
+            "projectName": "coding-_95d2d49a"
+        },
+        {
+            "type": "java",
             "name": "mr2",
             "request": "launch",
             "mainClass": "java_interesting.MR.mr2",

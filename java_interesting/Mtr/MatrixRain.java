@@ -1,4 +1,4 @@
-package java_interesting.MR;
+package java_interesting.Mtr;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
