@@ -4,4 +4,4 @@
 
 # Links
 
-This repo was created for the [RimWorld Wiki](https://rimworldwiki.com/wiki/Main_Page) and is maintained by [Aelanna](https://www.reddit.com/user/Aelanna/); [Git Aelaenna](https://github.com/Aelanna/ExampleMeleeWeapon).
+This repo was created for the [RimWorld Wiki](https://rimworldwiki.com/wiki/Main_Page) and is maintained by [Aelanna](https://www.reddit.com/user/Aelanna/); [Git Aelanna](https://github.com/Aelanna/ExampleMeleeWeapon).
