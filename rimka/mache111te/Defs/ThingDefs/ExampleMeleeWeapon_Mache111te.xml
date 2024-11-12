@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Example weapon: machete -->
+  <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
+
+    <!--  Названия модификаций должны быть уникальными для всех модов  -->
+    <!-- Обычно рекомендуется указывать в качестве префикса название вашего мода, чтобы избежать коллизий с модами -->
+    <defName>ExampleMeleeWeapon_Mache111te</defName>
+
+    <!-- Это отображаемое название оружия. Оно должно быть в нижнем регистре, если только это не имя собственное -->
+    <!-- При необходимости распознаватель грамматики RimWorld автоматически добавит заглавные буквы в надписи -->
+    <label>mache111te</label>
+
+    <!-- Полное описание этого оружия. Игроки могут увидеть его при просмотре полной карты характеристик -->
+    <description>A broad blade meant for cutting vegetation in overgrown environments, machetes can be used as a broad-bladed combat knife in a pinch.</description>
+
+    <!-- Позволяет использовать это оружие в качестве стартового оружия для пешечных предысторий -->
+    <possessionCount>1</possessionCount>
+
+    <!-- Устанавливает графику предмета для защиты этого предмета -->
+    <!-- Для оружия ближнего боя это также будет использоваться в качестве текстуры снаряжения -->
+    <graphicData>
+      <texPath>ExampleMod/ExampleWeapon_Machete</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+
+    <!-- Задает смещение угла при использовании оружия -->
+    <!-- При угле 0 восточная сторона текстуры будет направлена прямо на противника -->
+    <equippedAngleOffset>-65</equippedAngleOffset>
+
+    <!-- Масштабирует текстуру предмета при использовании в элементах пользовательского интерфейса, таких как списки предметов -->
+    <!-- Как и в случае с гладиусом, масштабы мачете увеличиваются, поскольку их текстура относительно мала -->
+    <uiIconScale>1.2</uiIconScale>
+
+    <!-- Устанавливает технический уровень этого предмета -->
+    <techLevel>Medieval</techLevel>
+
+    <!-- Определяет "материал" или разновидность материалов, которые могут быть использованы для изготовления этого предметa -->
+    <stuffCategories>
+      <li>Metallic</li>
+      <li>Woody</li>
+    </stuffCategories>
+
+    <!-- Определяет количество "материала", необходимого для изготовления данного предмета -->
+    <costStuffCount>40</costStuffCount>
+
+    <!-- Позволяет использовать этот предмет для получения наград за выполнение заданий -->
+    <thingSetMakerTags>
+      <li>RewardStandardQualitySuper</li>
+    </thingSetMakerTags>
+
+    <!-- Позволяет создавать этот предмет на неигровых персонажах -->
+    <weaponTags>
+      <li>MedievalMeleeDecent</li>
+    </weaponTags>
+
+    <!-- Определяет базовую статистику для этого элементa -->
+    <statBases>
+      <WorkToMake>1000</WorkToMake>
+      <Mass>0.75</Mass>
+    </statBases>
+
+    <!-- Определяет модификаторы характеристик пешки, которая оснащает этот предмет -->
+    <equippedStatOffsets>
+      <PlantWorkSpeed>0.10</PlantWorkSpeed>
+    </equippedStatOffsets>
+
+    <!-- Определяет вероятность того, что этот предмет может быть сгенерирован как реликвия -->
+    <relicChance>1</relicChance>
+
+    <!--Определяет атаки ближнего боя, доступные при использовании этого оружия -->
+    <tools>
+      <li>
+        <label>handle</label> <!-- рукоять -->
+        <capacities>
+          <li>Blunt</li>  <!-- тупой удар -->
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+      <li>
+        <label>point</label> <!-- точка но походу конец мачеты-->
+        <capacities>
+          <li>Stab</li> <!-- скорее всего колющий удар -->
+        </capacities>
+        <power>14</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+      <li>
+        <label>edge</label><!-- край лезвие видимо  -->
+        <capacities>
+          <li>Cut</li> <!-- резать типа-->
+        </capacities>
+        <power>14</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+
+    <!-- Определяет значения, используемые для создания рецепта для этого предмета -->
+    <!-- Многие обязательные поля унаследованы от родительского "Базовое оружие ближнего боя_качество стрельбы" ;"BaseMeleeWeapon_Sharp_Quality" -->
+    <recipeMaker>
+      <researchPrerequisite>Smithing</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>2</Crafting>
+      </skillRequirements>
+      <displayPriority>409</displayPriority>
+    </recipeMaker>
+  </ThingDef>
+
+  <!-- <<создатель рецептов>
+      <<Предварительные условия для исследования>Кузнечное дело</Предварительные условия для исследования>
+      <<Требования к навыкам>
+        <Создание>2</Создание>
+      </Требования к навыкам>
+      <<Приоритет отображения>409</Приоритет отображения>
+    </</создатель рецептов>
+  </ThingDef> -->
+
+</Defs>
