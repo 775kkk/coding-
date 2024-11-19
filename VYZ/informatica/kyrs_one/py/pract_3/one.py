@@ -22,12 +22,13 @@ def podstroki(stroka):
     m = []
     c = len(stroka)
     for i in range(c):
-        temp = [stroka[i:j+1] for j in range(i,c)]
+        for k in range(1,i-1):
+            temp = [stroka[i:j+1] for j in range(i,c,k)]# пока проблема в сикпе надо скипать както чето -> abcD и еще надо acD
         # temp2 = [stroka[i]+stroka[-j] for j in range(1,i) if j<i]
         # temp2 = [stroka[i:-j] for j in range(1,i) if j<i] 
-        for j in temp:
-            if (len(set(j)) == len(j) and j not in m): # Проверка на уникальность символов
-                m.append(j)
+            for j in temp:
+                if (len(set(j)) == len(j) and j not in m): # Проверка на уникальность символов
+                    m.append(j)
         # for j in temp2:
             # if (len(set(j)) == len(j) and j not in m): # Проверка на уникальность символов
                 # m.append(j)
