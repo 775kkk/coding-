@@ -8,6 +8,7 @@
 
 
 def podstroki(stroka):
+    '''
     # from itertools import permutations
     # stroka = stroka.replace(" ", "")
     # m=[]
@@ -17,23 +18,26 @@ def podstroki(stroka):
     # # m = [i+j+k for i in list(permutations(no_povtor_spisok)) for j in list(permutations(no_povtor_spisok))[1:] for k in list(permutations(no_povtor_spisok))[2:]]
     # for i in range
     # return m
+    '''
     stroka = stroka.replace(" ", "")
 
     m = []
     c = len(stroka)
     for i in range(c):
-        for k in range(1,i-1):
-            temp = [stroka[i:j+1] for j in range(i,c,k)]# пока проблема в сикпе надо скипать както чето -> abcD и еще надо acD
+        temp = [stroka[i:j+1] for j in range(i,c)]
+        temp2= [m[j]+temp[k] for k in range(len(temp)) for j in range(len(m))] # А КТО МНЕ ПОМЕШАЕТ СДЕЛАТЬ КАШУ??? ХАХАХАХАХАХ
         # temp2 = [stroka[i]+stroka[-j] for j in range(1,i) if j<i]
         # temp2 = [stroka[i:-j] for j in range(1,i) if j<i] 
-            for j in temp:
-                if (len(set(j)) == len(j) and j not in m): # Проверка на уникальность символов
-                    m.append(j)
-        # for j in temp2:
-            # if (len(set(j)) == len(j) and j not in m): # Проверка на уникальность символов
-                # m.append(j)
+        for j in temp:
+            if (len(set(j)) == len(j) and j not in m): # Проверка на уникальность символов
+                m.append(j)
+        for j in temp2:
+            if (len(set(j)) == len(j) and j not in m): # Проверка на уникальность символов
+                m.append(j)
     return m
-print(podstroki("aabcDDh"))
+# print("abcDh" in podstroki("aabcDh")) АХАХХАХАХ я это сделал еееее хиххихи
+print(podstroki("aabcDh"))
+
 
 # ///////////--------->
 
