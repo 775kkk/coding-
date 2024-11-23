@@ -1,12 +1,34 @@
-stroka = "abbsb sbbwbsw swbsbws"
-stroka = stroka.split();
-m = [list((i,stroka.count(i)))for i in stroka]
-print(stroka)
-print(m)
+def kybikPrikolov(stroki,n):
+
+    baseLines=stroki.split(",")
+
+    if len(set(len(line) for line in baseLines)) > 1:
+        print("введены неверные данные (длина строк не равна)")
+        return 0
+    if n in None or not isinstance(n, int):
+        n=1
+
+    RETURNfield=[]
+    baseSIGMENTrow=len(baseLines)
+    #  16 : 16/2 = 2 -> мельчайший сегмент ; если строк 2(басе сигмент) и зум 3(n)
+    #  басе сегмент**(зум+1)/(басе сегмент**(зум+1)/басе сегмент**зум) = мельчайший сегмент = басе сегмент
+    #  2**(3+1)/(2**(3+1)/2**3) = 2
+    #  16/(16/8)=2 = колво строк
+    #  baseSIGMENTrow**(n+1)/(baseSIGMENTrow**(n+1)/baseSIGMENTrow**n)
+
+    # сегмент зума
+    # басе сегмент**(зум+1) = всего строк при зуме
+    # басе сегмент**(зум+1)/басе*(зум-зум+1) сигмент = первый сегмент текущего зума
+    # басе сегмент**(зум+1)/басе*(зум-зум+2) сигмент = второй сегмент текущего зума
+    #                                       и так пока зум-зум+i!=зум
+    #                                       сегментов всегда столько сколько строк на вход поступило
 
 
-rows = 3
-cols = 4
-
-matrix = [list(range(i*cols, (i+1)*cols)) for i in range(rows)]
-print(matrix)
+    for j in range(len(baseLines)):
+        for k in baseLines[j]:
+            if k=="X":# есть идея тупо ебануть списочек с сегментами и где один там красить 1 0 1 0 1 0
+                # рисуем по строку : baseSIGMENTrow**(n+1)/(baseSIGMENTrow**(n+1)/baseSIGMENTrow**n) 
+                # по идее крч тут еще по столбец и рекурсией внутрь передать чтобы внутри сегмента все отрисовать
+                # и так каждый сегмент по этим двум циклам выше но я хз как упаковать данные
+            if k=="0":
+                # ne рисуем по строку : baseSIGMENTrow**(n+1)/(baseSIGMENTrow**(n+1)/baseSIGMENTrow**n) 
