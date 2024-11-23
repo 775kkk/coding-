@@ -63,18 +63,34 @@ risyemRect(5,5,3,3)
 # -- -- -- 0X
 
 
-def kybikPrikolov(stroka1,stroka2,n):#stroka3,stroka4,stroka5,stroka6,stroka7,stroka8):
-    # strok=len(list().append(stroka1).append(stroka2).append(stroka3).append(stroka4).append(stroka5).append(stroka6).append(stroka7).append(stroka8))
-    if n in None or not isinstance(n, int):
-        n=1
-    flag1= True if stroka1[0]=="X" else False
-    flag2= True if stroka1[1]=="X" else False
-    flag3= True if stroka2[0]=="X" else False
-    flag4= True if stroka2[1]=="X" else False
-    field=[]
-    if not((n%len(stroka1)!=0) or (n==1)) and (len(stroka2)!=len(stroka1)):
-        print("введены неверные данные (длина строк ровна и кратка n)")
+def kybikPrikolov(stroka1,stroka2,n):
+
+    if (len(stroka2)!=len(stroka1)):
+        print("введены неверные данные (длина строк не равна")
         return 0
+    if n in None or not isinstance(n, int):
+        n=len(stroka1)
+    RETURNfield=[]
+    baseField=[]
+    baseLines=list().append(stroka1).append(stroka2)# ТК КОЛВО СТРОК ВСЕГО "2"!!!!!!!!!!!!!!
+    # n = 3 =-> --- --- --- 
+    #           --- --- ---
+    # от n зависит длина од#####ной строки
+    for i in baseLines:
+        len1=""
+        # X0X
+        # X0X
+        for j in range(len(i)):
+            if stroka1[j]=="X":
+                len1.join(i+" ")
+            elif():
+                len1.join("-"*len(i) + " ")
+        baseField.append(len1);
+        # ROW = 2 CONST
     
-    
+    #время масштабироваться
+    # ^$&$@*$@*9 РАСШИРЕНИЕ ТЕРРИТОРИИ ?;"?*№:_)"!"
+     
+    # подготовим альтернативу --- --- ---
+    altBASEfield=list("".join("-"*i +" " for j in range(len(stroka1)) for i in range(stroka1)))
     
