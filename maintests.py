@@ -1,3 +1,6 @@
+from functools import lru_cache
+
+@lru_cache(None)
 def kybikPrikolov(stroki,n):
 
     baseLines=stroki.split(",")
@@ -24,11 +27,55 @@ def kybikPrikolov(stroki,n):
     #                                       сегментов всегда столько сколько строк на вход поступило
 
 
+    if n==0:
+        return baseLines
+    
+    if n==1:
+        retM=[]*(len(baseLines)**2)
+        f=0
+        for j in range(len(baseLines)):
+            for k in baseLines[j]:      # X0X, 000
+                if k=="X":
+                    #   РИСУЕМ СЕГМЕНТ
+                    i=f
+                    while i!=len(baseLines)+f:
+                        i+=1
+                        for ik in baseLines:# И for i in range(f,len(baseLines)+f) 
+                            retM[i]+=ik+" "
+                if k=="0":
+                    #  НЕ РИСУЕМ СЕГМЕНТ
+                    for i in range(f,len(baseLines)+f):
+                        retM[i]+="-"*len(baseLines)+" "
+            f+=len(baseLines)
+            
+            # есть инфа ч я себе мозгу ебу?
+            
+
     for j in range(len(baseLines)):
         for k in baseLines[j]:
             if k=="X":# есть идея тупо ебануть списочек с сегментами и где один там красить 1 0 1 0 1 0
                 # рисуем по строку : baseSIGMENTrow**(n+1)/(baseSIGMENTrow**(n+1)/baseSIGMENTrow**n) 
+                #                                2**1/(2**2)/2 = 2
+                #           СЕГМЕНТ ЭТО ОТРИСОВКА СТРОКИ ПО ТРЕБОВАНИЮ ДАННОЙ СТРОКИ В РАЗМЕЖОВКЕ
+                # Пример :
+                # дано :
+                # X0,0X,n=1
+                # получается :
+                # X0 --         ==> начало первого сегмента по требованию первой строки
+                # 0X --         ==> конец первого сегмента по требованию первой строки
+                # -- X0         ==> начало Второго сегмента по требованию Второй строки
+                # -- 0X         ==> конец ВТорого сегмента по требованию Второй строки
                 # по идее крч тут еще по столбец и рекурсией внутрь передать чтобы внутри сегмента все отрисовать
                 # и так каждый сегмент по этим двум циклам выше но я хз как упаковать данные
+                # //////////////////////////////////////////
+                #  сейчас задача 
+                # (baseSIGMENTrow**(n+1)/(baseSIGMENTrow**(n+1)/baseSIGMENTrow**n))*2
+                # if ((baseSIGMENTrow**(n+1)/(baseSIGMENTrow**(n+1)/baseSIGMENTrow**n))*2)==len(baseLines):
+                #     strBAZA=[str(i) for i in baseLines]# базовая строка
+                #     return strBAZA
+                
+
+
+
             if k=="0":
                 # ne рисуем по строку : baseSIGMENTrow**(n+1)/(baseSIGMENTrow**(n+1)/baseSIGMENTrow**n) 
