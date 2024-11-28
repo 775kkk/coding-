@@ -111,7 +111,8 @@ def stepenORnot(a, b):
         a //= b
     return True
 
-
+# СДЕЛАЛ В ОТДЕЛЬНОМ ФАЙЛЕ А ТУТ ОСТАВИЛ ЧТОБЫ ПРОСТО ПРОСЛЕДИТЬ +- ПУТЬ КОТОРЫЙ Я ПРОШОЛ ОТ НАЧАЛА ДО КОНЦА
+# СТРОИЛ ДОМ БЛЯ С КРЫШЫ
 def kybikPrikolov(stroka1,stroka2,n):
 
     if (len(stroka2)!=len(stroka1)):
