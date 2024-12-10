@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "main39",
+            "request": "launch",
+            "mainClass": "futureCode.blok_3.pract3_9.main39",
+            "projectName": "coding-_95d2d49a"
+        },
+        {
+            "type": "java",
+            "name": "ping_pong",
+            "request": "launch",
+            "mainClass": "futureCode.blok_3.pract3_8.ping_pong",
+            "projectName": "coding-_95d2d49a"
+        },
+        {
+            "type": "java",
             "name": "MatrixRain",
             "request": "launch",
             "mainClass": "java_interesting.Mtr.MatrixRain",
