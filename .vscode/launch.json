@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ping_pong",
+            "request": "launch",
+            "mainClass": "futureCode.blok_3.pract3_8.ping_pong",
+            "projectName": "coding-_5d69ad10"
+        },
+        {
+            "type": "java",
+            "name": "_daughter_modforClicer_range",
+            "request": "launch",
+            "mainClass": "futureCode.blok_3.pract3_5._daughter_modforClicer_range",
+            "projectName": "coding-_5d69ad10"
+        },
+        {
+            "type": "java",
+            "name": "main39",
+            "request": "launch",
+            "mainClass": "futureCode.blok_3.pract3_9.main39",
+            "projectName": "coding-_5d69ad10"
+        },
+        {
+            "type": "java",
             "name": "main39",
             "request": "launch",
             "mainClass": "futureCode.blok_3.pract3_9.main39",

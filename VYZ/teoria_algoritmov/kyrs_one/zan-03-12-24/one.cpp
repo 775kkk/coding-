@@ -11,14 +11,9 @@ bool ravenstvoStrok(char* str1, char* str2){
     }
 }
 int strLen(char* str){
-    for (int i = 0; true; i++)
-    {
-        if (str[i]=='\0')
-        {
-          return i;
-        }
-    }
-    
+    int i =0;
+    for (; str[i]!='\0'; i++){}
+    return i;
 }
 
 void vstavkaVmass(char* strMain,char* strSub,int poz){
