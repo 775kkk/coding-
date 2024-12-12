@@ -96,7 +96,7 @@ void addStudents(char* spisokMain, char* spisokSecond) {
 
 int main() {
     char students[50] = "Nikitos 1 , Vanek 2, Valerka 10, Nastya 99";
-    char dobavut[40] = "leksys 4";
+    char dobavut[40] = "leksys 11";
     addStudents(students, dobavut);
     puts(students);  // Выведет результат
     return 0;

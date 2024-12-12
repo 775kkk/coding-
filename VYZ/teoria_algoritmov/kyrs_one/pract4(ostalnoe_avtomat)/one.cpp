@@ -98,7 +98,7 @@ void addStudents(char* spisokMain,char* spisokSecond){
     int age=0;
     for (int i = 0; i < nameLen; i++)
     {
-        age+=(spisokSecond[nameStrt+i] - '0');
+        age=age*10 + (spisokSecond[nameStrt+i] - '0');
     }
     // нужно найти куда вставлять
     int poz=0;
@@ -106,27 +106,27 @@ void addStudents(char* spisokMain,char* spisokSecond){
     int ageM=0;
     int perVage=0;
     int perVpoz=0;
+    bool point=0;
     for (int i = 0; i < strLen(spisokMain); i++)
     {
-        if (isalnum(spisokMain[i]))// avbek 32,
-        {   
-            if (nameStrt==i-nameLen)
-            {
-                nameLen++;
-            }
-            else if (!(isalpha(spisokMain[i-1])))
-            {
-                nameStrt=i;
-                nameLen++;
-            }
-        }
-        if (spisokMain[i]==',')
+        if (isalnum(spisokMain[i])&& point)
         {
-            for (int j = 0; j < nameLen; j++)
-            {
-             ageM+=(spisokMain[nameStrt+j] - '0');
-            }
-            if ((perVage<age) && (age<ageM))
+            ageM= ageM*10 + (spisokMain[i]-'0');
+        }
+        // if (isalnum(spisokMain[i]) && (i == 0 || !isalnum(spisokMain[i - 1])))// avbek 32,
+        // {   
+        //     if (nameStrt==i-nameLen)
+        //     {
+        //         nameLen++;
+        //     }
+        //     else if (!(isalpha(spisokMain[i-1])))
+        //     {
+        //         nameStrt=i;
+        //         nameLen++;
+        //     }
+        // }
+        if(spisokMain[i]==',' || spisokMain[i] == '\0'){
+            if (ageM > 0 && ((perVage < age) && (age < ageM)))
             {
                 poz=perVpoz;
                 break;
@@ -134,9 +134,30 @@ void addStudents(char* spisokMain,char* spisokSecond){
             perVpoz=i+1;
             perVage=ageM;
             ageM=0;
-            nameLen=0;
-            nameStrt=0;
-        }  
+            point=0;
+        }
+        if (spisokMain[i]==' ')
+        {
+            point=1;
+        }
+        
+        // if (spisokMain[i]==',' || spisokMain[i] == '\0')
+        // {
+        //     for (int j = 0; j < nameLen; j++)
+        //     {
+        //      ageM=ageM*10 +(spisokMain[nameStrt+j] - '0');
+        //     }
+        //     if ((perVage<age) && (age<ageM))
+        //     {
+        //         poz=perVpoz;
+        //         break;
+        //     }
+        //     perVpoz=i+1;
+        //     perVage=ageM;
+        //     ageM=0;
+        //     nameLen=0;
+        //     nameStrt=0;
+        // }  
     }
     int sssssss= strLen(spisokSecond);
     spisokSecond[sssssss]=',';
@@ -165,7 +186,7 @@ int main() {
 // 3. Дана строка как массив символов, в ней записаны студенты и их возраст в порядке возрастания возраста. 
 //    Необходимо добавить в исходную строку ещё одного студента с заданным возрастом, не нарушив возрастающую последовательность.
     char students[50]="Nikitos 1 , Vanek 2, Valerka 10, Nastya 99";
-    char dobavut[40]="leksys 4";
+    char dobavut[40]="leksys 466";
     addStudents(students,dobavut);
     puts(students);
 
