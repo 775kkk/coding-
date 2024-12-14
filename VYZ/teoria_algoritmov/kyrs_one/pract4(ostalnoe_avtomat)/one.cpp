@@ -17,12 +17,15 @@ void maxSumElementsM(int* arr, int row, int col) {
     for (int i = 0; i < col; i++) {
         int sum = 0;
         for (int j = 0; j < row; j++) {
-            sum += arr[j * col + i]; // Правильный доступ к элементам
+            sum += arr[j*col +i]; 
         }
         if (sum > max) {
             max = sum;
             point = i;
         }
+    }
+    for (int i = 0; i < row; i++) {
+        printf("%i ", arr[i*col + point]);
     }
 }
 // =================
@@ -210,12 +213,12 @@ int main() {
     // puts(students);
 // 4. Дан числовой массив, 
 //    отсортировать его в порядке убывания с использованием сортировки выбором
-    int arr[]={1,2,3,4,5,19,18,4,77,89,1,6,44,2};
-    int len = sizeof(arr)/sizeof(arr[0]);
-    sorted(arr,len);
-    for (int i = 0; i!=len; i++)
-    {
-        printf("%i ",arr[i]);
-    }
+    // int arr[]={1,2,3,4,5,19,18,4,77,89,1,6,44,2};
+    // int len = sizeof(arr)/sizeof(arr[0]);
+    // sorted(arr,len);
+    // for (int i = 0; i!=len; i++)
+    // {
+    //     printf("%i ",arr[i]);
+    // }
 
 }
