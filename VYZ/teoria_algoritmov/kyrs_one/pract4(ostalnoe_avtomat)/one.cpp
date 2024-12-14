@@ -58,6 +58,16 @@ void removeMaxWord(char* str){
 // =================
 // 3
 
+bool nums(char symbol){
+    char spisok[11]="0123456789";
+    for (int i = 0; spisok[i]!='\0'; i++)
+    {
+        if (symbol==spisok[i])
+        {
+            return true;
+        }
+    }
+}
 void vstavkaVmass(char* strMain,char* strSub,int poz){
     int lenMain=strLen(strMain);
     int lenSub=strLen(strSub);
@@ -75,97 +85,102 @@ void vstavkaVmass(char* strMain,char* strSub,int poz){
         }   
     }
 }
-
-void addStudents(char* spisokMain,char* spisokSecond){
-    int nameStrt = 0;
-    int  nameLen = 0;
-    // нужно найти число лет
-    for (int i = 0; i <= strLen(spisokSecond); i++)// avbek 32,
+void vstavkaVmass(char* strMain,char Sub,int poz){
+    int lenMain=strLen(strMain);
+    int lenSub=1;
+    int j=lenSub-1;
+    for (int i = lenMain+lenSub; i>=poz; i--)
     {
-        if (isalnum(spisokSecond[i]) && i!=0)
+        if (i>=lenSub+poz)
         {
-            if (nameStrt==i-nameLen)
-            {
-                nameLen++;
-            }
-            else if (!(isalpha(spisokSecond[i-1])))
-            {
-                nameStrt=i;
-                nameLen++;
-            }  
+            strMain[i]=strMain[i-lenSub];
+        }
+        else
+        {
+            strMain[i]=Sub;
+            j--;
+        }   
+    }
+}
+void addStudents(char* MainSpisok, char* SubSpisok){
+    
+    int age = 0;//найдем возраст чела
+    bool point =false;
+    for (int i = 0; SubSpisok[i]!='\0'; i++)
+    {
+        if (nums(SubSpisok[i]))
+        {
+            age=age*10+(SubSpisok[i]-'0');
         }
     }
-    int age=0;
-    for (int i = 0; i < nameLen; i++)
-    {
-        age=age*10 + (spisokSecond[nameStrt+i] - '0');
-    }
-    // нужно найти куда вставлять
+    //определимся куда его вставлять
+    // printf("age %i\n", age);
     int poz=0;
-    int perVname=0;
-    int ageM=0;
-    int perVage=0;
-    int perVpoz=0;
-    bool point=0;
-    for (int i = 0; i < strLen(spisokMain); i++)
+    int Mage=0;
+    int Page=0;
+    int Ppoz=0;
+    for (int i = 0;i!=strLen(MainSpisok)+1; i++)
     {
-        if (isalnum(spisokMain[i])&& point)
+        if (nums(MainSpisok[i])) // СЧИТАЕМ ВОЗРАСТ У СЕГМЕНТА
         {
-            ageM= ageM*10 + (spisokMain[i]-'0');
+            Mage= Mage*10 + (MainSpisok[i]-'0');
+            // printf("looool= %i Mage= %i\n ",i,Mage);
         }
-        // if (isalnum(spisokMain[i]) && (i == 0 || !isalnum(spisokMain[i - 1])))// avbek 32,
-        // {   
-        //     if (nameStrt==i-nameLen)
-        //     {
-        //         nameLen++;
-        //     }
-        //     else if (!(isalpha(spisokMain[i-1])))
-        //     {
-        //         nameStrt=i;
-        //         nameLen++;
-        //     }
-        // }
-        if(spisokMain[i]==',' || spisokMain[i] == '\0'){
-            if (ageM > 0 && ((perVage < age) && (age < ageM)))
+        if (MainSpisok[i]==','||MainSpisok[i]=='\0') // КОНЧАЕТСЯ СЕГМЕНТ ПОДВОДИМ ЕГО ИТОГИ
+        {
+            // printf("Page %i;Mage %i;poz %i\n",Page,Mage,poz);
+            if (Mage==0)
             {
-                poz=perVpoz;
+                printf("eror age number at %i",i);
                 break;
             }
-            perVpoz=i+1;
-            perVage=ageM;
-            ageM=0;
-            point=0;
+            if ((Page<age)&&(age<Mage)) // ОБРАБОТКА ЕСЛИ В СЕРЕДИНУ ПРЕДПОЛАГАЕТСЯ ВСТАВКА
+            {
+                poz=Ppoz;
+                break;
+            }
+            else if (age<Mage)// ЕСЛИ В НАЧАЛЕ
+            {
+                poz=Ppoz;
+                break;
+            }
+            
+            Page=Mage;
+            Mage=0;
+            Ppoz=i;
         }
-        if (spisokMain[i]==' ')
+        if (MainSpisok[i]=='\0') // ОБРАБОТКА ЕСЛИ ВТАВЛЯЕМ В КОНЕЦ
         {
-            point=1;
+            if ((Mage<age))
+            {
+                poz=i;
+                break;
+            }
         }
-        
-        // if (spisokMain[i]==',' || spisokMain[i] == '\0')
-        // {
-        //     for (int j = 0; j < nameLen; j++)
-        //     {
-        //      ageM=ageM*10 +(spisokMain[nameStrt+j] - '0');
-        //     }
-        //     if ((perVage<age) && (age<ageM))
-        //     {
-        //         poz=perVpoz;
-        //         break;
-        //     }
-        //     perVpoz=i+1;
-        //     perVage=ageM;
-        //     ageM=0;
-        //     nameLen=0;
-        //     nameStrt=0;
-        // }  
     }
-    int sssssss= strLen(spisokSecond);
-    spisokSecond[sssssss]=',';
-    spisokSecond[sssssss+1]='\0';
-    vstavkaVmass(spisokMain,spisokSecond,poz);
-
+    //ВСТАВЛЯЕМ
+    // printf("poz %i",poz);
+    if (poz==0)//ЕСЛИ В НАЧАЛЕ
+    {
+        int len= strLen(SubSpisok);
+        SubSpisok[len]=',';
+        SubSpisok[len+1]='\0';
+        vstavkaVmass(MainSpisok,SubSpisok,poz);
+    }
+    if (poz>=strLen(MainSpisok)) //ЕСЛИ В КОНЦЕ
+    {   
+        vstavkaVmass(SubSpisok,' ',0);
+        vstavkaVmass(SubSpisok,',',0);
+        vstavkaVmass(MainSpisok,SubSpisok,poz);
+    }
+    else // ЕСЛИ ОБЫЧНО (СЕРЕДИНА)
+    {
+        int len= strLen(SubSpisok);
+        vstavkaVmass(SubSpisok,' ',0);
+        vstavkaVmass(SubSpisok,',',len+1);
+        vstavkaVmass(MainSpisok,SubSpisok,poz+1);
+    }
 }
-
 
 int main() {
 // =================
@@ -185,8 +200,8 @@ int main() {
 // =================
 // 3. Дана строка как массив символов, в ней записаны студенты и их возраст в порядке возрастания возраста. 
 //    Необходимо добавить в исходную строку ещё одного студента с заданным возрастом, не нарушив возрастающую последовательность.
-    char students[50]="Nikitos 1 , Vanek 2, Valerka 10, Nastya 99";
-    char dobavut[40]="leksys 466";
+    char students[50]="Nikitos 1 , Vanek 2, Valerka 10, Nastya 18";
+    char dobavut[40]="leksys 19";
     addStudents(students,dobavut);
     puts(students);
 
