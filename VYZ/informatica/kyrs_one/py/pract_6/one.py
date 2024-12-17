@@ -92,10 +92,13 @@ def delSeven(spisok):
 
 # =====================
 # Задача 6 Теорема Лагранжа (рекурсия)
+chislo=51
 def Lagrandgj(chislo,n):
-    result=[]
+    if n==0:
+        return []
     if int(chislo**0.5)==chislo**0.5:
-        result.append(int(chislo*0.5))
-        return result
-    # го крч квадрат первый максимальный найдем и от него плясать типа рекурсией типа chislo-найденный квадрат
-print(48**0.5==int(48**0.5))
+        return [int(chislo**0.5)]
+    for i in range(chislo,0,-1):
+        if i**2 < chislo:
+            return [i]+Lagrandgj(chislo-int(i**2),n-1)
+print(Lagrandgj(chislo,4))
