@@ -1,12 +1,12 @@
 #include <stdio.h>
-#include <string.h>
 #include <ctype.h>
 
-int strLen(char* str){
-    int i =0;
-    for (; str[i]!='\0'; i++){}
+size_t strLen(const char* str) {
+    size_t i = 0;
+    while (str[i] != '\0') {
+        i++;
+    }
     return i;
-    
 }
 // =================
 // 1 
@@ -71,33 +71,34 @@ bool nums(char symbol){
         }
     }
 }
-void vstavkaVmass(char* strMain,char* strSub,int poz){
-    int lenMain=strLen(strMain);
-    int lenSub=strLen(strSub);
-    int j=lenSub-1;
-    for (int i = lenMain+lenSub; i>=poz; i--){
-        if (i>=lenSub+poz){
-            strMain[i]=strMain[i-lenSub];
-        }
-        else{
-            strMain[i]=strSub[j];
+void vstavkaVmass(char* strMain, char* strSub, size_t poz) {
+    size_t lenMain = strLen(strMain);
+    size_t lenSub = strLen(strSub);
+    size_t j = lenSub - 1;
+    for (size_t i = lenMain + lenSub; i >= poz; i--) {
+        if (i >= lenSub + poz) {
+            strMain[i] = strMain[i - lenSub];
+        } else {
+            strMain[i] = strSub[j];
             j--;
-        }   
+        }
     }
+    strMain[lenMain + lenSub] = '\0'; 
 }
-void vstavkaVmass(char* strMain,char Sub,int poz){
-    int lenMain=strLen(strMain);
-    int lenSub=1;
-    int j=lenSub-1;
-    for (int i = lenMain+lenSub; i>=poz; i--){
-        if (i>=lenSub+poz){
-            strMain[i]=strMain[i-lenSub];
+void vstavkaVmass(char* strMain, char Sub, size_t poz){
+    size_t lenMain = strLen(strMain);
+    size_t lenSub = 1;
+    size_t j = lenSub - 1;
+    for (size_t i = lenMain + lenSub; i >= poz; i--){
+        if (i >= lenSub + poz){
+            strMain[i] = strMain[i - lenSub];
         }
         else{
-            strMain[i]=Sub;
+            strMain[i] = Sub;
             j--;
         }   
     }
+    strMain[lenMain + lenSub] = '\0';
 }
 void addStudents(char* MainSpisok, char* SubSpisok){
     
