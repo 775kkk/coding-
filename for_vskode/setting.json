@@ -1,0 +1,46 @@
+// C:.../AppData\Roaming\Code\User\settings.json
+{
+    "workbench.colorTheme": "PyCharm Dark+ Theme",
+    "editor.fontSize": 16,
+    "files.autoSave": "afterDelay",
+    "redhat.telemetry.enabled": true,
+    "git.suggestSmartCommit": false,
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "C_Cpp.default.compilerPath": "c:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin\\c++.exe",
+    "cmake.options.statusBarVisibility": "visible",
+
+    "background.enabled": true,
+
+      "background.panel": {
+        "images": ["не забудь вставить путь к картинке"],
+        "opacity": 0.03
+      },
+        
+      "background.editor": {
+        "useFront": true,
+        "style": {
+        "pointer-events": "none",
+        "z-index": "99999",
+        "width": "100%",
+        "height": "100%",
+        "background-position": "100% 100%",
+        "background-repeat": "no-repeat",
+        "background-size": "contain",
+        "opacity": 0.3,
+        "-webkit-mask-image": "linear-gradient(90deg, transparent, black, black)",
+        "-webkit-mask-size": "40% 100%",
+        "-webkit-mask-repeat": "no-repeat",
+        "-webkit-mask-position": "right top, right bottom"
+
+        },    
+
+        "images": [ "не забудь вставить путь к картинке" ],
+
+              "styles": [{}, {}, {}],
+              "carousel": true,
+              "interval": 160,
+              "random": true
+            }
+
+}
