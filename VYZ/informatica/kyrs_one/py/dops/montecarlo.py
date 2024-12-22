@@ -29,6 +29,11 @@ def calculate_pi(n):
             results.append((i, otnosErorOfPI))
             print(f"Точек нанесено: {i}, Онлайн число π: {onlinePI}, Относительная ошибка: {otnosErorOfPI:.4f}%")
 
+    with open('result.csv', 'w') as f:
+        f.write("поинтов сделано,относ ошибка\n")
+        for points, error in results:
+            f.write(f"{points},{error}\n")
+
     window.getMouse()
     window.close()
 
