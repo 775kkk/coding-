@@ -197,6 +197,64 @@ void zamena(char* str1, char* str2, char* str3){
     }
 }
 
+// ===================>>>>>>>>
+// 2. функц принимает массив чисел и его длину, удаляет из массива чисел все элементы, которые расположены 
+//    между последним максимальным и минимальным элементами массива и которые больше средне арифметического 
+//    минимального и максимального элементов массива
+
+void zadanie2(int** arrMain, size_t lenMainArr){
+        //  максимальное и минимальное реализация через последнее✅✅
+        int* arrMainF= *arrMain;
+        int min = 32000;
+        int max = -32000;
+        size_t minPoint;
+        size_t maxPoint;
+        for (size_t i = 0; i < lenMainArr; i++)
+        {
+            if(arrMainF[i]<min){
+                min=arrMainF[i];
+                minPoint = i;
+            }
+            if(arrMainF[i]>max){
+                max=arrMainF[i];
+                maxPoint = i;
+            }
+        }
+        int srArifm = (max+min)/2;
+        // lenMainArr > 0 ? lenMainArr-1 : 0
+        size_t j = (maxPoint>minPoint ? minPoint : maxPoint);
+        int ydaleno=0;
+        // for (size_t i = lenMainArr; i > (maxPoint>minPoint ? minPoint : maxPoint); i--)
+        // {
+        //     if(i<(maxPoint<minPoint ? minPoint : maxPoint))
+        //     {
+        //         arrMain[i]=arrMain[j];
+        //         j--;
+        //     }
+        //     else if(arrMain[i]>srArifm && (i!=(maxPoint<minPoint ? minPoint : maxPoint)))
+        //     {
+        //         // удалить тобишь тупо пропустить в перевствке юз J      
+        //     }
+        for (size_t i = (maxPoint>minPoint ? minPoint : maxPoint); j < lenMainArr ; j++)
+        {
+            if(i>(maxPoint<minPoint ? minPoint : maxPoint))
+            {
+                arrMainF[i]=arrMainF[j];
+                i++;
+            }
+            else if(arrMainF[i]>srArifm && (i!=(maxPoint<minPoint ? minPoint : maxPoint)))
+            {
+                // удалить тобишь тупо пропустить в перевствке юз J
+                arrMainF[i]=arrMainF[j];
+                ydaleno++;
+            }else{
+                i++;
+            }
+        }
+    *arrMain = (int*)realloc(*arrMain,(lenMainArr-ydaleno)*sizeof(int));
+    }
+    
+
 
 int main(){
         // тест строковых функций✅
@@ -207,13 +265,14 @@ int main(){
     // ✅✅✅✅✅✅✅✅✅✅✅✅✅✅
 
         // тест числовых функций✅
-    // int len=9;
-    // int arr1[9] = {1,2,3,4,5,6,7,8,9};
-    // int* arr = initializ_int(arr1, 9);
+    int len=9;
+    int arr1[9] = {1,2,3,4,5,6,7,8,9};
+    int* arr = initializ_int(arr1, 9);
     // for (size_t i = 0; i < len; i++){
     //     printf("%i", arr[i]);
     // }
-    // ✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+    mallocVstavka(&arr,len,&arr,len);
+    // X X X X X X X
 
 // ===================>>>>>>>>
 // 1. написать функц которая принимает 3 строки как массивы символов 
@@ -226,5 +285,16 @@ int main(){
     // puts(str1);
 
     // ✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+
+// 2. функц принимает массив чисел и его длину, удаляет из массива чисел все элементы, которые расположены 
+//    между последним максимальным и минимальным элементами массива и которые больше средне арифметического 
+//    минимального и максимального элементов массива
+    size_t lenArr = 14 ;
+    int arr1[lenArr] = {4,2,3,1,4,4,45,5,2,3,10,9,8,7};
+    int* arr = initializ_int(arr1,lenArr);
+    zadanie2(&arr,lenArr);
+    for (size_t i = 0; i < lenArr; i++){
+        printf("%i ", arr[i]);
+    }
 
 }
