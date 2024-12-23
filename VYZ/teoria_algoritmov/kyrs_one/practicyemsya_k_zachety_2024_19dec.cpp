@@ -224,7 +224,8 @@ void zadanie2(int** arrMain, size_t lenMainArr){
         // lenMainArr > 0 ? lenMainArr-1 : 0
         size_t j = (maxPoint>minPoint ? minPoint : maxPoint);
         int ydaleno=0;
-        // for (size_t i = lenMainArr; i > (maxPoint>minPoint ? minPoint : maxPoint); i--)
+        // эта если с конца а нам с конца не нада
+        // for (size_t i = lenMainArr; i > (maxPoint>minPoint ? minPoint : maxPoint); i--) 
         // {
         //     if(i<(maxPoint<minPoint ? minPoint : maxPoint))
         //     {
@@ -237,25 +238,25 @@ void zadanie2(int** arrMain, size_t lenMainArr){
         //     }
         for (size_t i = (maxPoint>minPoint ? minPoint : maxPoint); j < lenMainArr ; j++)
         {
-            if(i>(maxPoint<minPoint ? minPoint : maxPoint))
+            if(j>=(maxPoint>minPoint ? maxPoint : minPoint))
             {
                 arrMainF[i]=arrMainF[j];
                 i++;
             }
-            else if(arrMainF[i]>srArifm && (i!=(maxPoint<minPoint ? minPoint : maxPoint)))
+            else if(arrMainF[j]>srArifm && (i!=(maxPoint<minPoint ? minPoint : maxPoint)))
             {
                 // удалить тобишь тупо пропустить в перевствке юз J
-                arrMainF[i]=arrMainF[j];
                 ydaleno++;
-            }else{
+            } else {// БЛЯ ТЬ ЕБАНЫЙ СИШНИК ЕСЛЕ СУКА К БЛИЖАЙШЕМУ ИФ И НИКАК ИНАЧЕ НИ К КАОКОМУ ЕСЛЕ ИФ НЕ ОТНЕСЕТСЯ ЕБАНАЯ МЕХАНИКА ДОТЫ
+                arrMainF[i] = arrMainF[j];
                 i++;
             }
         }
-    *arrMain = (int*)realloc(*arrMain,(lenMainArr-ydaleno)*sizeof(int));
+    lenMainArr -= ydaleno;
+    // printf("Удалено %i элементов\n", ydaleno);
+    *arrMain = (int*)realloc(*arrMain, lenMainArr * sizeof(int));
     }
     
-
-
 int main(){
         // тест строковых функций✅
     // char str1[] = "dsdsadas";
@@ -265,14 +266,14 @@ int main(){
     // ✅✅✅✅✅✅✅✅✅✅✅✅✅✅
 
         // тест числовых функций✅
-    int len=9;
-    int arr1[9] = {1,2,3,4,5,6,7,8,9};
-    int* arr = initializ_int(arr1, 9);
-    // for (size_t i = 0; i < len; i++){
-    //     printf("%i", arr[i]);
-    // }
-    mallocVstavka(&arr,len,&arr,len);
-    // X X X X X X X
+    // int len=9;
+    // int arr1[9] = {1,2,3,4,5,6,7,8,9};
+    // int* arr = initializ_int(arr1, 9);
+    // // for (size_t i = 0; i < len; i++){
+    // //     printf("%i", arr[i]);
+    // // }
+    // mallocVstavka(&arr,len,&arr,len);
+    // // X X X X X X X
 
 // ===================>>>>>>>>
 // 1. написать функц которая принимает 3 строки как массивы символов 
@@ -289,8 +290,8 @@ int main(){
 // 2. функц принимает массив чисел и его длину, удаляет из массива чисел все элементы, которые расположены 
 //    между последним максимальным и минимальным элементами массива и которые больше средне арифметического 
 //    минимального и максимального элементов массива
-    size_t lenArr = 14 ;
-    int arr1[lenArr] = {4,2,3,1,4,4,45,5,2,3,10,9,8,7};
+    int lenArr = 14 ;
+    int arr1[lenArr] = {4,2,3,1,4,4,9,5,8,3,10,9,8,7};
     int* arr = initializ_int(arr1,lenArr);
     zadanie2(&arr,lenArr);
     for (size_t i = 0; i < lenArr; i++){
