@@ -110,7 +110,7 @@ void vstavkaVmass(int* arrMain ,size_t lenMainArr, int* arrSub, size_t lenSub, s
 void vstavkaVmass(int* arrM, size_t lenMainArr, int subChisl, size_t poz){
     size_t lenSub = 1;
     size_t j = lenSub-1;
-    for (size_t i = lenMainArr + lenSub; i >= poz; i--){
+    for (size_t i = lenMainArr + lenSub; i > poz; i--){
         if (i >= lenSub + poz){
             arrM[i] = arrM[i - lenSub];
         }
@@ -153,6 +153,13 @@ int* initializ_int(int* arrM, size_t lenMainArr){
     for (size_t i = 0; i < lenMainArr; i++){
         RETarr[i] = arrM[i];
     }
+    return RETarr;
+}
+
+// число в массив сразу
+int* initializ_int(int MainChislo){
+    int* RETarr = (int*)malloc(1 * sizeof(int));
+    RETarr[0] = MainChislo;
     return RETarr;
 }
 
@@ -289,7 +296,7 @@ int main(){
 
 // 2. функц принимает массив чисел и его длину, удаляет из массива чисел все элементы, которые расположены 
 //    между последним максимальным и минимальным элементами массива и которые больше средне арифметического 
-//    минимального и максимального элементов массива
+//    минимального и максимального элементов массива НЕ РАБОТАЕТ!!!!
     int lenArr = 14 ;
     int arr1[lenArr] = {4,2,3,1,4,4,9,5,8,3,10,9,8,7};
     int* arr = initializ_int(arr1,lenArr);

@@ -174,18 +174,18 @@ void sorted(int* stroka,int Mlen){
     // par = 0 -> по убыванию     FALSE
     int sortLen = 0;
     int NEsortLen = Mlen;
-    int max;
+    int min;
     int mIndex=0;
     while (sortLen!=Mlen){   
-        max=-32767;
+        min=32767;
         for (int i = sortLen; i!=Mlen; i++){
-            if (stroka[i]>max){
-                max=stroka[i];
+            if (stroka[i]<min){
+                min=stroka[i];
                 mIndex=i;
             }
         }
         stroka[mIndex]=stroka[sortLen];
-        stroka[sortLen]=max;
+        stroka[sortLen]=min;
         sortLen++;
     }
 }
@@ -214,12 +214,12 @@ int main() {
     // puts(students);
 // 4. Дан числовой массив, 
 //    отсортировать его в порядке убывания с использованием сортировки выбором
-    // int arr[]={1,2,3,4,5,19,18,4,77,89,1,6,44,2};
-    // int len = sizeof(arr)/sizeof(arr[0]);
-    // sorted(arr,len);
-    // for (int i = 0; i!=len; i++)
-    // {
-    //     printf("%i ",arr[i]);
-    // }
+    int arr[]={1,2,3,4,5,19,18,4,77,77,89,1,77,6,44,2};
+    int len = sizeof(arr)/sizeof(arr[0]);
+    sorted(arr,len);
+    for (int i = 0; i!=len; i++)
+    {
+        printf("%i ",arr[i]);
+    }
 
 }
