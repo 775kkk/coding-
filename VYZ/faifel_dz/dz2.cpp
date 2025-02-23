@@ -1,6 +1,6 @@
 // C Program to create a Linked List
 #include <stdio.h>
-#include <stdlib.h>
+#include <malloc.h>
 
 // Define the structure of Node
 typedef struct Node {
@@ -72,6 +72,93 @@ Node* insertAtElement(Node *head, int data, int element) {
     }
     newNode->next = temp->next;
     temp->next = newNode;
+    return head;
+}
+Node* deleteAtBeginning(Node *head) {
+    if (head == NULL) {
+        printf("List is empty!\n");
+        return head;
+    }
+    Node *temp = head;
+    head = head->next;
+    free(temp);
+    return head;
+}
+Node* deleteSpisok(Node *head) {
+    if (head == NULL) {
+        printf("List is empty!\n");
+        return head;
+    }
+    Node *temp = head;
+    while (head) {
+        temp = head;
+        head = head->next;
+        free(temp);
+    }
+    return head;
+}
+Node* deleteAtEnd(Node *head) {
+    if (head == NULL) {
+        printf("List is empty!\n");
+        return head;
+    }
+    if (head->next == NULL) {
+        free(head);
+        return NULL;
+    }
+    Node *temp = head;
+    while (temp->next->next) {
+        temp = temp->next;
+    }
+    free(temp->next);
+    temp->next = NULL;
+    return head;
+}
+Node* deleteAtPosition(Node *head, int position) {
+    if (position < 0) {
+        printf("Invalid position!\n");
+        return head;
+    }
+    if (position == 0) {
+        return deleteAtBeginning(head);
+    }
+    Node *temp = head;
+    while (position > 1) {
+        if (temp == NULL) {
+            printf("Invalid position!\n");
+            return head;
+        }
+        temp = temp->next;
+        position--;
+    }
+    if (temp == NULL || temp->next == NULL) {
+        printf("Invalid position!\n");
+        return head;
+    }
+    Node *nodeToDelete = temp->next;
+    temp->next = temp->next->next;
+    free(nodeToDelete);
+    return head;
+}
+Node* deleteAtElement(Node *head, int element) {
+    if (head == NULL) {
+        printf("List is empty!\n");
+        return head;
+    }
+    if (head->data == element) {
+        return deleteAtBeginning(head);
+    }
+    Node *temp = head;
+    while (temp->next && temp->next->data != element) {
+        temp = temp->next;
+    }
+    if (temp->next == NULL) {
+        printf("Element not found!\n");
+        return head;
+    }
+    Node *nodeToDelete = temp->next;
+    temp->next = temp->next->next;
+    free(nodeToDelete);
     return head;
 }
 
