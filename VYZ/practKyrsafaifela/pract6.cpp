@@ -3,20 +3,6 @@
 
 // -6+2076-4*3/2+56*3
 
-// if ((strM[i]-'0')>=0)
-//         {
-//             result+=(flagZnaka ? +(strM[i]-'0') : -(strM[i]-'0'));
-//         }
-//         else
-//         {   
-//             if (true)
-//             {
-//             flagZnaka= (strM[i]=='-' ? false : true); 
-//             }
-            
-//         }
-        
-
 int VblCHISLI(char* strM){
     int result=0;
     bool flagZnaka=true;// текущий знак плюс
@@ -51,6 +37,7 @@ int VblCHISLI(char* strM){
                 secondChisl=0;// тк прошел знак обычного приоритета 
                 (strM[i]=='-' || strM[i]=='+') ? flagZnaka= (strM[i]=='-' ? false : true): NULL; // так как текущий символ это знак мы его обрабатываем чтобы юзнуть на 2 строки ранее нужный знак
             }
+            // для скобок предлагаю кароче сделать также приоритет как и для умножения только теперь 3 переменных мейн число прошедшее2 и сумма скобки 
         }
     /*для тестов*/ 
         // printf("sikl %i, result=%i, mainchisl=%i, secondChisl=%i, flagZnaka=%i,flagPriorityOP=%i,\n",i+1,result,mainChisl,secondChisl,flagZnaka,flagPriorityOP);
