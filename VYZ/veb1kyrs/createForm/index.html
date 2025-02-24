@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css"> 
+    <script>
+      function validateInput(event) {
+          const input = event.target;
+          const value = input.value;
+          const lastChar = value.charAt(value.length - 1);
+
+          // Проверяем, является ли последний введенный символ русской буквой
+          if (!/[А-Яа-яЁё]/.test(lastChar)) {
+              input.value = value.slice(0, -1); // Удаляем последний символ, если он не русская буква
+          } else {
+              input.value = value.toUpperCase(); // Преобразуем все буквы в заглавные
+          }
+      }
+      
+      function setMinDateTime() {
+            const dateTimeInput = document.getElementById('datetime-local');
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const currentDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
+            dateTimeInput.min = currentDateTime;
+        }
+
+        window.onload = setMinDateTime;
+  </script>
+
+</head>
+<body>
+
+  <form action="/" method="post">
+    <table class="main-table">
+
+      <tbody>
+        <tr>
+          <td>Имя</td>
+          <td><input type="text" name="name" id="name" required oninput="validateInput(event)" /></td>
+          <td rowspan="6" colspan="4">
+            <h4 style="text-align: top;">доставка</h2>
+
+            <!-- таблица доставки -->   
+            <table class="hidden-table">
+                <tr>
+                  <td><input type="radio" name="dostavka" /></td>
+                  <td>Почта</td>
+                </tr>
+                <tr>
+                  <td><input type="radio" name="dostavka" checked /></td>
+                  <td>Курьер</td>
+                </tr>
+                <tr>
+                  <td><input type="radio" name="dostavka" /></td>
+                  <td>Самовывоз</td>
+                </tr>
+              </table>
+        
+          </td>
+        </tr>
+        <tr>
+          <td>Фамилия</td>
+          <td><input type="text" name="surname" id="surname" minlength="2" required oninput="validateInput(event)" /></td>
+        </tr>
+        <tr>
+          <td>Пароль</td>
+          <td><input type="password" name="password" id="password" minlength="8" required /></td>
+        </tr>
+        <tr>
+          <td>Дата получения</td>
+          <td><input type="datetime-local" name="datetime-local" id="datetime-local" required /></td>
+        </tr>
+        <tr>
+          <td>Пол</td>
+          <td>
+            <a>Мужской</a>
+            <input type="radio" name="pol" />
+            <a>Женский</a>
+            <input type="radio" name="pol"/>
+            </td>
+        </tr>
+        <tr>
+          <td>Количество</td>
+          <td><input type="number" name="quantity" id="quantity" min="1" max="1000" required /></td>
+        </tr>
+        <tr colspan="2" rowspan="2">
+          <td rowspan="4">Наименование товара</td>
+          <!-- <td><input type="checkbox" name="product" id="product" required /></td>-->
+          <td rowspan="4" > 
+            <select name="product" id="product" required>
+              <option value="">Выберите товар</option>
+              <option value="candies">Конфеты</option>
+              <option value="pasta">Макароны</option>
+              <option value="sausage">Колбаса</option>
+              <option value="lego_small">Набор Лего Small</option>
+            </select> 
+          </td>
+          <td> требуется приходной лист? </td>
+          <td><input type="checkbox" name="prihod" id="prihod" /></td>
+        </tr>
+        <tr>
+          <td colspan="2">Дополнительная информация</td>
+        </tr>
+        <tr>
+          <td colspan="2" style="height: 100px;"> <input type="text" style="width: 95%; height: 100%;;" ></td>
+        </tr>
+        <tr>  
+          <td style="text-align: center;"><input type="submit" value="Отправить"/></td>
+          <td><input type="reset"/></td>
+
+        </tr>
+      </tbody>
+
+    </table>
+  </form>
+
+
+</body>
+</html>
