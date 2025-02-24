@@ -70,7 +70,7 @@ Zveno* deliteSpisok(Zveno* head) {
 Zveno* printSpisok(Zveno* head) {
     Zveno* temp = head;
     while (temp) {
-        printf("%d ", temp->data);
+        printf("%i ", temp->data);
         temp = temp->next;
     }
     return head;
