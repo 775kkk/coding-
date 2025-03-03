@@ -9,6 +9,7 @@ int VblCHISLI(char* strM){
     int mainChisl=0;// текущее число 0
     int secondChisl=0;// прошедшее число
     int flagPriorityOP;// 0 1* 2/ 3//
+    // int flagImpotantPriorityOP;
     for (int i = 0; strM[i]!='\0'; i++)
     {
         if (strM[i]>57)
@@ -30,6 +31,31 @@ int VblCHISLI(char* strM){
                 mainChisl=0;// обнуляем текущее число так как прошел знак
             }
             else{// если сложение и другое обычного приоритета действие то  
+                // ТУТ 4 состояния : 
+                // если скобка открылась
+                // если скобка все еще идет
+                // если скобка закрылась
+                // если скобки нет
+                
+                // 9(62+3/4-(11-2)/2)
+                // (strM[i]=='(' || strM[i]==')') ? (strM[i]=='(' ? flagImpotantPriorityOP++ : flagImpotantPriorityOP--): NULL;
+                // окей если у нас после числа скобка и получается что мейн число не пусто но имеется скобка то получается надо выполнить блок кода от умножения но 
+                // if (strM[i]=='(' || strM[i]==')')// начинаем врубаться за состояние
+                // {
+                //     if (mainChisl!=0)
+                //     {
+                //         flagPriorityOP=1;
+
+                //     }
+                    
+                //     strM[i]=='(' ? flagImpotantPriorityOP++ : flagImpotantPriorityOP--;
+
+                    
+                // }
+                
+
+
+
                 secondChisl!=0 ? mainChisl=secondChisl : NULL; //решаем было ли чето в старом числе, если было значит мы тут после приоритетного действия значит надо обработать данные после этого
                 result+=(flagZnaka ? (mainChisl) : (mainChisl)*-1);// плюсуем в результ чтото в зависимости от знака (дефолт = отсутсвие знака значит плюс значит труе)
                 mainChisl=0;// обнуляем текущее число так как прошел знак
