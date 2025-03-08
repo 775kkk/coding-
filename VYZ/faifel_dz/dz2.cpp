@@ -2,40 +2,40 @@
 #include <stdio.h>
 #include <malloc.h>
 
-// Define the structure of Node
-typedef struct Node {
+// Define the structure of NodeInt
+typedef struct NodeInt {
   
     // Data field. Can add more data according to our need
     int data;
 
-    // Pointer to the next node
-    struct Node *next;
-} Node;
+    // Pointer to the next NodeInt
+    struct NodeInt *next;
+} NodeInt;
 
-Node* createNode(int data) {
-    Node *newNode = (Node *)malloc(sizeof(Node));
-    newNode->data = data;
-    newNode->next = NULL;
-    return newNode;
+NodeInt* createNodeInt(int data) {
+    NodeInt *newNodeInt = (NodeInt *)malloc(sizeof(NodeInt));
+    newNodeInt->data = data;
+    newNodeInt->next = NULL;
+    return newNodeInt;
 }
-Node* insertAtEnd(Node *head, int data) {
-    Node *newNode = createNode(data);
+NodeInt* insertAtEnd(NodeInt *head, int data) {
+    NodeInt *newNodeInt = createNodeInt(data);
     if (head == NULL) {
-        return newNode;
+        return newNodeInt;
     }
-    Node *temp = head;
+    NodeInt *temp = head;
     while (temp->next) {
         temp = temp->next;
     }
-    temp->next = newNode;
+    temp->next = newNodeInt;
     return head;
 }
-Node* insertAtBeginning(Node *head, int data) {
-    Node *newNode = createNode(data);
-    newNode->next = head;
-    return newNode;
+NodeInt* insertAtBeginning(NodeInt *head, int data) {
+    NodeInt *newNodeInt = createNodeInt(data);
+    newNodeInt->next = head;
+    return newNodeInt;
 }
-Node* insertAtPosition(Node *head, int data, int position) {
+NodeInt* insertAtPosition(NodeInt *head, int data, int position) {
     if (position < 0) {
         printf("Invalid position!\n");
         return head;
@@ -43,8 +43,8 @@ Node* insertAtPosition(Node *head, int data, int position) {
     if (position == 0) {
         return insertAtBeginning(head, data);
     }
-    Node *newNode = createNode(data);
-    Node *temp = head;
+    NodeInt *newNodeInt = createNodeInt(data);
+    NodeInt *temp = head;
     while (position > 1) {
         if (temp == NULL) {
             printf("Invalid position!\n");
@@ -53,16 +53,16 @@ Node* insertAtPosition(Node *head, int data, int position) {
         temp = temp->next;
         position--;
     }
-    newNode->next = temp->next;
-    temp->next = newNode;
+    newNodeInt->next = temp->next;
+    temp->next = newNodeInt;
     return head;
 }
-Node* insertAtElement(Node *head, int data, int element) {
-    Node *newNode = createNode(data);
+NodeInt* insertAtElement(NodeInt *head, int data, int element) {
+    NodeInt *newNodeInt = createNodeInt(data);
     if (head == NULL) {
-        return newNode;
+        return newNodeInt;
     }
-    Node *temp = head;
+    NodeInt *temp = head;
     while (temp->data != element) {
         temp = temp->next;
         if (temp == NULL) {
@@ -70,26 +70,26 @@ Node* insertAtElement(Node *head, int data, int element) {
             return head;
         }
     }
-    newNode->next = temp->next;
-    temp->next = newNode;
+    newNodeInt->next = temp->next;
+    temp->next = newNodeInt;
     return head;
 }
-Node* deleteAtBeginning(Node *head) {
+NodeInt* deleteAtBeginning(NodeInt *head) {
     if (head == NULL) {
         printf("List is empty!\n");
         return head;
     }
-    Node *temp = head;
+    NodeInt *temp = head;
     head = head->next;
     free(temp);
     return head;
 }
-Node* deleteSpisok(Node *head) {
+NodeInt* deleteSpisok(NodeInt *head) {
     if (head == NULL) {
         printf("List is empty!\n");
         return head;
     }
-    Node *temp = head;
+    NodeInt *temp = head;
     while (head) {
         temp = head;
         head = head->next;
@@ -97,7 +97,7 @@ Node* deleteSpisok(Node *head) {
     }
     return head;
 }
-Node* deleteAtEnd(Node *head) {
+NodeInt* deleteAtEnd(NodeInt *head) {
     if (head == NULL) {
         printf("List is empty!\n");
         return head;
@@ -106,7 +106,7 @@ Node* deleteAtEnd(Node *head) {
         free(head);
         return NULL;
     }
-    Node *temp = head;
+    NodeInt *temp = head;
     while (temp->next->next) {
         temp = temp->next;
     }
@@ -114,7 +114,7 @@ Node* deleteAtEnd(Node *head) {
     temp->next = NULL;
     return head;
 }
-Node* deleteAtPosition(Node *head, int position) {
+NodeInt* deleteAtPosition(NodeInt *head, int position) {
     if (position < 0) {
         printf("Invalid position!\n");
         return head;
@@ -122,7 +122,7 @@ Node* deleteAtPosition(Node *head, int position) {
     if (position == 0) {
         return deleteAtBeginning(head);
     }
-    Node *temp = head;
+    NodeInt *temp = head;
     while (position > 1) {
         if (temp == NULL) {
             printf("Invalid position!\n");
@@ -135,12 +135,12 @@ Node* deleteAtPosition(Node *head, int position) {
         printf("Invalid position!\n");
         return head;
     }
-    Node *nodeToDelete = temp->next;
+    NodeInt *NodeIntToDelete = temp->next;
     temp->next = temp->next->next;
-    free(nodeToDelete);
+    free(NodeIntToDelete);
     return head;
 }
-Node* deleteAtElement(Node *head, int element) {
+NodeInt* deleteAtElement(NodeInt *head, int element) {
     if (head == NULL) {
         printf("List is empty!\n");
         return head;
@@ -148,7 +148,7 @@ Node* deleteAtElement(Node *head, int element) {
     if (head->data == element) {
         return deleteAtBeginning(head);
     }
-    Node *temp = head;
+    NodeInt *temp = head;
     while (temp->next && temp->next->data != element) {
         temp = temp->next;
     }
@@ -156,22 +156,22 @@ Node* deleteAtElement(Node *head, int element) {
         printf("Element not found!\n");
         return head;
     }
-    Node *nodeToDelete = temp->next;
+    NodeInt *NodeIntToDelete = temp->next;
     temp->next = temp->next->next;
-    free(nodeToDelete);
+    free(NodeIntToDelete);
     return head;
 }
 
 int main() {
-    Node *first = (Node *)malloc(sizeof(Node));
+    NodeInt *first = (NodeInt *)malloc(sizeof(NodeInt));
  
     first->data = 10;
 
-    Node *second = (Node *)malloc(sizeof(Node));
+    NodeInt *second = (NodeInt *)malloc(sizeof(NodeInt));
 
     second->data = 20;
 
-    Node *third = (Node *)malloc(sizeof(Node));
+    NodeInt *third = (NodeInt *)malloc(sizeof(NodeInt));
 
     third->data = 30;
 
@@ -180,7 +180,7 @@ int main() {
     third->next = NULL;   // This will create: 10 -> 20 -> 30 -> NULL
 
     printf("Linked List: ");
-    Node* temp = first;
+    NodeInt* temp = first;
   	while(temp) {
       printf("%d ", temp->data);
       temp = temp->next;

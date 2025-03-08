@@ -1,0 +1,25 @@
+/*COLOR 1 : rgb 216,226,220  */
+/*COLOR 2 : rgb 255,229,217 */
+/*COLOR 3 : rgb 255,202,212 */
+/*COLOR 4 : rgb 244,172,183 */
+/*COLOR 5 : rgb 157,129,137 */
+/* body{
+    background-color: rgb(255, 226, 220);
+} */
+body{
+    padding-top: 10px;
+}
+.headMoment{
+    display: flex;
+    /* реши кароче эту хреньы */
+}
+.headMoment.one{
+    padding-left: 5px;
+    justify-content: flex-start;
+}
+.headMoment.two{
+    justify-content: center;
+}
+.headMoment.three{
+    justify-content: flex-end;
+}

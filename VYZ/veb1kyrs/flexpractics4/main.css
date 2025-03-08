@@ -1,0 +1,42 @@
+.mainDIV{
+    padding-top: 20px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.baseKvadrat{
+     width: 200px;
+     height: 200px;
+     background: #3e92cc;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+.baseKryg{
+    width: 200px;
+    height: 200px;
+    background: red;
+    border-radius: 50%;
+    border: 10px solid aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.kryglKvadrat{
+    width: 200px;
+    height: 200px;
+    background: rgb(5, 219, 137);
+    border-radius: 20%;
+    border: 10px solid rgb(205, 28, 28);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.baseKvadrat.c2{
+    background: rgb(132, 132, 246);
+}
+.baseKryg.c2{
+    background: white;
+    border: 10px solid red;
+}

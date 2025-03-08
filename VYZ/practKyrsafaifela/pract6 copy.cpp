@@ -1,14 +1,122 @@
 #include <stdio.h>
 #include <malloc.h>
 
-// -6+2076-4*3/2+56*3 
+// кароче сделай руут так чтобы добавлялось только в начало и начало потом удалялось а 
+// в рабочем поле было текущее руут это по сути начало цепочки ну стек не тупи
 
-int VblCHISLI(char* strM){
-    int result=0;
+typedef struct Root {
+    int SecondResult=0;
     bool flagZnaka=true;// текущий знак плюс
     int mainChisl=0;// текущее число 0
     int secondChisl=0;// прошедшее число
     int flagPriorityOP;// 0 1* 2/ 3//
+    struct Root *next;
+} Root;
+
+Root* createRoot() {
+    Root *newRoot = (Root *)malloc(sizeof(Root));
+    newRoot->next = NULL;
+    return newRoot;
+}
+Root* insertAtEndNewRoot(Root *head) {
+    Root *newRoot = createRoot();
+    if (head == NULL) {
+        return newRoot;
+    }
+    newRoot->next=head;
+    return newRoot;
+}
+
+typedef struct Node {
+    char data;
+    struct Node *next;
+} NodeChar;
+typedef struct Node {
+    int data;
+    struct Node *next;
+} NodeInt;
+
+NodeInt* createNode(int data) {
+    NodeInt *newNodeInt = (NodeInt *)malloc(sizeof(NodeInt));
+    newNodeInt->data = data;
+    newNodeInt->next = NULL;
+    return newNodeInt;
+}
+NodeChar* createNode(char data) {
+    NodeChar *newNodeChar = (NodeChar *)malloc(sizeof(NodeChar));
+    newNodeChar->data = data;
+    newNodeChar->next = NULL;
+    return newNodeChar;
+}
+
+NodeInt* insertAtEnd(NodeInt *head, int data) {
+    NodeInt *newNodeInt = createNode(data);
+    if (head == NULL) {
+        return newNodeInt;
+    }
+    NodeInt *temp = head;
+    while (temp->next) {
+        temp = temp->next;
+    }
+    temp->next = newNodeInt;
+    return head;
+}
+
+NodeChar* insertAtEnd(NodeChar *head, char data) {
+    NodeChar *newNodeChar = createNode(data);
+    if (head == NULL) {
+        return newNodeChar;
+    }
+    NodeChar *temp = head;
+    while (temp->next) {
+        temp = temp->next;
+    }
+    temp->next = newNodeChar;
+    return head;
+}
+
+Node* deleteAtEnd(Node *head) {
+    if (head == NULL) {
+        printf("List is empty!\n");
+        return head;
+    }
+    if (head->next == NULL) {
+        free(head);
+        return NULL;
+    }
+    Node *temp = head;
+    while (temp->next->next) {
+        temp = temp->next;
+    }
+    free(temp->next);
+    temp->next = NULL;
+    return head;
+}
+
+Node* deleteSpisok(Node *head) {
+    if (head == NULL) {
+        printf("List is empty!\n");
+        return head;
+    }
+    Node *temp = head;
+    while (head) {
+        temp = head;
+        head = head->next;
+        free(temp);
+    }
+    return head;
+}
+// -6)))))+2076-4*3/2+(56*3)
+
+int VblCHISLI(char* strM,){// сделай точки
+    int result=0;
+    // bool flagZnaka=true;// текущий знак плюс
+    // int mainChisl=0;// текущее число 0
+    // int secondChisl=0;// прошедшее число
+    // int flagPriorityOP;// 0 1* 2/ 3//
+    Root *MainRoot=createRoot();
+    NodeChar *skladOperaciySkobok = createNode('0');
+    size_t countSkobki = 0;
     // int flagImpotantPriorityOP;
     for (int i = 0; strM[i]!='\0'; i++)
     {
@@ -45,13 +153,26 @@ int VblCHISLI(char* strM){
                 //     if (mainChisl!=0)
                 //     {
                 //         flagPriorityOP=1;
-
                 //     }
-                    
-                //     strM[i]=='(' ? flagImpotantPriorityOP++ : flagImpotantPriorityOP--;
-
-                    
+                //     strM[i]=='(' ? flagImpotantPriorityOP++ : flagImpotantPriorityOP--;                    
                 // }
+                if (strM[i]=='(')// если скобка открылась
+                {// 8*8*9(32+8*(7/3))
+                    //запоминаем знак перед скобкой и что скобка открылась
+                    countSkobki++;
+                    if (strM[i-1]>57){/*ignore Но помни что тебе точки надо будет но тут врядли*/}
+                    else if (((strM[i-1]-'0')>=0) || (strM[i]=='*')){
+                        insertAtEnd(skladOperaciySkobok,'*');
+                    }else if (strM[i]=='/'){
+                        insertAtEnd(skladOperaciySkobok,'/');
+                    }else if (strM[i]=='-'){
+                        insertAtEnd(skladOperaciySkobok,'-');
+                    }else if (strM[i]=='+'){
+                        insertAtEnd(skladOperaciySkobok,'+');
+                    }
+                    
+                    
+                }
                 
 
 
