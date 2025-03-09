@@ -237,16 +237,18 @@ int VblCHISLI(char* strM){
             
             
             else{
-                
-                
                 if (strM[i]=='(')
                 {
-                    mainRoot = insertAtNOW_NewRoot(mainRoot);
+                    mainRoot = insertAtNOW_NewRoot(mainRoot);// переключаем рут на новый
                     // mainRoot->ZNAKperedEtoySkoboy;
-                    if (strM[i-1]=='-'){mainRoot->ZNAKperedEtoySkoboy='-';}
-                    if (strM[i-1]=='+'){mainRoot->ZNAKperedEtoySkoboy='+';}
-                    if ((strM[i-1]=='*')||(strM[i] >= '0' && strM[i] <= '9')){mainRoot->ZNAKperedEtoySkoboy='*';}
-                    if ((strM[i-1]=='/')){mainRoot->ZNAKperedEtoySkoboy='/';}
+                    // if (strM[i-1]=='-'){mainRoot->ZNAKperedEtoySkoboy='-';}
+                    // if (strM[i-1]=='+'){mainRoot->ZNAKperedEtoySkoboy='+';}
+                    // if ((strM[i-1]=='*')||(strM[i] >= '0' && strM[i] <= '9')){mainRoot->ZNAKperedEtoySkoboy='*';}
+                    // if ((strM[i-1]=='/')){mainRoot->ZNAKperedEtoySkoboy='/';}
+                    // значения хранятся в предыдущем руте
+                    // mainRoot->prev->flagZnaka; это + и - текущей скобки
+                    // mainRoot->prev->flagPriorityOP; это * и / текущей скобки
+                    // mainRoot->prev->mainChisl; это число перед скобкой
                     
                 }
                 // NULLroot(secondRoot); NULLroot*secondRoot
@@ -264,7 +266,7 @@ int VblCHISLI(char* strM){
                         /* ЗНАЧИТ ЭТО МЕЙН МЕЙНОВ РУТ */
                     }
                     
-                    else if (mainRoot->ZNAKperedEtoySkoboy=='-' || mainRoot->ZNAKperedEtoySkoboy=='+')
+                    else if (mainRoot->ZNAKperedEtoySkoboy=='-' || mainRoot->ZNAKperedEtoySkoboy=='+')//mainRoot->prev->flagZnaka
                     {
                         mainRoot->secondChisl!=0 ? mainRoot->mainChisl=mainRoot->secondChisl : NULL; //решаем было ли чето в старом числе, если было значит мы тут после приоритетного действия значит надо обработать данные после этого
                         mainRoot->SecondResult+=(mainRoot->flagZnaka ? (mainRoot->mainChisl) : (mainRoot->mainChisl)*-1);// плюсуем в результ чтото в зависимости от знака (дефолт = отсутсвие знака значит плюс значит труе)
@@ -275,13 +277,13 @@ int VblCHISLI(char* strM){
                         // mainRoot = deleteNOW_MainRoot(mainRoot);
                         skobaEND=true;
                     }
-                    else if (mainRoot->ZNAKperedEtoySkoboy=='*' || mainRoot->ZNAKperedEtoySkoboy=='/')
+                    else if (mainRoot->prev->flagPriorityOP!=0)//mainRoot->prev->flagPriorityOP
                     {
                         mainRoot->secondChisl!=0 ? mainRoot->mainChisl=mainRoot->secondChisl : NULL; //решаем было ли чето в старом числе, если было значит мы тут после приоритетного действия значит надо обработать данные после этого
                         mainRoot->SecondResult+=(mainRoot->flagZnaka ? (mainRoot->mainChisl) : (mainRoot->mainChisl)*-1);// плюсуем в результ чтото в зависимости от знака (дефолт = отсутсвие знака значит плюс значит труе)
 
                         // ↱ МЫ  МОЖЕМ СРАЗУ ДЕЛИТАТЬ ДАННЫЕ СКОБКИ ТАК КАК уже приоритет действие
-                        mainRoot->ZNAKperedEtoySkoboy=='*' ? mainRoot->prev->SecondResult*=mainRoot->mainChisl : mainRoot->prev->SecondResult/=mainRoot->mainChisl;
+                        (mainRoot->prev->flagPriorityOP==1) ? mainRoot->prev->secondChisl*=mainRoot->SecondResult : mainRoot->prev->secondChisl/=mainRoot->SecondResult;//секонд числ умножаем\делим так как в предыдущем руте было умножение\деление, а механически без скобок оно релизовано именно в формате где секонд число это промежуточный резултат в действии предыдущих чисел и текущего(мейн числа)
                         mainRoot = deleteNOW_MainRoot(mainRoot);
                     }
                     
