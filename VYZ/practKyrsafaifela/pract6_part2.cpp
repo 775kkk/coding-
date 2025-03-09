@@ -88,16 +88,17 @@ int VblCHISLI(char* strM){
           
                 if (strM[i]=='(')
                 {
-                    // if ((strM[i-1] >= '0' && strM[i-1] <= '9')&& mainRoot->mainChisl!=0)// эта штука чисто для число и сразу скобка что в математике считается умножением меджу скобой и числом
-                    // {
-                    //     (mainRoot->flagPriorityOP!=0) ? mainRoot->secondChisl*=mainRoot->mainChisl : NULL ;//если знак умножения или деления был и тут появляется еще знак то есть число кончилось то мы выполняем с нашими двумя числами что надо
-                    //     // так как чисто технически тут знак поставился 
-                    //     mainRoot->flagPriorityOP = 1;// орпеделяем деление или умножения зашифровываем в переменную че да как
-                    //     mainRoot->secondChisl=mainRoot->mainChisl;// складываем число до знака в соответствующую переменную
-                    //     mainRoot->mainChisl=0;// обнуляем текущее число так как прошел знак
-                    //     // printf("%i\n",mainRoot->secondChisl);
+                    if (mainRoot->mainChisl!=0 && (strM[i-1] >= '0' && strM[i-1] <= '9'))// эта штука чисто для число и сразу скобка что в математике считается умножением меджу скобой и числом
+                    {
+                        (mainRoot->flagPriorityOP!=0) ? ((mainRoot->flagPriorityOP==1) ? (mainRoot->secondChisl*=mainRoot->mainChisl) : (mainRoot->secondChisl/=mainRoot->mainChisl)) : NULL ;//если знак умножения или деления был и тут появляется еще знак то есть число кончилось то мы выполняем с нашими двумя числами что надо
+                   
+                        (mainRoot->flagPriorityOP==0) ? mainRoot->secondChisl=mainRoot->mainChisl : NULL;// складываем число до знака в соответствующую переменную
+                        // если приоритет опрерация уже была то мы это обработали вверху и мейн число нам более не надо
+                        mainRoot->flagPriorityOP = 1;// орпеделяем  умножениe зашифровываем в переменную че да как
+                        mainRoot->mainChisl=0;// обнуляем текущее число так как прошел знак
+                        // printf("%i\n",mainRoot->secondChisl);
 
-                    // }
+                    }
                     
                     mainRoot = insertAtNOW_NewRoot(mainRoot);// переключаем рут на новый
                 }
@@ -116,27 +117,36 @@ int VblCHISLI(char* strM){
                     {
                         /* ЗНАЧИТ ЭТО МЕЙН МЕЙНОВ РУТ */
                     }
-                    else// 8(21+1)2
+                    else// 8(21)2
                     {
+                        // по идее этого не должно быть тк мы на скобке и тут не может быть действия
+                        // (mainRoot->flagPriorityOP!=0) ? ((mainRoot->flagPriorityOP==1) ? (mainRoot->secondChisl*=mainRoot->mainChisl) : (mainRoot->secondChisl/=mainRoot->mainChisl)) : NULL ;//если знак умножения или деления был и тут появляется еще знак то есть число кончилось то мы выполняем с нашими двумя числами что надо
+
                         // mainRoot->secondChisl!=0 ? mainRoot->mainChisl=mainRoot->secondChisl : NULL; //решаем было ли чето в старом числе, если было значит мы тут после приоритетного действия значит надо обработать данные после этого
-                        mainRoot->flagPriorityOP!=0 ? mainRoot->mainChisl=mainRoot->secondChisl : NULL; //ты идиот тебе блять флаг приорити опирейшен все говорит
+                        mainRoot->flagPriorityOP!=0 ? mainRoot->mainChisl=mainRoot->secondChisl : NULL; //ты идиот тебе блять флаг приорити опирейшен все говорит ты ИДИОТ
                         mainRoot->SecondResult+=(mainRoot->flagZnaka ? (mainRoot->mainChisl) : (mainRoot->mainChisl)*-1);// плюсуем в результ чтото в зависимости от знака (дефолт = отсутсвие знака значит плюс значит труе)
                         mainRoot->prev->mainChisl=mainRoot->SecondResult;
                         
                         // ()? : mainRoot->prev->mainChisl=mainRoot->SecondResult;
                         mainRoot = deleteNOW_MainRoot(mainRoot);
-                    //     if((strM[i-1] >= '0' && strM[i-1] <= '9')||strM[i+1]=='('){// чисто для случая когда скобка и сразу число )9 что означает умножение
-                    //         (mainRoot->flagPriorityOP!=0) ? mainRoot->secondChisl*=mainRoot->mainChisl : NULL ;//если знак умножения или деления был и тут появляется еще знак то есть число кончилось то мы выполняем с нашими двумя числами что надо
-                    //         // так как чисто технически тут знак поставился 
-                    //         mainRoot->flagPriorityOP = 1;// орпеделяем деление или умножения зашифровываем в переменную че да как
-                    //         //тут опасненько тк мы тупа замещаем то что есть в секонд числе без понимания знака
-                    
-                    // printf("sikl %i mejdy %i, result=%i, rootResult=%i, mainchisl=%i, secondChisl=%i, flagZnaka=%i,flagPriorityOP=%i,\n",i,i+1,result,mainRoot->SecondResult,mainRoot->mainChisl,mainRoot->secondChisl,mainRoot->flagZnaka,mainRoot->flagPriorityOP);
-
-                    //         (mainRoot->secondChisl!=0)? NULL : mainRoot->secondChisl=mainRoot->mainChisl;// складываем число до знака в соответствующую переменную
+                        if((strM[i+1] >= '0' && strM[i+1] <= '9')||strM[i+1]=='('){// чисто для случая когда скобка и сразу число )9 что означает умножение
                             
-                    //         mainRoot->mainChisl=0;// обнуляем текущее число так как прошел знак
-                    //     }
+                            // (mainRoot->flagPriorityOP!=0) ? ((mainRoot->flagPriorityOP==1) ? (mainRoot->secondChisl*=mainRoot->mainChisl) : (mainRoot->secondChisl/=mainRoot->mainChisl)) : NULL ;//если знак умножения или деления был и тут появляется еще знак то есть число кончилось то мы выполняем с нашими двумя числами что надо
+
+                            // (mainRoot->flagPriorityOP!=0) ? mainRoot->secondChisl*=mainRoot->mainChisl : NULL ;//если знак умножения или деления был и тут появляется еще знак то есть число кончилось то мы выполняем с нашими двумя числами что надо
+                            // вместо верхней
+                            (mainRoot->flagPriorityOP!=0) ? ((mainRoot->flagPriorityOP==1) ? (mainRoot->secondChisl*=mainRoot->mainChisl) : (mainRoot->secondChisl/=mainRoot->mainChisl)) : NULL ;//если знак умножения или деления был и тут появляется еще знак то есть число кончилось то мы выполняем с нашими двумя числами что надо
+
+                            // так как чисто технически тут знак поставился 
+                            mainRoot->flagPriorityOP = 1;// орпеделяем деление или умножения зашифровываем в переменную че да как
+                            //тут опасненько тк мы тупа замещаем то что есть в секонд числе без понимания знака
+                    
+                    printf("sikl %i mejdy %i, result=%i, rootResult=%i, mainchisl=%i, secondChisl=%i, flagZnaka=%i,flagPriorityOP=%i,\n",i,i+1,result,mainRoot->SecondResult,mainRoot->mainChisl,mainRoot->secondChisl,mainRoot->flagZnaka,mainRoot->flagPriorityOP);
+
+                            // (mainRoot->secondChisl!=0)? NULL : mainRoot->secondChisl=mainRoot->mainChisl;// складываем число до знака в соответствующую переменную
+                            (mainRoot->flagPriorityOP==0) ? mainRoot->secondChisl=mainRoot->mainChisl : NULL;// ТЫ ИДИОТ
+                            mainRoot->mainChisl=0;// обнуляем текущее число так как прошел знак
+                        }
                     }
                     
                     
@@ -145,8 +155,8 @@ int VblCHISLI(char* strM){
                 {   
 
                     (mainRoot->flagPriorityOP!=0) ? ((mainRoot->flagPriorityOP==1) ? (mainRoot->secondChisl*=mainRoot->mainChisl) : (mainRoot->secondChisl/=mainRoot->mainChisl)) : NULL ;//если знак умножения или деления был и тут появляется еще знак то есть число кончилось то мы выполняем с нашими двумя числами что надо
-                    // секонд числ просто перезаписывается лол
-
+                    
+                    // если приоритет опрерация уже была то мы это обработали вверху и мейн число нам более не надо
                     (mainRoot->flagPriorityOP==0) ? mainRoot->secondChisl=mainRoot->mainChisl : NULL;// складываем число до знака в соответствующую переменную
                     mainRoot->flagPriorityOP = strM[i]=='*' ? 1 : 2;// орпеделяем деление или умножения зашифровываем в переменную че да как
                     mainRoot->mainChisl=0;// обнуляем текущее число так как прошел знак
@@ -192,7 +202,7 @@ int main(){
     // char* stroka = "-4+9*11+1/2";// ожидаем 95
     // char* stroka = "6.24+6/3.2"; // ожидаем 8.124 получаем 8 так как НЕТУ DOUBLE loool xddd xdxdxd
     // char* stroka = "4+6-6(1+1)2"; // ожидаем 23
-    char* stroka = "8(-22)"; // ожидаем 352
+    char* stroka = "8-(-22)-2"; // ожидаем 352
     printf("%i\n", VblCHISLI(stroka));
     // printf("%i", 8/22);
 }
