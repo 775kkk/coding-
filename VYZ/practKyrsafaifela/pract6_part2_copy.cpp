@@ -22,7 +22,7 @@ typedef struct Root {
 
 stepeni* createStepenNode(){
     stepeni *newStepenNode = (stepeni *)malloc(sizeof(stepeni));
-    // newStepenNode->data = data;
+    newStepenNode->data = 0;
     newStepenNode->perv = NULL;
     return newStepenNode;
 }
@@ -71,7 +71,7 @@ Root* createRoot() {
     newRoot->isTotchka = false;
     newRoot->totchkaFactor = 0.1;
     newRoot->vozvedeynieVstepen=false;
-    newRoot->skladStepens=createStepenNode();
+    newRoot->skladStepens=insertAtNOW_newStepen(NULL);
     return newRoot;
 }
 Root* insertAtNOW_NewRoot(Root *head) {// вставка в начало рута(стека)
@@ -116,16 +116,21 @@ long long binpow(long long vozvodimoe, long long vchtoVozvodim){//возведе
     }
     return result;
 }
-// int binpow(int vozvodimoe, int vchtoVozvodim){//возведение в степень
-//     int result=1;
-//     while (vchtoVozvodim>0)
-//     {
-//         if (vchtoVozvodim%2==1) {result*=vozvodimoe;}
-//         vozvodimoe*=vozvodimoe;
-//         vchtoVozvodim/=2;
-//     }
-//     return result;
-// }
+
+long long factorial(int n, bool flagznaka) {
+    if (!(flagznaka)) {
+      return 0; // Факториал отрицательного числа не определен
+    } else if (n == 0) {
+      return 1; // Факториал 0 равен 1
+    } else {
+      long long result = 1;
+      for (int i = 1; i <= n; i++) {
+        result *= i;
+      }
+      return result;
+    }
+  }
+
 
 int VblCHISLI(char* strM){
     int result=0;
@@ -159,30 +164,31 @@ int VblCHISLI(char* strM){
                 if (strM[i]=='^')// 434353^3443 // по идее надо свитч руут 3423^33434^4343 -> 3423^(33434^4343) -> 3423^(33434^(4343)) // по сути приоритетное действие как с умножением но тут важна последовательность действий
                 {
                     mainRoot->vozvedeynieVstepen++;
-                    insertAtNOW_newStepen(mainRoot->skladStepens);
+                    mainRoot->skladStepens=insertAtNOW_newStepen(mainRoot->skladStepens);
                     mainRoot->skladStepens->data=mainRoot->mainChisl;
                     mainRoot->mainChisl=0;
                 }
-                
                 else if (mainRoot->vozvedeynieVstepen!=0)
                 {
-                    printf("zzzzzzzzz %i\n", mainRoot->vozvedeynieVstepen);
                     while(mainRoot->vozvedeynieVstepen!=0)// О НЕТ ЦИКЛ В ЦИКЛЕ !!!!!!!!!!!!!!! ! ! ! ! ! ! !  ! НА КОСТЕР ЕГО РЕБЯТ ! 1! !! ! ! ! ! ! ! !
                     {
-                        if (mainRoot->skladStepens->data==NULL)
-                        {
-                            break;
-                        }
+                        // if (mainRoot->skladStepens == NULL) {
+                        //     break;
+                        // }
                         
-                        // mainRoot->skladStepens->data=binpow(mainRoot->skladStepens->data,mainRoot->skladStepens->perv->data);
                         mainRoot->mainChisl=binpow(mainRoot->skladStepens->data,mainRoot->mainChisl);
                         mainRoot->skladStepens=deleteNOW_mainStepen(mainRoot->skladStepens);
                         mainRoot->vozvedeynieVstepen--;
-                        printf("zzzzzzmain %i,DATA %i\n",mainRoot->mainChisl,mainRoot->skladStepens->data);
                     }
-                    
+
                     // mainRoot->mainChisl=binpow(mainRoot->mainChisl,mainRoot->skladStepens->data);
                 }
+
+                else if (strM[i]=='!')
+                {
+                    mainRoot->mainChisl=factorial(mainRoot->mainChisl,mainRoot->flagZnaka);
+                }
+                
                 
                 else if (strM[i]=='(')
                 {
@@ -314,8 +320,7 @@ int main(){
     // char* stroka = "-4+9*11+1/2";// ожидаем 95
     // char* stroka = "6.24+6/3.2"; // ожидаем 8.124 получаем 8 так как НЕТУ DOUBLE loool xddd xdxdxd
     // char* stroka = "4+6-6(1+1)2"; // ожидаем 23
-    char* stroka = "1^2^3+"; // ожидаем 352
+    char* stroka = "1^2^3(2)"; // ожидаем 352
+    // не работает 1^2^3(2) ; 1^(2^3)
     printf("%i\n", VblCHISLI(stroka));
-    // printf("%i", 8/22);
-    printf("%i",binpow(2,3));
 }
