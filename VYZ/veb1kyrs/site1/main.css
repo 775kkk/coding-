@@ -8,18 +8,10 @@
 } */
 body{
     padding-top: 10px;
+    padding-right: 10px;
 }
 .headMoment{
     display: flex;
     /* реши кароче эту хреньы */
-}
-.headMoment.one{
-    padding-left: 5px;
-    justify-content: flex-start;
-}
-.headMoment.two{
-    justify-content: center;
-}
-.headMoment.three{
-    justify-content: flex-end;
+    justify-content: space-between;
 }
