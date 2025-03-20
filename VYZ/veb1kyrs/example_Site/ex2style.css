@@ -1,0 +1,33 @@
+.block {
+    background: lightblue;
+    width: 200px; 
+    /*height: 50px;*/
+    min-height: 50px;
+    text-align: justify;
+    padding: 10px; /*внутренний отступ (top, right, bottom, left)*/
+    border-left: 20px solid blueviolet; /*рамка (толщина стиль цвет)*/
+    border-radius: 20px 0 0 20px; /*радиус скругления*/
+    /*margin: 30px;*/
+    /*box-sizing: border-box; /*изменение стандартной блочной модели */
+   /* display: inline-block;
+    vertical-align: top;*/
+}
+
+.fon {
+    background: burlywood;
+    width: 85%;
+    height: 80vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column; /*направление элементов по-горизонтали (по умолчанию)*/
+    justify-content: space-between; /*выравнивание по-горизонтали (при выравнивании горизонтальном row) - flex-start (по умолчанию), center, flex-end, space-between, space-around*/
+    align-items: center; /*выравнивание по-вертикали (при выравнивании горизонтальном row) - stretch (по умолчанию), flex-start, center, flex-end*/
+    flex-wrap: nowrap; /*перенос элементов - nowrap - без переноса (по умолчанию), wrap - перенос если элементы не умещаются в строку*/
+    gap: 20px; /*отступы между колонками*/
+}
+
+.pic {
+    width: 100px;
+    float: right;
+    margin-left: 20px;
+}

@@ -3,15 +3,56 @@
 /*COLOR 3 : rgb 255,202,212 */
 /*COLOR 4 : rgb 244,172,183 */
 /*COLOR 5 : rgb 157,129,137 */
-/* body{
-    background-color: rgb(255, 226, 220);
-} */
-body{
-    padding-top: 10px;
-    padding-right: 10px;
+
+:root{
+    --color1: rgb(216,226,220);
+    --color2: rgb(255,229,217);
+    --color3: rgb(255,202,212);
+    --color4: rgb(244,172,183);
+    --color5: rgb(157,129,137);
 }
-.headMoment{
+
+body {
+    background: var(--color2);
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+}
+
+.background5{
+    background-color: var(--color5);
+}
+
+.flex {
     display: flex;
-    /* реши кароче эту хреньы */
+}
+.flex_just_between {
     justify-content: space-between;
+}
+.flex_just_center {
+    justify-content: center;
+}
+.flex_align_center {
+    align-items: center
+}
+
+.logo{
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+.menu1 a {
+    text-decoration: none;
+    font-family: 18px;
+    color: var(--color1);
+    padding: 10px 30px;
+    transition: 0.5s;
+}
+.menu1 a:hover {
+    color: #fff;
+}
+
+.contakts {
+    padding-right: 10px;
 }

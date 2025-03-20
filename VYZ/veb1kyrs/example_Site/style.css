@@ -1,0 +1,99 @@
+:root {
+    --bg-color: #f1a611;
+    --text-color: #222;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+}
+
+a {
+    text-decoration: none;
+}
+
+nav {
+    background: var(--bg-color);
+}
+
+.flex {
+    display: flex;
+}
+
+.flex_just_between {
+    justify-content: space-between;
+}
+
+.flex_just_center {
+    justify-content: center;
+}
+
+.flex_align_center {
+    align-items: center
+}
+
+.gap_20 {
+    gap: 20px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 20px;
+    
+}
+
+.menu a {
+    font-family: 18px;
+    color: var(--text-color);
+    padding: 10px 30px;
+    transition: 0.5s;
+}
+
+.menu a:hover {
+    background: #222;
+    color: #fff;
+}
+
+.contacts {
+    padding-right: 10px;
+}
+
+.banner {
+    background: url(images/fon.jpg);
+    background-size: cover;
+    height: 80vh;
+    transition: 1s; /*время анимации hover*/
+}
+/*
+.banner:hover {
+    background: url(images/fon.png);
+    background-size: cover;
+}
+*/
+
+.banner_text {
+    font-size: 18px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.4);
+    width: 50%;
+}
+
+.bg1 {
+    background: #f6e8cb;
+}
+
+section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.container {
+    width: 70%;
+    margin: auto;
+}
+
+.pic {
+    width: 30%;
+}

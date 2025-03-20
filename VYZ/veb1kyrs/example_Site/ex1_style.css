@@ -1,0 +1,41 @@
+@font-face {
+    font-family: Cakra;
+    src: url(fonts/ofont.ru_Cakra.ttf);
+}
+
+body {
+    background: lightblue;
+    
+}
+
+/*Стили для оформления текста*/
+
+
+h1, h2 {
+    text-align: center;
+    background: chocolate;
+    font-family: Cakra;
+}
+
+.text_green {
+    background: greenyellow;
+    font-family: Arial;
+}
+
+.text_center {
+    text-align: center;
+}
+
+#btn_red {
+    background: rgb(34, 92, 94);
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.text_italic {
+    font-style: italic;
+    background: blueviolet;
+    color: #fff;
+}
