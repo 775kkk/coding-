@@ -13,16 +13,34 @@
 }
 
 body {
-    background: var(--color2);
+    /* background: var(--color2); */
     margin: 0;
     padding: 0;
     font-family: Arial;
 }
-
+section{
+    
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
 .background5{
     background-color: var(--color5);
 }
-
+.background2{
+    background: var(--color2);
+}
+.background3{
+    background: var(--color3);
+}
+.background4{
+    background: var(--color4);
+}
+.background1{
+    background: var(--color1);
+}
+.gap_20 {
+    gap: 20px;
+}
 .flex {
     display: flex;
 }
@@ -34,6 +52,9 @@ body {
 }
 .flex_align_center {
     align-items: center
+}
+.flex_just_around{
+    justify-content: space-around;
 }
 
 .logo{
@@ -55,4 +76,84 @@ body {
 
 .contakts {
     padding-right: 10px;
+}
+
+.bgPicture{
+    background: url(ss.jpg) ;
+    background-size: cover;
+    height: 80vh;
+}
+
+.slogan{
+    font-size: 18px;
+    padding: 20px;
+    background: rgba(244, 172, 183, 0.4);/* color4 */
+    width: 50%;
+}
+.nakladka{
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+.img1, .img2{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+}
+.img1{
+    top: 0;
+    left: 0;
+    border: 2px solid blueviolet;
+}
+.img2{
+    top: 70px;
+    left: 70px;
+    border: 2px solid green;
+}
+.flex_direction_column{
+    flex-direction: column;
+}
+.flex_just_start{
+    justify-content: flex-start;
+}
+.bg2{
+    background: rgba(244, 172, 183, 0.4);
+}
+.panel{
+    padding: 10px 10px;
+}
+.forma{
+    padding: 10px;
+    border-radius: 5px;
+    /* box-shadow: 0 0 10px rgba(0,0,0,0.5); */
+}
+.marign_bottom_10{
+    margin-bottom: 10px;
+}
+textarea{
+    height: 100px;
+    resize: none;
+}
+.bgFooter{
+    background: rgb(152, 98, 107) ;
+    color:#fff;
+}
+input[type="text"],input[type="email"],textarea{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border:none;
+    border-radius: 4px;
+    background-color: #aca9a9;
+    color:#eee;
+}
+input[type="submit"]{
+    width: 111% ;
+    background-color: orange;
+    color:black;
+    border:none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight:bold;
 }
