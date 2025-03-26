@@ -11,7 +11,29 @@
     --color4: rgb(244,172,183);
     --color5: rgb(157,129,137);
 }
-
+.color1{
+    color: var(--color1);
+}
+.color2{
+    color: var(--color2);
+}
+.color3{
+    color: var(--color3);
+}
+.color4{
+    color: var(--color4);
+}
+.color5{
+    color: var(--color5);
+}
+.newsPIC{
+    height:240px;
+    width: 400px;
+}
+p{
+    max-width: 600px;
+    text-align: justify;
+}
 body {
     /* background: var(--color2); */
     margin: 0;
@@ -79,7 +101,7 @@ section{
 }
 
 .bgPicture{
-    background: url(ss.jpg) ;
+    background: url(les1.jpg) ;
     background-size: cover;
     height: 80vh;
 }
@@ -103,12 +125,10 @@ section{
 .img1{
     top: 0;
     left: 0;
-    border: 2px solid blueviolet;
 }
 .img2{
     top: 70px;
     left: 70px;
-    border: 2px solid green;
 }
 .flex_direction_column{
     flex-direction: column;
@@ -156,4 +176,42 @@ input[type="submit"]{
     border-radius: 4px;
     cursor: pointer;
     font-weight:bold;
+}
+.inlineblock{
+    display: inline-block;
+}
+
+.pic {
+    width: 30%;
+}
+.UpButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #333;
+    color: white;
+    border-radius: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0.7; /* Полупрозрачность */
+    transition: opacity 0.3s ease; /* Плавное изменение прозрачности */
+}
+
+.UpButton:hover {
+    opacity: 1; /* Полная непрозрачность при наведении */
+}
+
+.UpButton::before {
+    content: "\2191"; /* Стрелка вверх (Unicode) */
+    font-size: 24px;
+}
+.floatRight{
+    float: right;
+}
+.marign_bottom_0{
+    margin-bottom: 0px;
 }
