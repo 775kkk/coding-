@@ -63,6 +63,10 @@ section{
 .gap_20 {
     gap: 20px;
 }
+.width100{
+    width: 100%;
+    z-index: 1;
+}
 .flex {
     display: flex;
 }
@@ -105,7 +109,9 @@ section{
     background-size: cover;
     height: 80vh;
 }
-
+.posFix{
+    position: fixed;
+}
 .slogan{
     font-size: 18px;
     padding: 20px;
@@ -204,7 +210,13 @@ input[type="submit"]{
 .UpButton:hover {
     opacity: 1; /* Полная непрозрачность при наведении */
 }
-
+.wrapper{
+    max-width: 1370px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+}
 .UpButton::before {
     content: "\2191"; /* Стрелка вверх (Unicode) */
     font-size: 24px;
@@ -214,4 +226,14 @@ input[type="submit"]{
 }
 .marign_bottom_0{
     margin-bottom: 0px;
+}
+.bgFooter2{
+    background: rgb(133, 109, 116);
+}
+.contacts{
+    padding-top: 20px;
+    padding-bottom: 5px;
+}
+@media(max-width: 780px){
+
 }

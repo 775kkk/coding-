@@ -1,14 +1,8 @@
-// C Program to create a Linked List
 #include <stdio.h>
 #include <malloc.h>
 
-// Define the structure of NodeInt
 typedef struct NodeInt {
-  
-    // Data field. Can add more data according to our need
     int data;
-
-    // Pointer to the next NodeInt
     struct NodeInt *next;
 } NodeInt;
 
@@ -74,6 +68,7 @@ NodeInt* insertAtElement(NodeInt *head, int data, int element) {
     temp->next = newNodeInt;
     return head;
 }
+// удаляет вначале
 NodeInt* deleteAtBeginning(NodeInt *head) {
     if (head == NULL) {
         printf("List is empty!\n");
@@ -84,6 +79,7 @@ NodeInt* deleteAtBeginning(NodeInt *head) {
     free(temp);
     return head;
 }
+// удаляет весь
 NodeInt* deleteSpisok(NodeInt *head) {
     if (head == NULL) {
         printf("List is empty!\n");
@@ -97,6 +93,7 @@ NodeInt* deleteSpisok(NodeInt *head) {
     }
     return head;
 }
+//удаляет вконце
 NodeInt* deleteAtEnd(NodeInt *head) {
     if (head == NULL) {
         printf("List is empty!\n");
@@ -114,6 +111,7 @@ NodeInt* deleteAtEnd(NodeInt *head) {
     temp->next = NULL;
     return head;
 }
+// удаляет в позиции
 NodeInt* deleteAtPosition(NodeInt *head, int position) {
     if (position < 0) {
         printf("Invalid position!\n");
@@ -140,6 +138,7 @@ NodeInt* deleteAtPosition(NodeInt *head, int position) {
     free(NodeIntToDelete);
     return head;
 }
+// удаляет элемент
 NodeInt* deleteAtElement(NodeInt *head, int element) {
     if (head == NULL) {
         printf("List is empty!\n");
@@ -162,29 +161,61 @@ NodeInt* deleteAtElement(NodeInt *head, int element) {
     return head;
 }
 
+void sorted(int* stroka,int Mlen){
+    // par = 1 -> по возврастанию TRUE
+    // par = 0 -> по убыванию     FALSE
+    int sortLen = 0;
+    int NEsortLen = Mlen;
+    int min;
+    int mIndex=0;
+    while (sortLen!=Mlen){   
+        min=32767;
+        for (int i = sortLen; i!=Mlen; i++){
+            if (stroka[i]<min){
+                min=stroka[i];
+                mIndex=i;
+            }
+        }
+        stroka[mIndex]=stroka[sortLen];
+        stroka[sortLen]=min;
+        sortLen++;
+    }
+}
+
+int sortirovka(NodeInt *head){
+    int len=0;
+    while (head->next!=NULL)
+    {
+        len++;
+    }
+    return len;
+    
+}
+
 int main() {
     NodeInt *first = (NodeInt *)malloc(sizeof(NodeInt));
  
-    first->data = 10;
+    first->data = 23;
 
     NodeInt *second = (NodeInt *)malloc(sizeof(NodeInt));
 
-    second->data = 20;
+    second->data = 44;
 
     NodeInt *third = (NodeInt *)malloc(sizeof(NodeInt));
 
     third->data = 30;
 
-    first->next = second; // This will create: 10 -> 20
-    second->next = third; // This will create: 10 -> 20 -> 30
-    third->next = NULL;   // This will create: 10 -> 20 -> 30 -> NULL
+    first->next = second; 
+    second->next = third; 
+    third->next = NULL;   
+//f s t
+// ok head = first
+    // printf("linked list: ");
+    // NodeInt* temp = first;
+  	// while(temp) {
+    //   printf("%d ", temp->data);
+    //   temp = temp->next;
+    // }
 
-    printf("Linked List: ");
-    NodeInt* temp = first;
-  	while(temp) {
-      printf("%d ", temp->data);
-      temp = temp->next;
-    }
-
-    return 0;
+    printf("%i",sortirovka(first));
 }

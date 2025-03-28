@@ -320,7 +320,7 @@ int main(){
     // char* stroka = "-4+9*11+1/2";// ожидаем 95
     // char* stroka = "6.24+6/3.2"; // ожидаем 8.124 получаем 8 так как НЕТУ DOUBLE loool xddd xdxdxd
     // char* stroka = "4+6-6(1+1)2"; // ожидаем 23
-    char* stroka = "1^2^3(2)"; // ожидаем 352
+    char* stroka = "1+3!"; // ожидаем 352
     // не работает 1^2^3(2) ; 1^(2^3)
     printf("%i\n", VblCHISLI(stroka));
 }
