@@ -31,9 +31,6 @@ bool polendromStr(char *str, int len){
         {
             return false;
         }
-        {
-            return false;
-        }
     }
     return true;
 }
