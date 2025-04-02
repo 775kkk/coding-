@@ -1,0 +1,93 @@
+@media screen and (max-width: 1400px) {
+    
+}
+
+@media screen and (max-width: 1280px) {
+    
+}
+
+@media screen and (max-width: 1240px) {
+    ._sectionNews_main_{
+        flex-direction: column;
+    }
+    .wrapper{
+        min-width: 900px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .wrapper{
+        min-width: 0px;
+        max-width: 92%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    ._sectionNews_main_ ._newsPIC_{
+        max-height:220px;
+        width: 400px;
+    }
+    ._sectionNews_main_ div{
+        max-width: 60%;
+    }
+    ._mapsize_{
+        width:516px;
+        height:326px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    ._footer_forma_{
+        flex-direction: column;
+    }
+    ._section_slogan_{
+        height: 15hv;
+    }
+    ._section_slogan_items_{
+        flex-direction: column;
+        gap: 30px;
+    }
+    ._nakladka_{
+        width: 200px;
+        height: 200px;
+    }
+    ._nakladka_ .img1, .img2{
+        width: 100px;
+        height: 100px;
+    }
+    ._nakladka_ .img1{
+        top: 25px;
+        left: 25px;
+    }
+    ._nakladka_ .img2{
+        top: 75px;
+        left: 75px;
+    }
+    ._ryadovoi_section_mainarea_{
+        flex-direction: column;
+    }
+    ._sectionNews_main_ ._newsPIC_{
+        max-height:2000px;
+        width: 300px;
+    }
+    ._sectionNews_main_ div{
+        max-width: 80%;
+    }
+    .pic {
+        width: 90%;
+    }
+    ._ryadovoi_section_mainarea_{
+        gap: 10px;
+    }
+    ._mapsize_{
+        width:386px;
+        height:226px;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    ._section_slogan_{
+        height: 10hv;
+    }
+}

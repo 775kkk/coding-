@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сохрани лес</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="media.css">
+
 </head>
 <body>
 
@@ -13,9 +15,9 @@
 </header>
 
 <main>
-    <!-- <div class="wrapper" -->
-    <!-- банер -->
-    <div class="flex posFix width100 flex_align_center flex_just_between background5">
+    <div class="_shapka_"> <!-- posFix width100 background5 -->
+        <div class="wrapper">
+            <div class="_shapka_items_"><!--flex flex_align_center flex_just_between-->
             <div class="logo">
                 Сохрани лес
             </div>
@@ -23,19 +25,23 @@
                 <a href="#menu_1">О лесах</a>
                 <a href="#bottom1">Контакты</a>
             </div>
-            <div class="contakts">
+            <div class="">
                 8-800-000-00-00
             </div>
+        </div>
+        </div>
     </div>
+    <!-- Для медиа -->
+    <!-- <div class="media" -->
     <!-- блок 1 -->
-    <div class="bgPicture ">   
+    <div class="_section_slogan_"><!--bgPicture-->   
         <div class="wrapper">
-            <div class="paddingTop30px flex flex_align_center flex_just_around">
-                <div class="slogan"> 
+            <div class="_section_slogan_items_"><!--paddingTop30px flex flex_align_center flex_just_around-->
+                <div class="_slogan_"> 
                     <h3 class="color1">Поможем легким планеты вместе ! </h3>
                     <p class="color2"> Присоединяйся к благотворительной акции "Сохрани лес"</p>
                 </div>
-                <div class="nakladka"> 
+                <div class="_nakladka_"> 
                     <img src="1014166912.jpg" alt="pic" class="img1">
                     <img src="632b7a68-be8e-5a4f-81fa-1aab6c9a4517.jpg" alt="pic" class="img2">
                 </div>
@@ -43,74 +49,76 @@
         </div>    
     </div>
     <!-- новости -->
-    <section class="background2" > <!-- class="flex flex_direction_column flex_just_start flex_align_center" -->
-        <div class=" flex flex_just_center wrapper ">
+    <section class="_sectionNews_" ><!--background2--> <!-- class="flex flex_direction_column flex_just_start flex_align_center" -->
+        <div class="_sectionNews_h2_ wrapper"><!--flex flex_just_center wrapper-->
             <h2>Новости</h2>
         </div>
-        <div class="flex flex_align_center flex_just_around wrapper">
-            <div class="flex flex_direction_column bg2 panel">
-                <img src="FSBrFDpOkco.jpg" alt="pic" class="newsPIC">
+        <div class="_sectionNews_main_ wrapper"><!--flex flex_align_center flex_just_around-->
+            <div class=""> <!--flex flex_direction_column bg2 panel-->
+                <img src="FSBrFDpOkco.jpg" alt="pic" class="_newsPIC_">
                 <p>Присоединяйся к команде волонтеров !</p>
-                <button> подробнее </button>
+                <button class="_button_News_"> подробнее </button>
             </div>
-            <div class="flex flex_direction_column bg2 panel">
-                <img src="wr-960.webp" alt="pic" class="newsPIC">
+            <div class="">
+                <img src="wr-960.webp" alt="pic" class="_newsPIC_">
                 <p>Запишись на благотворительный фестиваль ! </p>
-                <button> подробнее </button>
+                <button class="_button_News_"> подробнее </button>
             </div>
-            <div class="flex flex_direction_column bg2 panel">
-                <img src="cf8141519ad078533cafdf1d1d866891.jpg" alt="pic" class="newsPIC">
-                <p>Сохраним природу вместе! <br> Приобретите наш мерч !</p>
-                <button> подробнее </button>
+            <div class="">
+                <img src="cf8141519ad078533cafdf1d1d866891.jpg" alt="pic" class="_newsPIC_">
+                <p>Сохраним природу вместе!  Приобретите наш мерч !</p>
+                <button class="_button_News_"> подробнее </button>
             </div>
-
         </div>
     </section>
     <!-- рядовой 1 -->
-    <section class=" background3" id="menu_1">
+    <section class="_ryadovoi_section_1_" id="menu_1"> <!--background3-->
         <div class="wrapper">
-            <div class="flex flex_just_center"> <!-- flex flex_just_center  -->
+            <div class="_ryadovoi_section_1_h2_"> <!-- flex flex_just_center  -->
                 <h2> Центральный Сихотэ-Алинь </h2>
             </div>
-            <div class="flex flex_just_center gap_20"><!-- flex flex_just_center gap_20  -->
+            <div class="_ryadovoi_section_mainarea_"><!-- flex flex_just_center gap_20  -->
                 <img src="31f237db3b2af457719ded2e24d9c08d.jpg" alt="dcdcd" class="pic inlineblock">
                 <p class="inlineblock" >В этом биосферном заповеднике Приморского края в редкой гармонии сосуществуют северные и южные виды растений и животных. Пихта и ель соседствуют с лианой актинидией и рододендроном Фори, а бурый медведь и рысь — с гималайским медведем и амурским тигром. Леса занимают 97% территории, среди них есть и уникальные, где растёт корейский (он же маньчжурский) кедр. Всего здесь насчитали 1094 вида растений, не считая мхов, грибов и лишайников, — это 40% видового разнообразия растительности Приморья. 73 вида местной флоры внесены в Красные книги разного ранга. Охраняемых животных тоже предостаточно — амурский лесной кот, горал, гималайский медведь, уссурийский пятнистый олень и др. Но главная гордость заповедника — это популяция амурских тигров. В 2001 году Центральный Сихотэ-Алинь был внесён в список Всемирного наследия ЮНЕСКО.</p>
             </div>
         </div>
     </section>
     <!-- рядовой 2  -->
-    <section class=" background4">
+    <section class="_ryadovoi_section_2_"><!-- background4-->
         <div class="wrapper">
-            <div class="flex flex_just_center">
+            <div class="_ryadovoi_section_1_h2_">
                 <h2> Алтайский заповедник </h2>
             </div>
-            <div class="flex flex_just_center gap_20">
+            <div class="_ryadovoi_section_mainarea_">
                 <p>Леса тут в основном хвойные, растут пихта, лиственница, ель, сосна, но можно наткнуться и на привычную берёзу. Особая гордость заповедника — чистые кедровые высокогорные леса, в которых кедры достигают 1,8 м в диаметре и 400–450 лет по возрасту. 34 вида местных мхов, грибов, лишайников и сосудистых растений внесены в Красные книги Республики Алтай и России. А ещё заповедник богат на эндемики — их здесь свыше 200. Редких и исчезающих животных бродит по местным лесам 59 видов, это 52% охраняемых обитателей Республики Алтай. Одна из группировок уникального снежного барса нашла приют именно в этом заповеднике. Кроме того, в нём прекрасно себя чувствуют редкий алтайский горный баран, сибирская кабарга, лесной подвид северного оленя и др. Заповедник входит в объект Всемирного наследия ЮНЕСКО "Золотые горы Алтая".            </p>
                 <img src="9c0a8919a23a64700a68886ae6851834.jpg" alt="dcdcd" class="pic">
             </div>
         </div>
     </section>
     <!-- рядовой 3 -->
-    <section class="background1">
+    <section class="_ryadovoi_section_3_"><!--background1-->
         <div class="wrapper">
-            <div class="flex flex_just_center">
+            <div class="_ryadovoi_section_1_h2_">
                 <h2> Лапландский заповедник </h2>
             </div>
-            <div class="flex flex_just_center gap_20 ">
+            <div class="_ryadovoi_section_mainarea_">
                 <img src="c0d0e7c72855d30c69dcd3d91d3aaa79.jpg" alt="dcdcd" class="floatRight pic">
                 <p>Этот заповедник в западной части Мурманской области — яркий образчик северной тайги. Комфортнее всего тут себя чувствуют растения, приспособленные к суровым арктическим условиям. Под сенью еловых и сосновых лесов растут брусничники, черничники и вереск, во влажных лесах процветают папоротники, купальница и лесная герань. Отличительная черта местной экосистемы — насекомоядные растения, которых здесь аж несколько видов: росянки, жирянки и пузырчатки. Набор животных типично северный: норвежский и лесной лемминги, бурый медведь, северный олень, куница и др.</p>
             </div>
         </div>
+        <!-- Для медиа -->
+         
     </section>
 
 </main>
 
-<footer class="bgFooter">
+<footer class="_bgFooter_">
     <section class="wrapper">
-        <h2 class="flex flex_just_center    "> Остались вопросы?</h2>
-        <div class="flex gap_20 flex_just_center">
-            <div class="forma flex">
-                <form class="flex flex_direction_column">
+        <h2 class="_footer_h2_"> Остались вопросы?</h2><!--flex flex_just_center-->
+        <div class="_mapforma_footer_"> <!--flex gap_20 flex_just_center-->
+            <div class="_footer_forma_"><!--forma flex-->
+                <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A2a78b116f23c7379f7f741dcc9c9cb37aab71b838b7fef39104ce5534c8eb299&amp;source=constructor" class="_mapsize_" frameborder="0"></iframe>
+                <form class=""><!--flex flex_direction_column-->
                     <input type="text" placeholder="Имя*" class="marign_bottom_10" required>
                     <input type="email" placeholder="Email*" class="marign_bottom_10" required>
                     <input type="text" placeholder="Телефон*" class="marign_bottom_10" required>
@@ -118,14 +126,13 @@
                     <input type="submit" class="marign_bottom_10" value="Отправить">
                 </form>
             </div>
-            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A2a78b116f23c7379f7f741dcc9c9cb37aab71b838b7fef39104ce5534c8eb299&amp;source=constructor" width="676" height="326" frameborder="0"></iframe>
         </div>
     </section>
-    <section class="bgFooter2" id="bottom1">
+    <section class="_bgFooter2_" id="bottom1">
         <div class="wrapper">
             
-        <div class="flex flex_just_around contakts ">
-            <div class="flex flex_direction_column">
+        <div class=" _footer_contacts_ ">
+            <div class="_footer_contacts_columnDIV_">
                 <P class="marign_bottom_0">Политехническая, 122, 5 корпус СГТУ, офис: 102</P>
                 <P class="marign_bottom_0">Институт прикладных информационных технологий и коммуникаций</P>
                 <P class="marign_bottom_0">+7 (8452) 99-87-17</P>
@@ -138,9 +145,7 @@
         </div>
     </div>
     </section>
-    <div class="flex flex_just_center contakts bgFooter2"><h3> Страница сделана для конкурса "Цифровой ветер"</h3></div>
-    <!-- <p class="flex flex_just_center" marign="0">Страница сделана для конкурса "Цифровой ветер"</p> -->
-</footer>
+        </footer>
 
 <button class="UpButton" onclick="ToTop()"></button>
     <script>

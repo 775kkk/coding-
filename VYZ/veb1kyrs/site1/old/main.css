@@ -27,7 +27,7 @@
     color: var(--color5);
 }
 .newsPIC{
-    height:240px;
+    max-height:240px;
     width: 400px;
 }
 p{
@@ -176,6 +176,15 @@ input[type="text"],input[type="email"],textarea{
 input[type="submit"]{
     width: 111% ;
     background-color: orange;
+    color:black;
+    border:none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight:bold;
+}
+.button1{
+    background-color: rgb(206, 79, 98);
     color:black;
     border:none;
     padding: 10px 20px;
