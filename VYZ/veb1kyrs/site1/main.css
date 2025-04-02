@@ -41,7 +41,6 @@ body {
     font-family: Arial;
 }
 section{
-    
     padding-top: 30px;
     padding-bottom: 30px;
 }
@@ -109,6 +108,7 @@ section{
     background-size: cover;
     height: 80vh;
 }
+
 .posFix{
     position: fixed;
 }
@@ -209,6 +209,9 @@ input[type="submit"]{
 
 .UpButton:hover {
     opacity: 1; /* Полная непрозрачность при наведении */
+}
+.paddingTop30px{
+    padding-top: 150px;
 }
 .wrapper{
     max-width: 1370px;
