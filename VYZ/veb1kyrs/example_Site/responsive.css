@@ -1,0 +1,106 @@
+@media screen and (max-width: 1400px) {
+    
+}
+
+
+@media screen and (max-width: 1280px) {
+    
+}
+
+@media screen and (max-width: 1024px) {
+    .container {
+        width: 80%;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    .banner {
+        height: 60vh;
+    }
+
+    .banner_text {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .block_cup {
+        position: absolute;
+        top: 60px;
+        right: 40px;
+    }
+    
+    .cup {
+        width: 150px;
+        position: relative;
+        top: 120px;
+    
+    }
+    
+    .smoke {
+        width: 70px;
+        position: relative;
+        left: 100px;
+        z-index: 1;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .contacts {
+        display: none;
+    }
+
+    .icon_nav {
+        display: block;
+    }
+    
+}
+
+@media screen and (max-width: 580px) {
+
+    .banner {
+        background: url(images/fon3.webp);
+        background-size: cover;
+        height: 200px;
+    }
+
+    .banner_text {
+        display: none;
+    }
+
+    .block_cup {
+        display: none;
+        /*visibility: hidden;
+        opacity: 0;*/
+    }
+
+    .flex {
+        flex-direction: column;
+    }
+
+    .pic {
+        width: 50%;
+        margin: auto;
+        display: block;
+    }
+
+    .form {
+        width: 100%;
+        margin-right: 0px;
+        margin-bottom: 50px;
+    }
+    
+    .map {
+        width: 100%;
+    }
+
+    .nav_responsive {
+        flex-direction: row;
+    }
+}
