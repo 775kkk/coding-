@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
 </head>
 <body>
     <!--Меню-->
-    <nav class="flex flex_just_between flex_align_center">
+    <nav class="flex flex_just_between flex_align_center nav_responsive">
         <div class="logo">
             ЛОГО
         </div>
@@ -20,6 +24,9 @@
         <div class="contacts">
             8-800-000-00-00
         </div>
+        <div class="icon_nav"> 
+            <i class="fas fa-bars"></i>
+        </div>
     </nav>
     <!--Баннер-->
     <div class="banner flex flex_align_center flex_just_center">
@@ -29,6 +36,12 @@
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium voluptates magnam debitis iste qui fugit delectus alias, veniam voluptas, cupiditate adipisci minus error officia! Explicabo unde tenetur molestiae magni dolor?</p>
         </div>
     </div>
+    <div class="block_cup">
+        <img src="images/smoke.png" alt="" class="smoke">
+        <img src="images/cup.png" alt="" class="cup">
+       
+    </div>
+    
     <!--Раздел 1-->
     <section class="bg1">
         <div class="container">
@@ -39,5 +52,31 @@
             </div>
         </div>
     </section>
+    <footer>
+        <div class="container">
+             <div class="flex flex_beetween flex_vert_form">
+                 <div class="form">
+                     <form>
+                         <h2>Форма обратной связи</h2>
+                         <input type="text" placeholder="Имя*">
+                         <br><br>
+                         <input type="email" placeholder="Email*">
+                         <br><br>
+                         <input type="text" placeholder="Телефон*">
+                         <br><br>
+                         <textarea cols="30" rows="10" placeholder="Описание"></textarea>
+                         <br><br>
+                         <input type="submit" value="Отправить">
+                     </form>
+                 </div>
+                 <div class="map">
+                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A6e61249b98d8281478bd0d022fda571e3c9391ba6ad0d20b52df3ad11a7177a5&amp;source=constructor" width="100%" height="400" frameborder="0"></iframe>
+                 </div>
+             </div>
+             <div>
+                 &copy; 2025 - СГТУ
+             </div>
+        </div>
+    </footer>
 </body>
 </html>

@@ -7,6 +7,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial;
+    box-sizing: border-box;
 }
 
 a {
@@ -15,6 +16,31 @@ a {
 
 nav {
     background: var(--bg-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+}
+
+.block_cup {
+    position: absolute;
+    top: 100px;
+    right: 40px;
+}
+
+.cup {
+    width: 200px;
+    position: relative;
+    top: 150px;
+
+}
+
+.smoke {
+    width: 100px;
+    position: relative;
+    left: 130px;
+    z-index: 1;
 }
 
 .flex {
@@ -50,9 +76,22 @@ nav {
     padding: 10px 30px;
     transition: 0.5s;
 }
+/*
+.menu a:link{
+    background: cadetblue;
+}
+
+.menu a:visited{
+    background: blueviolet;
+}
+
+.menu a:active{
+    background: red;
+}
+*/
 
 .menu a:hover {
-    background: #222;
+    background: #000;
     color: #fff;
 }
 
@@ -97,3 +136,50 @@ section {
 .pic {
     width: 30%;
 }
+
+
+/*Подвал*/
+footer {
+    background: #f1a611;
+    color: #fff;
+    padding: 70px 0;
+}
+
+.form {
+    width: 30%;
+    margin-right: 50px;
+}
+
+.map {
+    width: 70%;
+}
+
+input, textarea {
+    padding: 10px;
+    border-radius: 10px;
+    border: 0;
+    background: #dbccc5;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background: saddlebrown;
+}
+
+input:focus, textarea:focus {
+    outline: 0;
+    background: #f3f0ee;
+}
+
+input[type="submit"]:focus {
+    background: saddlebrown;
+}
+
+.icon_nav {
+    color:blueviolet;
+    margin-right: 15px;
+    font-size: 20px;
+    display: none;
+}
+

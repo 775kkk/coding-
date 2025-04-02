@@ -7,7 +7,7 @@ int zadacha(){
     int result=0;//n
     for (int i = 0; i < 1000; i++)
     {
-        //2^n - n ? n=0 ok i=n result!=0
+        //2^n - n ? n=0 ok i=n result!=n
         if ((stepen2(i)-i)%7==0)
         {
             result++;
