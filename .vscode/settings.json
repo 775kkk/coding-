@@ -1,5 +1,8 @@
 {
     "java.dependency.packagePresentation": "hierarchical",
     "C_Cpp.default.compilerPath": "c:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin\\c++.exe",
+    "files.associations": {
+        "string": "cpp"
+    },
 }
 // аааааааа нихуя а че так можно было?
