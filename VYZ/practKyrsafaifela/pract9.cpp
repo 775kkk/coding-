@@ -12,45 +12,25 @@ void printMass(int *mass,int len){
 
 void sortPodscetom(int *mass, int Mlen, int maxChislo){
     int* sklad = (int*)calloc(maxChislo, sizeof(int));
-    for (size_t i = 0; i < Mlen; i++)
+    for (int i = 0; i < Mlen; i++)
     {
         sklad[mass[i]]++;
     }
     printMass(sklad,maxChislo);
     int indexSklada=0;
     int temp=0;
-    for (size_t i = 0; i <Mlen; i++)
+    for (int i = 0; i <Mlen; i++)
     {
-        // if((i<sklad[indexSklada]+temp)&&(indexSklada!=0)){
-        //     mass[i]=indexSklada;
-        // }
-        // else{
-        //     mass[i]=indexSklada;
-        //     indexSklada++;
-        //     temp+=i;
-        // }
-        // sklad[indexSklada]!=0 ? mass[i]=indexSklada : NULL;// даже если 0 повторений все равно заполнит
-        // if (i==sklad[indexSklada]+temp){
-        //     indexSklada++;
-        //     temp+=i;
-        // }
-        // mass[i]=indexSklada пока i<(indexSklada+temp) а temp
-        // if (i<(indexSklada+temp))
-        // {
-        //     mass[i]=indexSklada;
-        // }else{
-        //     indexSklada++;
-        //     temp+=i;
-        // }
-
-        if (sklad[indexSklada]!=0 || sklad[indexSklada]<0){
+        //в тот день невероятно жеско тупил прямо ваще капец хуже чем на еге
+        // еще меня этот дед на файфеле грузил, ну он с нами душевно болтал и я на него отвлекался, он буквально над ухом стоял и рассказывал всякое, поначалу я пытался чето написать потом уже забил и начал фул его слушать
+        if (sklad[indexSklada]==0){
+            indexSklada++;
+            i--;// это вот заменило вложеннось циклов)))))))
+            i<-1 ? i=0: NULL;
+        }else{ 
             mass[i]=indexSklada;
             sklad[indexSklada]--;
-        }else{//==0 
-            indexSklada++;
         }
-        
-        
     }
     free(sklad);
 }
