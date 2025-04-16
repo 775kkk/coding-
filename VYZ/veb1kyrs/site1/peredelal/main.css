@@ -136,6 +136,11 @@ section{
     border-radius: 4px;
     cursor: pointer;
     font-weight:bold;
+    transition: 1s;
+}
+._button_News_:hover{
+    color:aliceblue;
+    background-color: #333;
 }
 ._sectionNews_main_ ._newsPIC_{
     max-height:240px;
@@ -266,4 +271,18 @@ input[type="submit"]{
 ._mapsize_{
     width:676px;
     height:326px;
+}
+
+
+.thumb{
+		transition: 1s;
+}
+
+.thumb:hover {
+    transform: scale(1.2) !important; 
+}
+
+
+.thumbs:hover .thumb {
+    transform: scale(0.9);  /*уменьшение фотографии*/ 
 }

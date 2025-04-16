@@ -90,4 +90,12 @@
     ._section_slogan_{
         height: 10hv;
     }
+    ._mapsize_{
+        width:286px;
+        height:226px;
+    }
+    input[type="submit"]{
+        width: 107% ;
+        
+    }
 }
