@@ -2,71 +2,72 @@
 #include <string.h>
 #include <stdlib.h>
 
-void justify_text(FILE *input, FILE *output, int width) {
-    char line[1000];
-    while (fgets(line, sizeof(line), input)) {
-        int len = strlen(line);
-        if (line[len-1] == '\n') line[len-1] = '\0';
-        
-        char *words[100];
-        int word_count = 0;
-        
-        // Разбиваем строку на слова
-        char *token = strtok(line, " ");
-        while (token != NULL) {
-            words[word_count++] = token;
-            token = strtok(NULL, " ");
+#define MAX_WORDS 1000
+#define MAX_WORD_LENGTH 100
+
+size_t utf8_strlen(const char* str) {
+    size_t count = 0;
+    while (*str) {
+        if ((*str & 0xC0) != 0x80) {
+            count++;
         }
-        
-        if (word_count == 0) {
+        str++;
+    }
+    return count;
+}
+
+void format_text(FILE *input, FILE *output, int width) {
+    char *words[MAX_WORDS]; // храним слова
+    int word_count = 0;
+
+    
+    char line[1000]; // буфер для чтения строк
+    while (fgets(line, sizeof(line), input)) {// читаем
+        int len = strlen(line);// тут обычный strlen так как речь про память а не колво символов см стр40
+        if (line[len - 1] == '\n') line[len - 1] = '\0';
+        char *nowSlovo = strtok(line, " ");
+        while (nowSlovo != NULL) {
+            words[word_count] = (char *)malloc(strlen(nowSlovo) + 1);
+            strcpy(words[word_count], nowSlovo);
+            word_count++;
+            nowSlovo = strtok(NULL, " ");// последовательно разбираем строку
+        }
+    }
+
+    int current_length = 0;
+    for (int i = 0; i < word_count; i++) {
+        int word_length = utf8_strlen(words[i]);//обычный strlen не подойдет так как вернет размер а не колво символов, а размер русской буквы А 2 байта к примеру, когда латинская 1 байт
+    
+        // поместится ли текущее слово в строку
+        if (current_length > 0 && current_length + word_length + 1 > width) {
             fputc('\n', output);
-            continue;
+            current_length = 0;
         }
-        
-        // Вычисляем общую длину слов без пробелов
-        int total_length = 0;
-        for (int i = 0; i < word_count; i++) {
-            total_length += strlen(words[i]);
+        // если это не первое слово в строке то после пробел, по логике получается перед, чтобы перед \n не было пробела
+        if (current_length > 0) {
+            fputc(' ', output);
+            current_length++;
         }
-        
-        // Количество необходимых пробелов
-        int total_spaces = width - total_length;
-        int gaps = word_count - 1;
-        
-        if (gaps <= 0) {
-            fprintf(output, "%s\n", words[0]);
-            continue;
-        }
-        
-        // Распределяем пробелы между словами
-        int spaces_per_gap = total_spaces / gaps;
-        int extra_spaces = total_spaces % gaps;
-        
-        // Формируем строку
-        for (int i = 0; i < word_count; i++) {
-            fprintf(output, "%s", words[i]);
-            if (i < gaps) {
-                for (int j = 0; j < spaces_per_gap; j++) fputc(' ', output);
-                if (i < extra_spaces) fputc(' ', output);
-            }
-        }
-        fputc('\n', output);
+        // слово
+        fprintf(output, "%s", words[i]);
+        current_length += word_length;
+    }
+    fputc('\n', output); // дописываем
+
+    for (int i = 0; i < word_count; i++) {
+        free(words[i]);
     }
 }
 
 int main() {
-    FILE *input = fopen("input.txt", "r");
-    FILE *output = fopen("output.txt", "w");
-    int width = 80; // Желаемая ширина строки
-    
+    FILE *input = fopen("input_DZ8N1.txt", "r");
+    FILE *output = fopen("output_DZ8N1.txt", "w");
+    int width = 50;
     if (input == NULL || output == NULL) {
-        printf("Ошибка открытия файлов\n");
-        return 1;
+        printf("open error\n");
     }
-    
-    justify_text(input, output, width);
-    
+
+    format_text(input, output, width);
     fclose(input);
     fclose(output);
-    return 0;
 }
