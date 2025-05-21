@@ -1,0 +1,208 @@
+/* Общие стили */
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    line-height: 1.5;
+    font-family: sans-serif;
+    background-color: #0B1D26;
+    color: #fff;
+    scroll-behavior: smooth;
+}
+
+/* Параллакс-слои */
+.parallax__images {
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    top: -10%;
+    left: -10%;
+    z-index: 0; 
+}
+
+.images-parallax_item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.images-parallax_clouds {
+    background: url('clouds.png') top / cover no-repeat;
+    top: 0;
+    z-index: 1; /* Облака - нижний слой */
+}
+
+.images-parallax_mountains {
+    background: url('mountains.png') top / cover no-repeat;
+    top: 15%;
+    z-index: 2; /* Горы - средний слой */
+}
+
+.images-parallax_zemla {
+    background: url('hills.png') top / cover no-repeat;
+    top: 45%;
+    z-index: 3; /* Холмы - верхний слой */
+}
+
+/* Стили для Hero Section */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.parallax__images, .images-parallax_item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0; top: 0;
+}
+
+.images-parallax_clouds,.images-parallax_mountains,.images-parallax_zemla{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+}
+
+.nav-section {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    padding: 0 50px;
+    z-index: 200;
+}
+
+.content-section {
+    color: white;
+    padding: 150px 100px;
+    position: relative;
+    z-index: 100;
+}
+
+.gradient-overlay {
+    background: linear-gradient(to top, #0B1D26, rgba(11,29,38,0));
+    height: 40%;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 4;
+}
+
+.side-text {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    position: fixed;
+    left: 40px;
+    top: 30%;
+    color: white;
+    z-index: 100;
+}
+
+/* Стили для контентных секций */
+.bg-baza {
+    background: #0B1D26;
+}
+
+.section-number {
+    position: absolute;
+    left: -100px;
+    top: 0;
+    font-size: 200px;
+    font-weight: 700;
+}
+
+.content-card {
+    position: relative;
+    padding-left: 100px;
+}
+
+/* Футер */
+footer {
+    background-color: #0B1D26;
+    position: relative;
+    z-index: 2;
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    transform: translateY(-100%);
+    background: linear-gradient(180deg, rgba(11,29,35,0) 5%, #0B1D26 100%);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .content-section {
+        padding: 100px 30px;
+    }
+    
+    .content-card {
+        padding-left: 0;
+        margin-top: 50px;
+    }
+    
+    .section-number {
+        left: 0;
+        top: -50px;
+        font-size: 120px;
+    }
+    
+    .side-text {
+        left: 20px;
+    }
+}
+
+@media (max-aspect-ratio: 3/2) {
+    .images-parallax_zemla {
+        background-position: 20% top;
+    }
+}
+
+@media (max-width: 479px) {
+    .parallax__title {
+        font-size: 36px;
+    }
+}
+
+/* Bootstrap-кастомизация */
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.nav-link {
+    transition: opacity 0.3s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+}
+
+.text-warning {
+    color: #FDB784 !important;
+}
+
+.display-1 {
+    font-size: 4.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+@media (max-width: 992px) {
+    .display-1 {
+        font-size: 3rem;
+    }
+}
