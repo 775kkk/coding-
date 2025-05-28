@@ -108,6 +108,25 @@
 			}
 		]
 	},
+	"armor+5":{
+		"title":"Броня +5",
+		"icon":{
+			"type":"item",
+			"data":{
+				"item":"iron_chestplate"
+			}
+		},
+		"rewards": [
+			{
+				"type": "puffish_skills:attribute",
+				"data": {
+					"attribute": "generic.armor",
+					"value": 5,
+					"operation": "addition"
+				}
+			}
+		]
+	},
 	"health+1": {
 		"title": "+0.5 Здоровья",
 		"icon": {
@@ -356,7 +375,7 @@
 			}
 		]
 	},
-	"regeneration+1": {
+	"extraRegeneration+1": {
 		"title": "Восстановление величия +50% к регенерации",
 		"icon": {
 			"type": "item",
@@ -390,6 +409,44 @@
 					"attribute": "puffish_skills:player.jump",
 					"value": 0.05,
 					"operation": "multiply_total"
+				}
+			}
+		]
+	},
+	"armor_toughness+1": {
+		"title": "Твёрдость брони +1",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "diamond_chestplate"
+			}
+		},
+		"rewards": [
+			{
+				"type": "puffish_skills:attribute",
+				"data": {
+					"attribute": "generic.armor_toughness",
+					"value": 1,
+					"operation": "addition"
+				}
+			}
+		]
+	},
+	"armor_toughness+2": {
+		"title": "Твёрдость брони +2",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "diamond_chestplate"
+			}
+		},
+		"rewards": [
+			{
+				"type": "puffish_skills:attribute",
+				"data": {
+					"attribute": "generic.armor_toughness",
+					"value": 2,
+					"operation": "addition"
 				}
 			}
 		]
