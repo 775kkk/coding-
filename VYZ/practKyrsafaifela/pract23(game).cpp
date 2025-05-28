@@ -83,19 +83,16 @@ char **generateField(int x, int y, int chanseWALL, int chansePOINT, int countPOI
 int calculatePotentialPoints(char **field, int x, int y, int plX, int plY){
     if (plX < 0 || plX >= y || plY < 0 || plY >= x) return 0;
 
-    // Массив для отметки посещённых клеток
     bool **visited = (bool**)malloc(y * sizeof(bool*));
     for (int i = 0; i < y; i++) {
         visited[i] = (bool*)malloc(x * sizeof(bool));
         for (int j = 0; j < x; j++) visited[i][j] = false;
     }
 
-    // Очередь на массиве (максимум x*y элементов)
     int *queueX = (int*)malloc(x * y * sizeof(int));
     int *queueY = (int*)malloc(x * y * sizeof(int));
     int head = 0, tail = 0;
 
-    // Начальная позиция
     queueX[tail] = plX;
     queueY[tail] = plY;
     tail++;
@@ -110,14 +107,12 @@ int calculatePotentialPoints(char **field, int x, int y, int plX, int plY){
         int curY = queueY[head];
         head++;
 
-        // Обработка клетки
         char cell = field[curX][curY];
         printf("Visited (%d, %d): %c\n", curX, curY, cell);
         if (cell == '*') points++;
         else if (cell == 'm') chests++;
         else if (cell == 'p') keys++;
 
-        // Добавление соседей
         for (int i = 0; i < 4; i++) {
             int nx = curX + dx[i];
             int ny = curY + dy[i];
@@ -136,7 +131,6 @@ int calculatePotentialPoints(char **field, int x, int y, int plX, int plY){
         }
     }
 
-    // Освобождение памяти
     for (int i = 0; i < y; i++) free(visited[i]);
     free(visited);
     free(queueX);
