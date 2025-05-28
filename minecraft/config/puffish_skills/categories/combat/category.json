@@ -1,0 +1,11 @@
+{
+	"unlocked_by_default": false,
+	"title": "Сражение",
+	"icon": {
+		"type": "item",
+		"data": {
+			"item": "diamond_sword"
+		}
+	},
+	"background": "textures/gui/advancements/backgrounds/adventure.png"
+}

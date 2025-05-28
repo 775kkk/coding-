@@ -1,0 +1,150 @@
+{
+  "0_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "root_defense_and_damage_boost",
+    "root": true
+  },
+  "0_40": {
+    "x": 0,
+    "y": 40,
+    "definition": "movement_speed+5%"
+  },
+  "-33_40": {
+    "x": -33,
+    "y": 40,
+    "definition": "armor+1"
+  },
+  "33_40": {
+    "x": 33,
+    "y": 40,
+    "definition": "armor+1"
+  },
+  "0_70": {
+    "x": 0,
+    "y": 70,
+    "definition": "health+1"
+  },
+  "30_10": {
+    "x": 30,
+    "y": 10,
+    "definition": "health+1"
+  },
+  "-30_10": {
+    "x": -30,
+    "y": 10,
+    "definition": "movement_speed+5%"
+  },
+  "-30_-20": {
+    "x": -30,
+    "y": -20,
+    "definition": "armor+2"
+  },
+  "30_-20": {
+    "x": 30,
+    "y": -20,
+    "definition": "armor+2"
+  },
+  "55_10":{
+	"x": 55,
+    "y": 10,
+    "definition": "health+1"
+  },
+  "-55_10":{
+	"x": -55,
+    "y": 10,
+    "definition": "health+1"
+  },
+  "-55_-33":{
+	"x": -55,
+    "y": -33,
+    "definition": "healing+10%"
+  },
+  "55_-33":{
+	"x": 55,
+    "y": -33,
+    "definition": "healing+10%"
+  },
+  "65_-57":{
+	"x": 65,
+    "y": -57,
+    "definition": "armor+2"
+  },
+  "-65_-57":{
+	"x": -65,
+    "y": -57,
+    "definition": "armor+2"
+  },
+  "0_-35":{
+	"x":0,
+	"y":-35,
+	"definition": "extraRegeneration+1"
+  },
+  "0_-64":{
+	"x":0,
+	"y":-64,
+	"definition": "armor_toughness+1"
+  },
+  "0_-92":{
+	"x":0,
+	"y":-92,
+	"definition": "armor_toughness+2"
+  },
+
+
+  "60_40":{
+	"x": 60,
+    "y": 40,
+    "definition": "meleDamageStok+0.5"
+  },
+  "-60_40":{
+	"x": -60,
+    "y": 40,
+    "definition": "meleDamageStok+0.5"
+  },
+  "0_95":{
+	"x": 0,
+    "y": 95,
+    "definition": "armor_toughness+1"
+  },
+  "-30_100":{
+	"x": -30,
+    "y": 100,
+    "definition": "health+2"
+  },
+  "30_100":{
+	"x": 30,
+    "y": 100,
+    "definition": "armor+2"
+  },
+  "60_90":{
+	"x": 60,
+    "y": 90,
+    "definition": "healing+5%"
+  },
+  "-60_90":{
+	"x": -60,
+    "y": 90,
+    "definition": "health+1"
+  },
+  "0_125":{
+	"x": 0,
+    "y": 125,
+    "definition": "stamina+5%"
+  },
+  "30_120":{
+	"x": 30,
+    "y": 120,
+    "definition": "armor_toughness+1"
+  },
+  "-30_120":{
+	"x": -30,
+    "y": 120,
+    "definition": "armor+2"
+  },
+  "0_145":{
+	"x": 0,
+    "y": 145,
+    "definition": "armor+5"
+  }
+}
