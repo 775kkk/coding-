@@ -1,3 +1,4 @@
+/* Общие стили */
 *, *::before, *::after {
     padding: 0;
     margin: 0;
@@ -22,11 +23,12 @@ html, body {
     top: -10%;
     left: -10%;
     z-index: 0; 
+     height: 1400px; /* Соответствуем высоте hero-section */
 }
 
 .images-parallax_item {
     position: absolute;
-    width: 100%;
+    width: 900%;
     height: 100%;
     top: 0;
     left: 0;
@@ -35,39 +37,47 @@ html, body {
 .images-parallax_clouds {
     background: url('clouds.png') top / cover no-repeat;
     top: 0;
-    z-index: 1; /* Облака - нижний слой */
+    z-index: 1; 
 }
-
+.otstyp{
+    margin-top: 200px;
+}
 .images-parallax_mountains {
     background: url('mountains.png') top / cover no-repeat;
-    top: 15%;
-    z-index: 2; /* Горы - средний слой */
+    top: 40%;
+    z-index: 2; 
+    background-position: 0% top;
 }
 
 .images-parallax_zemla {
     background: url('hills.png') top / cover no-repeat;
-    top: 45%;
+    top: 50%;
     z-index: 3; /* Холмы - верхний слой */
+    /* background-position: 20% top;  */
 }
 
 /* Стили для Hero Section */
 .hero-section {
     position: relative;
-    height: 100vh;
+    height: 1600px; /* Фиксированная высота по макету */
+    min-height: 100vh; /* Минимум на весь экран */
     overflow: hidden;
     z-index: 1;
-}.hero-section::before {
+}
+.hero-section::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    height: 1600px; 
     background: radial-gradient(ellipse at center, 
-                rgba(11,29,38,0.1) 0%, 
-                rgba(11,29,38,0.4) 100%);
+                rgba(11,29,38,0.2) 0%, 
+                rgba(11,29,38,0.8) 100%);
     z-index: 1;
 }
+
 
 .parallax__images, .images-parallax_item {
     position: absolute;
@@ -81,10 +91,11 @@ html, body {
     width: 100%;
     height: 100%;
     left: 0;
+    height: 1400px;
+    background-size: cover;
+    background-position: center;
 }
-.size150{
-    scale: 1.3;
-}
+
 .nav-section {
     position: absolute;
     top: 20px;
@@ -96,24 +107,80 @@ html, body {
     align-items: center;
     padding: 30px 50px;
 }
+.nav-section .navbar-nav {
+    display: flex;
+    gap: 30px;
+}
+.nav-section .navbar-nav {
+    display: flex;
+    gap: 30px;
+}
+.hero-section{
 
-._container{
-    /*  wrapper*/ 
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 50px 20px;
 }
-.mrgTop20px{
-    margin-top: 120px;
+/* Социальные ссылки */
+.side-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
-.justCenter{
-    justify-content: center;
+
+.side-text span {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    margin-bottom: 15px;
 }
+
+/* Параллакс-коррекция */
+.parallax__images {
+    transform: scale(1.1);
+}
+
+/* Кнопка скролла */
+.scroll-down {
+    color: white;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    margin-top: 30px;
+    display: inline-block;
+    position: relative;
+}
+
+.scroll-down::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 0;
+    height: 1px;
+    background: white;
+    transition: width 0.3s ease;
+}
+
+.scroll-down:hover::after {
+    width: 100%;
+}
+
 .content-section {
     color: white;
     padding: 150px 100px;
     position: relative;
     z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh; /* Добавляем минимальную высоту */
+}
+
+/* Для центрирования контента внутри */
+.content-center {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
 }
 
 .gradient-overlay {
@@ -170,12 +237,8 @@ footer::before {
     transform: translateY(-100%);
     background: linear-gradient(180deg, rgba(11,29,35,0) 5%, #0B1D26 100%);
 }
-.fs_big{
-    font-size: 400%;
-}
-.colorYellow{
-    color: #ffdd44;
-}
+
+
 .zagolovok_s_chertoy_brighter{
     color: #ffdd44;
     display: flex;
@@ -266,7 +329,6 @@ footer::before {
 
 .nav-link {
     transition: opacity 0.3s ease;
-    font-size: 20px;
 }
 
 .nav-link:hover {

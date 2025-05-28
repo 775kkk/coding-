@@ -1,0 +1,11 @@
+{
+	"unlocked_by_default": true,
+	"title": "Становление Титаном",
+	"icon": {
+		"type": "effect",
+		"data": {
+			"effect": "resistance"
+		}
+	},
+	"background": "textures/gui/advancements/backgrounds/adventure.png"
+}

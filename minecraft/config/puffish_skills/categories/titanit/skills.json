@@ -1,0 +1,38 @@
+{
+  "0_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "root_defense_and_damage_boost",
+    "root": true
+  },
+  "0_40": {
+    "x": 0,
+    "y": 40,
+    "definition": "movement_speed+5%"
+  },
+  "-33_40": {
+    "x": -33,
+    "y": 40,
+    "definition": "armor+1"
+  },
+  "33_40": {
+    "x": 33,
+    "y": 40,
+    "definition": "armor+1"
+  },
+  "0_70": {
+    "x": 0,
+    "y": 70,
+    "definition": "health+1"
+  },
+  "30_10": {
+    "x": 30,
+    "y": 10,
+    "definition": "health+1"
+  },
+  "-30_10": {
+    "x": -30,
+    "y": 10,
+    "definition": "movement_speed+5%"
+  }
+}

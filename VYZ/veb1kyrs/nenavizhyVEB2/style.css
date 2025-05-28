@@ -67,6 +67,50 @@ html,body{
     background-color: #fdb784;
     height: 1px;
 }
+/* Правая панель навигации */
+.progress-nav {
+    position: fixed;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+}
+
+.progress-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.progress-nav li {
+    margin: 15px 0;
+    text-align: right;
+}
+
+.progress-nav a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    position: relative;
+    display: inline-block;
+}
+
+.progress-nav li.active a {
+    color: #FDB784;
+}
+
+.progress-nav li.active a::after {
+    content: "";
+    position: absolute;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background: #FDB784;
+    border-radius: 50%;
+}
 
 .parallax__title{
     font-size: 88px;
