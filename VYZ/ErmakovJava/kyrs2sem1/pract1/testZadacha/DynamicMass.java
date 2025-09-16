@@ -1,56 +1,60 @@
 package VYZ.ErmakovJava.kyrs2sem1.pract1.testZadacha;
 
 public class DynamicMass{
-    // int baseSize=10;
-    // int[] mass = new int[baseSize];
-    // void ToDynamic(int[] arr){
-    //     if (mass.length != arr.length) {
-    //         this.baseSize*=1.5;
-    //         mass = new int[baseSize];
-    //     }
-    //     for (int i = 0; i < arr.length; i++) {
-    //         mass[i]=arr[i];
-    //     }
-    // }
+    private int[] mass ;
+    private int factlen=0;
 
-    // void appendToMassive(int chislo){
-    //     if (mass.length+1 > this.baseSize) {
-    //         this.baseSize*=1.5;
-    //         int[] temp = mass;
-    //         mass = new int[baseSize];
-    //     } 
-    // }
-    int[] mass ;
-    int factlen;
-    int mnimlen;
+    int size() {
+        return this.factlen;
+    }
+
+    private void lengthCorrection(int minlen) {
+        if (this.mass.length >= minlen) return ;
+        int[] temp = new int[Math.max((int)(this.mass.length*1.5)+1, minlen)];
+        System.arraycopy(this.mass, 0, temp, 0, this.factlen); // копируем ток по фактлен
+        this.mass = temp;
+    }
+
     void toDynamic(int[] arr){
         // в динамический массив 
+        if (arr == null) throw new NullPointerException("arr cannot be null");
         this.mass = new int[arr.length];
-        for (int i = 0; i < arr.length; i++) {
-            this.mass[i]=arr[i];
-        }
-        // обнулить arr?
-        this.factlen=arr.length;
-    }
-    void add(int chislo){
-        try {// по сути можно проверку на факт длину и физ длину
-            this.mass[factlen]=chislo;
-            
-        } catch (Exception e) {
-            int[] temp = this.mass;
-            this.mnimlen = (int)(factlen*1.5);
-            this.mass = new int[mnimlen];
-            for (int i = 0; i < temp.length; i++) {
-                mass[i]=temp[i];
-            }
-            mass[factlen]=chislo;
-        }
-        this.factlen+=1;
+        System.arraycopy(arr, 0, this.mass, 0, arr.length);
+        this.factlen = arr.length;
     }
 
-    void length(){
-        // this.mass[-1]==this.mass[mnimlen] ?
-        
+    void add(int chislo){
+        lengthCorrection(this.factlen + 1);
+        this.mass[factlen++] = chislo;
+    }
+
+    void insert(int index, int chislo) { // вставка с сдвигом 
+        if (index < 0) throw new IndexOutOfBoundsException("array index < 0");
+        lengthCorrection(index + 1);// корректируем сразу, учитывая случаи когда индекс за пределами факт и практической длин
+        if (index < this.factlen){// внутри фактической длиннны
+            System.arraycopy(this.mass, index, this.mass, index + 1, this.factlen - index);// невероятно удобное копирование чота магическое
+            this.mass[index] = chislo;
+            this.factlen++;
+        } else if (index == factlen){
+            this.mass[this.factlen++] = chislo;
+        } else { // index > factlen: устраивает промежуток 
+            this.mass[index] = chislo;
+            this.factlen = index + 1;
+        }
+    }
+
+    void replase(int chislo, int index){
+        if (index < 0) throw new IndexOutOfBoundsException("array index < 0");
+        if (index >= this.factlen) throw new IndexOutOfBoundsException("array index out of range");
+        this.mass[index]=chislo;
+    }
+    
+    void remove(int index){
+        if (index < 0) throw new IndexOutOfBoundsException("array index < 0");
+        if (index > this.factlen) throw new IndexOutOfBoundsException("array index > size");
+         System.arraycopy(this.mass, index + 1, this.mass, index, this.factlen - index - 1);
+         this.factlen--;
+         // резонно ли делать уменьшение lenght массива??
     }
 
 }
