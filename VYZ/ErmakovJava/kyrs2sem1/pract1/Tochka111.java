@@ -4,6 +4,12 @@ public class Tochka111 {
     private int X;
     private int Y;
     private int Z;
+
+    public Tochka111(int x, int y, int z){
+        this.X=x;
+        this.Y=y;
+        this.Z=z;
+    }
 // setters
     protected void setX(int X){
         this.X = X;
@@ -24,13 +30,12 @@ public class Tochka111 {
     protected int getZ(){
         return this.Z;
     }
-// upscale setters
+// up setters
     public void setTochka(int X, int Y, int Z){
         setX(X);
         setY(Y);
         setZ(Z);    
     }
-// tostring
     @Override
     public String toString() {
         return "{" + X + ";" + Y + ";"+Z+"}";
