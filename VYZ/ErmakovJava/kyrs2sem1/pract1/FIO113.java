@@ -1,11 +1,11 @@
 package VYZ.ErmakovJava.kyrs2sem1.pract1;
 
-public class FIO111 {
+public class FIO113 {
     private String name;
     private String lastname;
     private String otchestvo;
 
-    public FIO111(String name, String lastName, String othestvo){
+    public FIO113(String name, String lastName, String othestvo){
         this.lastname = lastName;
         this.name = name;
         this.otchestvo = othestvo;

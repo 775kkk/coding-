@@ -1,6 +1,6 @@
 package VYZ.ErmakovJava.kyrs2sem1.pract1;
 
-public class human111 {
+public class human112 {
     private String name ;
     private int height;
 
@@ -17,7 +17,7 @@ public class human111 {
         return this.name;
     }
 
-    public human111(String name, int height){
+    public human112(String name, int height){
         this.height=height;
         this.name=name;
     }
