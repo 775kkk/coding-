@@ -3,8 +3,8 @@ package VYZ.ErmakovJava.kyrs2sem1.pract1.testZadacha;
 // import java.util.Arrays;
 
 public class DynamicMass{
-    private int[] mass = new int[0] ;
-    private int factlen=0;
+    private int[] mass;
+    private int factlen;
 
     public int size() {
         return this.factlen;
@@ -17,7 +17,10 @@ public class DynamicMass{
         this.mass = temp;
     }
 
-    public DynamicMass(){}
+    public DynamicMass(){
+        mass = new int[0];
+        factlen=0;
+    }
     
     public DynamicMass(int len) {
         if (len < 0) {
@@ -35,7 +38,6 @@ public class DynamicMass{
         if (arr == null) throw new NullPointerException("arr cannot be null");
         this.mass = new int[arr.length];
         System.arraycopy(arr, 0, this.mass, 0, arr.length);
-        // this.mass = Arrays.copyOf(arr, arr.length);
         this.factlen = arr.length;
     }
 
@@ -102,3 +104,4 @@ public class DynamicMass{
         return this.mass[index];
     }
 }
+// to do : TRIM - оптимизация , реализовать гедмасс - копия массива

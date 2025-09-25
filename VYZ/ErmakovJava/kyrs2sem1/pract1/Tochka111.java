@@ -11,23 +11,23 @@ public class Tochka111 {
         this.Z=z;
     }
 // setters
-    protected void setX(int X){
+    public void setX(int X){
         this.X = X;
     }
-    protected void setY(int Y){
+    public void setY(int Y){
         this.Y = Y;
     }
-    protected void setZ(int Z){
+    public void setZ(int Z){
         this.Z = Z;
     }
 // getters
-    protected int getX(){
+    public int getX(){
         return this.X;
     }
-    protected int getY(){
+    public int getY(){
         return this.Y;
     }
-    protected int getZ(){
+    public int getZ(){
         return this.Z;
     }
 // up setters
