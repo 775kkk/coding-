@@ -27,6 +27,13 @@ public class Main {
         System.out.println("1.2.2 :");
         People people1 = new People("Иван","Чудов");
         People people2 = new People("Петр","Чудов");
+        People people3 = new People("Борис");
+        people2.setPhather(people1);
+        people3.setPhather(people2);
+        System.out.println(people1);
+        System.out.println(people2);
+        System.out.println(people3);
+
         System.out.println("======================");
     }
 }
