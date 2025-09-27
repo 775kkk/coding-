@@ -52,6 +52,8 @@ public class People {
     public void setPhather(People father){
         this.father = father;
     }
+
+    
     private String validField(String a){
         if (a==null) {
             return "";
@@ -76,10 +78,5 @@ public class People {
             validField(validOtchestvo())
         ).trim();
         return String.format("People{%s}", retResult);
-        // if (father == null) {
-        //     return String.format("People{%s}", retResult);
-        // } else {
-        //     return String.format("People{%s ;Father{%s}}", retResult, father);
-        // }
     }
 }

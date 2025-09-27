@@ -23,8 +23,8 @@ public class Main {
         System.out.println(lineTwo);
         System.out.println(lineThrid);
         System.out.println("======================");
-        // 1.2.2
-        System.out.println("1.2.2 :");
+        // 1.2.2 - 1.2.3
+        System.out.println("1.2.2 - 1.2.3 :");
         People people1 = new People("Иван","Чудов");
         People people2 = new People("Петр","Чудов");
         People people3 = new People("Борис");
@@ -33,7 +33,23 @@ public class Main {
         System.out.println(people1);
         System.out.println(people2);
         System.out.println(people3);
-
         System.out.println("======================");
+        // 1.2.4
+        System.out.println("1.2.4 :");
+        // EmployeesAndDepartments structut1 = new EmployeesAndDepartments("Петров", "IT");
+        Departament IT = new Departament("IT");
+        Employee Petrov = new Employee("Петров");
+        Employee Kozlov = new Employee("Козлов");
+        Employee Sidorov = new Employee("Сидоров");
+
+        IT.setCheif(Kozlov);
+        IT.addNewEmploye(Sidorov);
+        IT.addNewEmploye(Petrov);
+        IT.addNewEmploye(Kozlov);
+
+        System.out.println(IT);
+        System.out.println(Kozlov);
+        System.out.println("======================");
+
     }
 }
