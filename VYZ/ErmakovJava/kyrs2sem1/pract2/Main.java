@@ -42,13 +42,19 @@ public class Main {
         Employee Kozlov = new Employee("Козлов");
         Employee Sidorov = new Employee("Сидоров");
 
-        IT.setCheif(Kozlov);
-        IT.addNewEmploye(Sidorov);
-        IT.addNewEmploye(Petrov);
-        IT.addNewEmploye(Kozlov);
+        // IT.setCheif(Kozlov);
+        // Petrov.setWorkDepartament(IT);
+        // System.out.println(IT);
+        // System.out.println(IT.getEmployeeList());
 
-        System.out.println(IT);
-        System.out.println(Kozlov);
+        IT.addNewEmploye(Sidorov);
+        Sidorov.setWorkDepartament(IT);
+        IT.deleteEmployee(Sidorov);
+        System.out.println(IT.getEmployeeList().contains(Sidorov));
+        System.out.println(Sidorov.getWorkDepartament());
+        System.out.println(IT.getEmployeeList());
+
+
         System.out.println("======================");
 
     }

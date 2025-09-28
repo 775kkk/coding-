@@ -14,17 +14,23 @@ public class Employee {
         this(workerName, null);
     }
 
-    public void setWorkDepartament(Departament workDepartament) {
+    // для отвязки от старого департмента и собственной привязки к новому
+    public void newWorkDepartament(Departament workDepartament){
         if (workDepartament==null) {
             return;
         }
         if (this.workDepartament!=null) {
             this.workDepartament.deleteEmployee(this);
         }
-
         this.workDepartament = workDepartament;
-        workDepartament.addNewEmploye(this);
     }
+    
+    // для прикрепления сотрудника к департаменту с стороны департамента
+    public void setWorkDepartament(Departament workDepartament) {
+        this.newWorkDepartament(workDepartament);// внутренний метод сотрудника для отвязки от старого департмента и собственной привязки к новому
+        workDepartament.writeToDepartmentList(this);// вунтренний метод департамента для внесения в список сотрудников департаментиа
+    }
+
     public void setWorkerName(String workerName) {
         this.workerName = workerName;
     }
@@ -44,6 +50,7 @@ public class Employee {
         return "Employee{"+workerName+" из "+workDepartament+"}";
     }
 
+    // для работы List.contains()
     @Override
     public boolean equals(Object o){
         if (this == o) return true;
