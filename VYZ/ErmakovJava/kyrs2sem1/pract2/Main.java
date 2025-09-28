@@ -48,13 +48,15 @@ public class Main {
         // System.out.println(IT.getEmployeeList());
 
         IT.addNewEmploye(Sidorov);
-        Sidorov.setWorkDepartament(IT);
+        Petrov.setWorkDepartament(IT);
+        IT.setCheif(Petrov);
         IT.deleteEmployee(Sidorov);
         System.out.println(IT.getEmployeeList().contains(Sidorov));
         System.out.println(Sidorov.getWorkDepartament());
         System.out.println(IT.getEmployeeList());
-
-
+        System.out.println(Sidorov.getWorkDepartament());
+        System.out.println(IT);
+        
         System.out.println("======================");
 
     }

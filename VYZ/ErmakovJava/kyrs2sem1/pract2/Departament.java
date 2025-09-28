@@ -66,10 +66,23 @@ public class Departament {
         }
     }
 
+    // метод департамента для удаления сотрудника
     public void deleteEmployee(Employee employee){
+        if (employee== null) throw new NullPointerException("employee cant be null");
+        this.deleteEmployeeFromDepartamentList(employee);// внутренний метод департамента для удаления сотрудника из списка
+        employee.newWorkDepartament(null);
+    }
+    // внутренний метод департамента для удаления сотрудника из списка
+    public void deleteEmployeeFromDepartamentList(Employee employee){
         if (employee!=null && employeeList!=null) {
             this.employeeList.remove(employee);        
-        }    
+        } 
+    }
+
+    // метод департамента для добавления нового сотрудника
+    public void addNewEmploye(Employee employee){
+        this.writeToDepartmentList(employee);// вунтренний метод департамента для внесения в список сотрудников департаментиа
+        employee.newWorkDepartament(this);// внутренний метод сотрудника для отвязки от старого департмента и собственной привязки к новому
     }
 
     // вунтренний метод департамента для внесения в список сотрудников департаментиа
@@ -84,10 +97,7 @@ public class Departament {
             employeeList.add(employee);
         }
     }
-    public void addNewEmploye(Employee employee){
-        this.writeToDepartmentList(employee);// вунтренний метод департамента для внесения в список сотрудников департаментиа
-        employee.newWorkDepartament(this);// внутренний метод сотрудника для отвязки от старого департмента и собственной привязки к новому
-    }
+    
 
     @Override
     public String toString() {
