@@ -1,14 +1,14 @@
 package VYZ.ErmakovJava.kyrs2sem1.pract2;
 
-import VYZ.ErmakovJava.kyrs2sem1.pract1.Tochka111;
+import VYZ.ErmakovJava.kyrs2sem1.pract1.Tochka;
 
 public class Main {
 
     public static void main(String[] args) {
         // 1.2.1
         System.out.println("1.2.1 :");
-        Tochka111 A = new Tochka111(1, 3, 0);
-        Tochka111 B = new Tochka111(23, 8, 0);
+        Tochka A = new Tochka(1, 3, 0);
+        Tochka B = new Tochka(23, 8, 0);
         Line lineOne = new Line(A,B);
         Line lineTwo = new Line(5,10,0,25,10,0);
         Line lineThrid = new Line(A,lineTwo.getB());

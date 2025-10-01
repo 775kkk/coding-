@@ -51,7 +51,16 @@ public class Student {
         }
         return newGradesList;
     }
+    public double getAverageGrade(){
+        if (this.gradesList.isEmpty()) return 0.0;
+        int grades=0;
+        // for (int i = 0; i < gradesList.size(); i++) {
 
+        for (int grade : gradesList){
+            grades+=grade;
+        }
+        return (double)grades/gradesList.size();
+    }
 
     @Override
     public String toString() {

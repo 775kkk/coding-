@@ -2,7 +2,7 @@ package VYZ.ErmakovJava.kyrs2sem1.pract1.testZadacha;
 
 import VYZ.ErmakovJava.kyrs2sem1.pract1.Dom115;
 import VYZ.ErmakovJava.kyrs2sem1.pract1.FIO113;
-import VYZ.ErmakovJava.kyrs2sem1.pract1.Tochka111;
+import VYZ.ErmakovJava.kyrs2sem1.pract1.Tochka;
 import VYZ.ErmakovJava.kyrs2sem1.pract1.human112;
 import VYZ.ErmakovJava.kyrs2sem1.pract1.time114;
 
@@ -31,7 +31,7 @@ public class test {
 // ------------------------------------------------
         // 1.1.1
         System.out.println("1.1.1 :");
-        Tochka111 A = new Tochka111(1, 2, 0);
+        Tochka A = new Tochka(1, 2, 0);
         System.out.println(A);
         System.out.println("======================");
 

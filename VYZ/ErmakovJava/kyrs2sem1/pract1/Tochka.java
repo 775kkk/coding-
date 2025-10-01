@@ -1,14 +1,17 @@
 package VYZ.ErmakovJava.kyrs2sem1.pract1;
 
-public class Tochka111 {
+public class Tochka {
     private int X;
     private int Y;
     private int Z;
 
-    public Tochka111(int x, int y, int z){
+    public Tochka(int x, int y, int z){
         this.X=x;
         this.Y=y;
         this.Z=z;
+    }
+    public Tochka(int x, int y){
+        this(x, y, 0);
     }
 // setters
     public void setX(int X){
