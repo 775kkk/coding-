@@ -13,6 +13,9 @@ public class Tochka {
     public Tochka(int x, int y){
         this(x, y, 0);
     }
+    public Tochka(Tochka tochka){
+        this(tochka.getX(), tochka.getY(), tochka.getZ());
+    }
 // setters
     public void setX(int X){
         this.X = X;
