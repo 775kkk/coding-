@@ -16,6 +16,16 @@ public class Tochka {
     public Tochka(Tochka tochka){
         this(tochka.getX(), tochka.getY(), tochka.getZ());
     }
+    public Tochka(int[] tochka){
+        this(
+            tochka != null && tochka.length > 0 ? tochka[0] : 0,
+            tochka != null && tochka.length > 1 ? tochka[1] : 0,
+            tochka != null && tochka.length > 2 ? tochka[2] : 0
+        );
+    }
+
+    // private int getValidCoordinate(int){
+    // }
 // setters
     public void setX(int X){
         this.X = X;

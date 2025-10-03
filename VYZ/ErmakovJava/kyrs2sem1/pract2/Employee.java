@@ -19,7 +19,7 @@ public class Employee {
         if (workDepartament==null) throw new NullPointerException("workDepartament cant be NULL");
         this.newWorkDepartament(workDepartament);// внутренний метод сотрудника для отвязки от старого департмента и собственной привязки к новому
         workDepartament.writeToDepartmentList(this);// вунтренний метод департамента для внесения в список сотрудников департаментиа
-    }
+    }//на ивенты лучше 
     
     // внутренний метод сотрудника для отвязки от старого департмента и собственной привязки к новому
     public void newWorkDepartament(Departament workDepartament){

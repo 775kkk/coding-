@@ -11,7 +11,7 @@ public class Departament {
 
     public Departament(String departamentName, List<Employee> employeeList,Employee cheif){
        this.departamentName = Objects.requireNonNull(departamentName, "Department name cant be null");
-       this.employeeList = (employeeList != null) ? new ArrayList<>(employeeList) : new ArrayList<>();
+       this.employeeList = (employeeList != null) ? new ArrayList<Employee>(employeeList) : new ArrayList<Employee>();
        this.cheif = cheif;
     }
     public Departament(String departamentName,List<Employee> employeeList){
@@ -36,7 +36,7 @@ public class Departament {
         this.departamentName = departamentName;
     }
     public void setEmployeeList(List<Employee> employeeList) {
-        this.employeeList = employeeList;
+        this.employeeList = new ArrayList<Employee>(employeeList);
     }
 
     public Employee getCheif(){
@@ -58,7 +58,6 @@ public class Departament {
             return;
         }
         employeeList.removeIf(Objects::isNull);
-        
         for (Employee employee : employeeList) {
             if (employee != null) {
                 employee.setWorkDepartament(this);
@@ -78,7 +77,6 @@ public class Departament {
             this.employeeList.remove(employee);        
         } 
     }
-
     // метод департамента для добавления нового сотрудника
     public void addNewEmploye(Employee employee){
         this.writeToDepartmentList(employee);// вунтренний метод департамента для внесения в список сотрудников департаментиа
@@ -97,7 +95,6 @@ public class Departament {
             employeeList.add(employee);
         }
     }
-    
 
     @Override
     public String toString() {
