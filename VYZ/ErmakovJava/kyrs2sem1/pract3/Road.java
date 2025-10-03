@@ -1,4 +1,4 @@
-package VYZ.ErmakovJava.kyrs2sem1.pract3;
+-package VYZ.ErmakovJava.kyrs2sem1.pract3;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -59,7 +59,29 @@ public class Road {
         }
     }
 
-    // гет по индексу, ремув по индексу, поп, тустринг
-    
+    public City getCityOnIndex(int index){// НЕ КОПИЯ
+        return this.linkedCitiesList.get(index);
+    }
+    public void popCityInRoadList(){
+        this.linkedCitiesList.remove(this.linkedCitiesList.size()-1);
+    }
+    public void removeCityInRoadListByIndex(int index){
+        this.linkedCitiesList.remove(index);
+    }
 
+    public String getCitiesNamesInListToString(){
+        if (this.linkedCitiesList.isEmpty()) {
+            return "No linked Cities";
+        }
+        String retStr;
+        for (City city : this.linkedCitiesList) {
+            retStr+=" "+city.getCityName();
+        }
+        return retStr;
+    }
+
+    @Override
+    public String toString() {
+        return "Road "+this.roadName+"; Cities:"+getCitiesNamesInListToString();
+    }
 }
