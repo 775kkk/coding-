@@ -5,7 +5,6 @@ import java.util.Objects;
 
 public class Student {
     private String studentName;
-    // private List<Integer> gradesList;
     private ArrayList<Integer> gradesList;
 
 

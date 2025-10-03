@@ -7,9 +7,6 @@ import java.util.List;
 public class Road {
     private String roadName;// дефолт роаднейма будет соедененное название двух городов
     private List<City> linkedCitiesList;// может список сделать отдельной сучностью и у него поведения определить?????????
-    // может список сделать отдельной сучностью и у него поведения определить?????????
-    // может список сделать отдельной сучностью и у него поведения определить?????????
-    // может список сделать отдельной сучностью и у него поведения определить?????????
     private int costRoute;
 
     private String roadNameCounted(String roadName){
@@ -25,9 +22,9 @@ public class Road {
         }
         return roadName;   
     }
-    
+
     public Road(String roadName,  int costRoute,List<City> linkedCitiesList){
-        this.linkedCitiesList = new ArrayList<City>(linkedCitiesList);
+        this.linkedCitiesList = linkedCitiesList!=null ? new ArrayList<City>(linkedCitiesList) : new ArrayList<City>();
         this.roadName = roadNameCounted(roadName);
         this.costRoute = costRoute;
         
@@ -37,6 +34,9 @@ public class Road {
     }
     public Road(int costRoute,City... argsOfCities) {
         this(null, costRoute, Arrays.asList(argsOfCities));
+    }
+    public Road(String roadName, int costRoute){
+        this(roadName, costRoute, null);
     }
     public Road(Road road){
         this(road.getRoadName(),road.getCostRoute(),road.getLinkedCitiesList());
@@ -63,7 +63,7 @@ public class Road {
     }
 
     public void addCity(City city){
-        city.addNewRoadtoRoadList(this);// вызываем метод сити где он Добавляет новую дорогу в список дорог
+        city.addNewRoadToRoadList(this);// вызываем метод сити где он Добавляет новую дорогу в список дорог
         this.addCityToCityList(city);//вызываем метод дороги для записи города в список дороги.
     }
 
@@ -96,12 +96,21 @@ public class Road {
         if (this.linkedCitiesList.isEmpty()) {
             return "No linked Cities";
         }
-        String retStr;
-        for (City city : this.linkedCitiesList) {
-            retStr+=" "+city.getCityName();
+        String retStr="";
+        // for (City city : this.linkedCitiesList) {
+        //     retStr+=" "+city.getCityName();
+        // }
+        for (int i = 0; i < this.linkedCitiesList.size(); i++) {
+            if (i== this.linkedCitiesList.size()-1) {
+                retStr+=" "+this.linkedCitiesList.get(i).getCityName();            
+            }else{
+                retStr+=" "+this.linkedCitiesList.get(i).getCityName()+",";
+            }
         }
         return retStr;
     }
+
+    // clearить список с последующими отвязками
 
     @Override
     public String toString() {
