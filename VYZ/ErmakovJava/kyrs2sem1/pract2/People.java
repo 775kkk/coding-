@@ -28,7 +28,15 @@ public class People {
         this(name,lastname,father.getLastName()+"ович",father);
     }
 
+    private void trimLastName(){
+        if (this.lastname==null) {
+            if(this.father!=null){
+                this.lastname=this.father.getLastName();
+            }
+        }
+    }
     public String getLastName(){
+        this.trimLastName();
         return this.lastname;
     }
     public String getName(){

@@ -8,6 +8,13 @@
             "type": "java",
             "name": "Main",
             "request": "launch",
+            "mainClass": "VYZ.ErmakovJava.kyrs2sem1.pract5.Main",
+            "projectName": "coding-_2787040b"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
             "mainClass": "VYZ.ErmakovJava.kyrs2sem1.pract2.Main",
             "projectName": "coding-_d4610ddc"
         },

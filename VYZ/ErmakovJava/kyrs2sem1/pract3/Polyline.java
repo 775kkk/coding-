@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import VYZ.ErmakovJava.kyrs2sem1.pract1.Tochka;
+import VYZ.ErmakovJava.kyrs2sem1.pract2.Line;
 
 public class Polyline {
     private String lineName;
@@ -89,6 +90,48 @@ public class Polyline {
             start.setY(start.getY() + y);
         }
     }   
+
+    public double getLineLong(){
+        return getLineLong(this);
+    }
+    public double getLineLong(Object object){
+        switch (object) {
+            case Polyline polyline:
+                double retResult=0;
+                List<Tochka> pointsList = polyline.getPolylineVerticesList();
+                if (pointsList.size()<2) {
+                    return 0;
+                } 
+                for (int i = 1; i < pointsList.size(); i++) {
+                    retResult+=getLineLong(pointsList.get(i-1),pointsList.get(i));
+                }
+                return retResult;
+
+            case Tochka tochka:
+                return 0;
+
+            case Line line:
+                return getLineLong(line.getA(),line.getB());
+
+            case null:
+                throw new IllegalArgumentException("Передан null объект в getLineLong");
+                
+            default:
+                throw new IllegalArgumentException(
+                    "Неподдерживаемый тип: " + object.getClass().getSimpleName() + 
+                    ". Поддерживаются: Polyline, Line, Tochka"
+                );
+                
+        }
+    }
+
+    public double getLineLong(Tochka tochka1, Tochka tochka2){
+        double dx = tochka1.getX() - tochka2.getX();
+        double dy = tochka1.getY() - tochka2.getY();
+        double dz = tochka1.getZ() - tochka2.getZ();
+        
+        return Math.sqrt(dx * dx + dy * dy + dz * dz);
+    }
 
     @Override
     public String toString() {
