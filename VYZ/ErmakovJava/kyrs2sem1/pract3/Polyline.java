@@ -92,10 +92,13 @@ public class Polyline {
     }   
 
     public double getLineLong(){
-        return getLineLong(this);
+        return getLineLong(this);// ПРИНИМАЕТСЯ ЛЮБОЙ ОБЪЕКТ - ОШИБКА ТОКА В РАНТАЙМ
     }
-    public double getLineLong(Object object){
-        switch (object) {
+    // ЯВНЫЙ КОНТАКТ ЛУЧШЕ СКРЫТОГО тут скрытый
+    // НЕ УДОБНО ПОДДЕРЖИВАТЬ И РАСШИРЯТЬ СВИЧТ
+    // НИКОМУ НЕ НУЖНО РАЗРАСТАТЬ МЕТОД
+    public static double getLineLong(Object object){// ПРИНИМАЕТСЯ ЛЮБОЙ ОБЪЕКТ - ОШИБКА ТОКА В РАНТАЙМ
+        switch (object) {// ПРИНИМАЕТСЯ ЛЮБОЙ ОБЪЕКТ - ОШИБКА ТОКА В РАНТАЙМ
             case Polyline polyline:
                 double retResult=0;
                 List<Tochka> pointsList = polyline.getPolylineVerticesList();
@@ -125,7 +128,7 @@ public class Polyline {
         }
     }
 
-    public double getLineLong(Tochka tochka1, Tochka tochka2){
+    public static double getLineLong(Tochka tochka1, Tochka tochka2){
         double dx = tochka1.getX() - tochka2.getX();
         double dy = tochka1.getY() - tochka2.getY();
         double dz = tochka1.getZ() - tochka2.getZ();
