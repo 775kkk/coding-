@@ -24,6 +24,7 @@ public class Pistol {
     }
     public Pistol(int bullet){
         this(null,bullet);
+        this.trimBullet();
     }
 
     public void Pew(){

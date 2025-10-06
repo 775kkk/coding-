@@ -64,7 +64,6 @@ public final class GeomEngineering {
         if (range == 0) return OptionalInt.empty();
         if (range<0) range=Math.abs(range);
         if (pts.size()<2) throw new IllegalArgumentException("pointsList must contain at least 2 items to validate step distances; got " + pts.size());
-            // List<Integer> exceptionIndexList = new ArrayList<Integer>();
             for (int i = 1; i < pts.size(); i++) {
                 // проверки на длинну
                 if (GeomEngineering.getLineLong(pts.get(i-1),pts.get(i))!=range) {
