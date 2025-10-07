@@ -1,11 +1,14 @@
 package VYZ.ErmakovJava.kyrs2sem1;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.OptionalInt;
 import java.util.function.ToDoubleFunction;
 
 import VYZ.ErmakovJava.kyrs2sem1.pract1.Tochka;
+import VYZ.ErmakovJava.kyrs2sem1.pract1.time114;
 import VYZ.ErmakovJava.kyrs2sem1.pract2.Line;
 import VYZ.ErmakovJava.kyrs2sem1.pract3.Polyline;
 
@@ -45,6 +48,10 @@ public final class GeomEngineering {
         return validRangeGetFirstInvalidIndex(listOfTochka, range).isEmpty();
     }
 
+    public static OptionalInt validRangeGetFirstInvalidIndex(int range, Tochka... argsOfTochka){
+        return validRangeGetFirstInvalidIndex(Arrays.asList(argsOfTochka),range);
+    }
+
     public static OptionalInt validRangeGetFirstInvalidIndex(List<Tochka> pts, int range) {
         Objects.requireNonNull(pts, "pts");
         if (range == 0) return OptionalInt.empty();
@@ -64,6 +71,12 @@ public final class GeomEngineering {
         return OptionalInt.empty();
     }
 
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! !!!
+    // ЧТОБЫ не тянуть за собой вот это вот ToDoubleFunction<T>...
+    // НАДО БЫЛО наследоваться от абстрактного класса 
+    //  И ПРИНИМАТЬ только наследников которые МЫ ЗНАЕМ как могут свои координаты отдать
+    // !!!!
     /**
      * Вычитает два вектора одинаковой размерности: r = u - v.
      * @param u первый вектор
@@ -105,7 +118,7 @@ public final class GeomEngineering {
     }
 
     //  COREE COREE COREE COREE COREE COREE COREE COREE COREE COREE COREE
-    public static OptionalInt validNinetyTriangleGetFirstInvalidIndex(
+    private final static OptionalInt validNinetyTriangleCore(
             double[] BA, double[] BC, EpsilonPolicy epsPolicy) {
 
         if (BA == null || BC == null) throw new NullPointerException("BA/BC");
@@ -132,17 +145,17 @@ public final class GeomEngineering {
         return (Math.abs(dot) <= eps) ? OptionalInt.empty() : OptionalInt.of(1);
     }
 
-
-    public static boolean isNinetyTriangle(double[] BA, double[] BC) {
-        return validNinetyTriangleGetFirstInvalidIndex(BA, BC, EpsilonPolicy.DEFAULT).isEmpty();
+    public static boolean isValidNinetyTriangle(double[] BA, double[] BC) {
+        return validNinetyTriangleCore(BA, BC, EpsilonPolicy.DEFAULT).isEmpty();
     }
 
 // --- Обёртка: из трёх точек и набора координат строим BA и BC и зовём core ---
     @SafeVarargs
-    public static <T> OptionalInt validateRightAngleAt(
+    public static <T> OptionalInt validNinetyTriangleGetFirstInvalidIndex(
             T A, T B, T C,
             EpsilonPolicy epsPolicy,
-            ToDoubleFunction<T>... coords)
+            ToDoubleFunction<T>... coords
+            )
     {
         Objects.requireNonNull(A, "A");
         Objects.requireNonNull(B, "B");
@@ -161,18 +174,55 @@ public final class GeomEngineering {
         double[] BC = toVector(c, b);
 
         // core-проверка на 90°
-        return validNinetyTriangleGetFirstInvalidIndex(BA, BC, epsPolicy);
+        return validNinetyTriangleCore(BA, BC, epsPolicy);
     }
 
     // Удобная булева обёртка с DEFAULT-политикой
     @SafeVarargs
-    public static <T> boolean isRightAngleAt(
+    public static <T> boolean isValidNinetyTriangle(
             T A, T B, T C,
             ToDoubleFunction<T>... coords)
     {
-        return validateRightAngleAt(A, B, C, EpsilonPolicy.DEFAULT, coords).isEmpty();
+        return validNinetyTriangleGetFirstInvalidIndex(A, B, C, EpsilonPolicy.DEFAULT, coords).isEmpty();
     }
 
+    @SafeVarargs
+    public static <T> OptionalInt validNinetyTriangleGetFirstInvalidIndex(
+            T A, T B, T C,
+            ToDoubleFunction<T>... coords)
+    {
+        return validNinetyTriangleGetFirstInvalidIndex(A, B, C, EpsilonPolicy.DEFAULT, coords);
+    }
+
+    @SafeVarargs
+    public static <T> OptionalInt validNinetyTriangleGetFirstInvalidIndex(List<T> tOfList,boolean closedChain,ToDoubleFunction<T>... coords){
+        if (tOfList.size()<3) throw new IllegalArgumentException("List of T .size()<3, cannot<3");
+        if (coords.length < 2) throw new IllegalArgumentException("At least 2 coordinate accessors are required");
+
+         final int n = tOfList.size();
+
+        if (closedChain) {
+            if (n < 4)
+                throw new IllegalArgumentException("Closed chain requires at least 4 points");
+            for (int i = 0; i < n; i++) {
+                int ip = (i - 1 + n) % n;   // prev
+                int in = (i + 1) % n;       // next
+                var bad = validNinetyTriangleGetFirstInvalidIndex(
+                        tOfList.get(ip), tOfList.get(i), tOfList.get(in), coords);
+                if (bad.isPresent()) return OptionalInt.of(i); // индекс вершины с «не 90°»
+            }
+            return OptionalInt.empty();
+        } else {
+            if (n < 3)
+                return OptionalInt.empty(); // нечего проверять
+            for (int i = 1; i <= n - 2; i++) {
+                var bad = validNinetyTriangleGetFirstInvalidIndex(
+                        tOfList.get(i - 1), tOfList.get(i), tOfList.get(i + 1), coords);
+                if (bad.isPresent()) return OptionalInt.of(i);
+            }
+            return OptionalInt.empty();
+        }
+    }
 
 
 

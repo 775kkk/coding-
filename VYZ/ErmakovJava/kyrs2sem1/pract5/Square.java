@@ -40,8 +40,13 @@ public class Square {
                 completeVertexListOfRange(conclusionOfRange.getAsInt());
                 this.validateVertexList();
             }
-        // проверки на 90 градусов
-            var conclusionOfDegrees =
+            // проверки на 90 градусов
+            
+            var conclusionOfDegrees = GeomEngineering.validNinetyTriangleGetFirstInvalidIndex(
+                    this.getVertexOfSquareList(),
+                    true, // квадрат — замкнутый
+                    Tochka::getX, Tochka::getY
+                );
             if(conclusionOfDegrees.isPresent()){
                 completeVertexListOfDegrees(conclusionOfDegrees.getAsInt());
             }
