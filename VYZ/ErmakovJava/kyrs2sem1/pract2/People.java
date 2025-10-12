@@ -4,7 +4,7 @@ public class People {
     private String name;
     private String lastname;
     private String otchestvo;
-    private People father;
+    private final People father;
 
     public People(String name, String lastname, String otchestvo, People father){
         this.lastname = lastname;
@@ -57,9 +57,9 @@ public class People {
     public void setLastname(String lastname){
         this.lastname=lastname;
     }
-    public void setPhather(People father){
-        this.father = father;
-    }
+    // public void setPhather(People father){
+    //     this.father = father;
+    // }
 
     
     private String validField(String a){

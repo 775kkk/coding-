@@ -1,30 +1,27 @@
 package VYZ.ErmakovJava.kyrs2sem1.pract5;
 
 public class Pistol {
-    private short bullet;
+    private int bullet;
+    private int bulletMax;
     private String pistolName;
 
     private void trimBullet(){
-        if (this.bullet>5) {
-            this.bullet=5;
+        if (this.bullet>this.bulletMax) {
+            this.bullet=this.bulletMax;
         }
         if (this.bullet<0) {
             this.bullet=0;
         }
     }
 
-    public Pistol(String pistolName, int bullet){
-        this.bullet = (short)bullet;
+    public Pistol(String pistolName, int bulletMax){
+        this.bulletMax = bulletMax;
         this.pistolName = pistolName;
-        trimBullet();
+        this.bullet = bulletMax;
     }
 
-    public Pistol(){
-        this(null, 5);
-    }
-    public Pistol(int bullet){
-        this(null,bullet);
-        this.trimBullet();
+    public Pistol(int bulletMax){
+        this(null, bulletMax);
     }
 
     public void Pew(){
@@ -35,5 +32,21 @@ public class Pistol {
         System.out.println("pew!");
         this.bullet-=1;
         trimBullet();
+    }
+    public void reload(int reloadBullet){
+        if (reloadBullet<=0) {
+            throw new IllegalArgumentException("reloadBullet cant be <=0");
+        }
+        this.bullet = reloadBullet;
+        trimBullet();
+    }
+    public int getBullet() {
+        return bullet;
+    }
+    public String getPistolName() {
+        return pistolName;
+    }
+    public boolean isLoaded(){
+        return this.bullet!=0;
     }
 }

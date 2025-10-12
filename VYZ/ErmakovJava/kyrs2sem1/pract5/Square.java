@@ -13,6 +13,9 @@ public class Square {
 
     public Square(String squareName, int lengthSideOfSquare, List<Tochka> vertexOfSquareList){
         this.squareName = squareName;
+        if (lengthSideOfSquare<=0) {
+            throw new IllegalArgumentException("lengthSideOfSquare cant be <=0");
+        }
         this.lengthSideOfSquare = lengthSideOfSquare;
         if (vertexOfSquareList==null) {
             this.vertexOfSquareList = new ArrayList<Tochka>();

@@ -1,8 +1,8 @@
 package VYZ.ErmakovJava.kyrs2sem1.pract5;
 
 public class Decimal {
-    private int numerator;//числитель
-    private int denominator;//знаменатель
+    private final int numerator;//числитель
+    private final int denominator;//знаменатель
 
     public Decimal(int numerator, int denominator){
         if (denominator == 0) {
@@ -12,12 +12,12 @@ public class Decimal {
         this.numerator=numerator;
     }
 
-    public void setDenominator(int denominator) {
-        this.denominator = denominator;
-    }
-    public void setNumerator(int numerator) {
-        this.numerator = numerator;
-    }
+    // public void setDenominator(int denominator) {
+    //     this.denominator = denominator;
+    // }
+    // public void setNumerator(int numerator) {
+    //     this.numerator = numerator;
+    // }
     public int getDenominator() {
         return denominator;
     }
@@ -29,41 +29,41 @@ public class Decimal {
         return numerator/denominator;
     }
     
-    public void trimDecimal(){
-        int tempNok = Math.abs(this.getDenominator());
-        int temp = Math.abs(this.getNumerator());
+    // public void trimDecimal(){
+    //     int tempNok = Math.abs(this.getDenominator());
+    //     int temp = Math.abs(this.getNumerator());
         
-        while (temp != 0) {
-            int tempVar = temp;
-            temp = tempNok % temp;
-            tempNok = tempVar;
-        }
+    //     while (temp != 0) {
+    //         int tempVar = temp;
+    //         temp = tempNok % temp;
+    //         tempNok = tempVar;
+    //     }
         
-        this.setNumerator(this.getNumerator() / tempNok);
-        this.setDenominator(this.getDenominator() / tempNok);
-    }
+    //     this.setNumerator(this.getNumerator() / tempNok);
+    //     this.setDenominator(this.getDenominator() / tempNok);
+    // }
 
-    public void addUpDecimal(Decimal decimal){
-        this.setNumerator(
-            this.getNumerator()*decimal.getDenominator()
-            +
-            decimal.getNumerator()*this.getDenominator()
-        );
-        this.setDenominator(
-            this.getDenominator()*decimal.getDenominator()
-        );
-        this.trimDecimal();
-    }
-    public void multiplyDecimal(Decimal decimal){
-        this.setDenominator(this.getDenominator()*decimal.getDenominator());
-        this.setNumerator(this.getNumerator()*decimal.getNumerator());
-        this.trimDecimal();
-    }
-    public void divideDecimal(Decimal decimal){
-        this.setDenominator(this.getDenominator()*decimal.getNumerator());
-        this.setNumerator(this.getNumerator()*decimal.getDenominator());
-        this.trimDecimal();
-    }
+    // public void addUpDecimal(Decimal decimal){
+    //     this.setNumerator(
+    //         this.getNumerator()*decimal.getDenominator()
+    //         +
+    //         decimal.getNumerator()*this.getDenominator()
+    //     );
+    //     this.setDenominator(
+    //         this.getDenominator()*decimal.getDenominator()
+    //     );
+    //     this.trimDecimal();
+    // }
+    // public void multiplyDecimal(Decimal decimal){
+    //     this.setDenominator(this.getDenominator()*decimal.getDenominator());
+    //     this.setNumerator(this.getNumerator()*decimal.getNumerator());
+    //     this.trimDecimal();
+    // }
+    // public void divideDecimal(Decimal decimal){
+    //     this.setDenominator(this.getDenominator()*decimal.getNumerator());
+    //     this.setNumerator(this.getNumerator()*decimal.getDenominator());
+    //     this.trimDecimal();
+    // }
 
 
     @Override

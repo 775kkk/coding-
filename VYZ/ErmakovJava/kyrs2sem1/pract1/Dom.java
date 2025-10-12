@@ -1,9 +1,9 @@
 package VYZ.ErmakovJava.kyrs2sem1.pract1;
 
-public class Dom115 {
+public class Dom {
     private int floor;
 
-    public Dom115(int n){
+    public Dom(int n){
         this.floor = n;
     }
     public void setFloor(int n){

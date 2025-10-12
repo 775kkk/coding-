@@ -1,6 +1,6 @@
 package VYZ.ErmakovJava.kyrs2sem1.pract1.testZadacha;
 
-import VYZ.ErmakovJava.kyrs2sem1.pract1.Dom115;
+import VYZ.ErmakovJava.kyrs2sem1.pract1.Dom;
 import VYZ.ErmakovJava.kyrs2sem1.pract1.FIO113;
 import VYZ.ErmakovJava.kyrs2sem1.pract1.Tochka;
 import VYZ.ErmakovJava.kyrs2sem1.pract1.human112;
@@ -55,7 +55,7 @@ public class test {
 
         // 1.1.5
         System.out.println("1.1.5 :");
-        Dom115 dom = new Dom115(5);
+        Dom dom = new Dom(5);
         System.out.println(dom);
         System.out.println("======================");
 

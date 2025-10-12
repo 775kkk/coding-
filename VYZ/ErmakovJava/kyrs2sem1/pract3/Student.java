@@ -6,11 +6,14 @@ import java.util.Objects;
 public class Student {
     private String studentName;
     private ArrayList<Integer> gradesList;
+    private int maxGrade;
+    private int minGrade;
 
 
     public Student(String studentName, ArrayList<Integer> gradesList){
         this.studentName = Objects.requireNonNull(studentName);
         this.gradesList = (gradesList != null) ? new ArrayList<Integer>(gradesList) : null;
+        this.trimGradeList(this.minGrade,this.maxGrade);
     }
     public Student(String studentName, int... args){
         this(studentName, convertIntArrayToArrayList(args));
@@ -18,8 +21,6 @@ public class Student {
     public Student(String studentName){
         this(studentName, new ArrayList<Integer>());
     }
-    
-
     public void setStudentName(String studentName){
         if (studentName == null) throw new NullPointerException("studentName cant be null");
         
@@ -29,6 +30,12 @@ public class Student {
         if (gradesList == null) throw new NullPointerException("gradesList cant be null");
         
         this.gradesList = new ArrayList<Integer>(gradesList);
+    }
+    public void setMaxGrade(int maxGrade) {
+        this.maxGrade = maxGrade;
+    }
+    public void setMinGrade(int minGrade) {
+        this.minGrade = minGrade;
     }
 
     public ArrayList<Integer> getGrades() {
@@ -61,6 +68,16 @@ public class Student {
         return (double)grades/gradesList.size();
     }
 
+    private void trimGradeList(int min,int max){
+        for (int i = 0; i < this.gradesList.size(); i++) {
+            if (this.gradesList.get(i)<min) {
+                this.gradesList.set(i, min);
+            }
+            if (this.gradesList.get(i) >max) {
+                this.gradesList.set(i, max);
+            }
+        }
+    }
     @Override
     public String toString() {
         return studentName+":"+gradesList;
