@@ -5,7 +5,6 @@ import java.util.List;
 
 import VYZ.ErmakovJava.kyrs2sem1.GeomEngineering;
 import VYZ.ErmakovJava.kyrs2sem1.pract1.Tochka;
-import VYZ.ErmakovJava.kyrs2sem1.pract2.Line;
 
 public class Polyline {
     private String lineName;
@@ -90,10 +89,10 @@ public class Polyline {
             start.setX(start.getX() + x);
             start.setY(start.getY() + y);
         }
-    }   
+    }
 
     public double getLineLong(){
-        return GeomEngineering.getLineLong(this);// ПРИНИМАЕТСЯ ЛЮБОЙ ОБЪЕКТ - ОШИБКА ТОКА В РАНТАЙМ
+        return GeomEngineering.getLineLong(this,false);
     }
 
     @Override

@@ -1,6 +1,6 @@
 package VYZ.ErmakovJava.kyrs2sem1.pract1;
 
-public class Tochka {
+public final class Tochka {
     private int X;
     private int Y;
     private int Z;

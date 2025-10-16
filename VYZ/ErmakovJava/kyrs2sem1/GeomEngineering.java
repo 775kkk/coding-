@@ -1,6 +1,5 @@
 package VYZ.ErmakovJava.kyrs2sem1;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -8,22 +7,24 @@ import java.util.OptionalInt;
 import java.util.function.ToDoubleFunction;
 
 import VYZ.ErmakovJava.kyrs2sem1.pract1.Tochka;
-import VYZ.ErmakovJava.kyrs2sem1.pract1.time114;
 import VYZ.ErmakovJava.kyrs2sem1.pract2.Line;
 import VYZ.ErmakovJava.kyrs2sem1.pract3.Polyline;
 
 public final class GeomEngineering {
     private GeomEngineering(){}
 
-    public static double getLineLong(Polyline polyline){
+    public static double getLineLong(Polyline polyline,boolean endPolicy){
         if (polyline == null) throw new NullPointerException("polyline cant be null");
         double retResult=0;
         List<Tochka> pointsList = polyline.getPolylineVerticesList();
         if (pointsList.size()<2) {
             return 0;
-        } 
+        }
         for (int i = 1; i < pointsList.size(); i++) {
             retResult+=getLineLong(pointsList.get(i-1),pointsList.get(i));
+        }
+        if (endPolicy) {
+            retResult+=getLineLong(pointsList.get(0),pointsList.get(pointsList.size()-1));
         }
         return retResult;
     }
@@ -199,7 +200,7 @@ public final class GeomEngineering {
         if (tOfList.size()<3) throw new IllegalArgumentException("List of T .size()<3, cannot<3");
         if (coords.length < 2) throw new IllegalArgumentException("At least 2 coordinate accessors are required");
 
-         final int n = tOfList.size();
+        final int n = tOfList.size();
 
         if (closedChain) {
             if (n < 4)
