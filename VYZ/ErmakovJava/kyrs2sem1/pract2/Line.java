@@ -30,8 +30,8 @@ public class Line {
         this.tochkaB= new Tochka(tochka2);
     }
 
-    public Tochka getA() { return tochkaA; }//не копию специально
-    public Tochka getB() { return tochkaB; }//не копию специально
+    public Tochka getA() { return new Tochka(tochkaA); }
+    public Tochka getB() { return new Tochka(tochkaB); }
     
     public boolean isEmpty() {
         return (tochkaA == null || tochkaB == null); 

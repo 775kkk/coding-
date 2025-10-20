@@ -9,6 +9,7 @@ public class Road {
     private List<City> linkedCitiesList;// может список сделать отдельной сучностью и у него поведения определить?????????
     private int costRoute;
 
+
     private String roadNameCounted(String roadName){
         if (roadName==null){
             if (this.linkedCitiesList.size() >=2) {

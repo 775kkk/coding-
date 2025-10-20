@@ -6,20 +6,27 @@ import java.util.Objects;
 public class Student {
     private String studentName;
     private ArrayList<Integer> gradesList;
-    private int maxGrade;
-    private int minGrade;
+    private GradesPolicy gradesPolicy;
+    @FunctionalInterface
+    public interface GradesPolicy {
+        boolean rule(int gradePoint);
+
+        static GradesPolicy DEFAULT(){
+            return gradePoint -> gradePoint>=1 && gradePoint<=5;
+        }
+    }
 
 
-    public Student(String studentName, ArrayList<Integer> gradesList){
+    public Student(String studentName, ArrayList<Integer> gradesList,GradesPolicy gradesPolicy){
         this.studentName = Objects.requireNonNull(studentName);
         this.gradesList = (gradesList != null) ? new ArrayList<Integer>(gradesList) : null;
-        this.trimGradeList(this.minGrade,this.maxGrade);
+        this.gradesPolicy = gradesPolicy;
     }
     public Student(String studentName, int... args){
-        this(studentName, convertIntArrayToArrayList(args));
+        this(studentName, convertIntArrayToArrayList(args), GradesPolicy.DEFAULT());
     }
     public Student(String studentName){
-        this(studentName, new ArrayList<Integer>());
+        this(studentName, new ArrayList<Integer>(), GradesPolicy.DEFAULT());
     }
     public void setStudentName(String studentName){
         if (studentName == null) throw new NullPointerException("studentName cant be null");
@@ -30,12 +37,6 @@ public class Student {
         if (gradesList == null) throw new NullPointerException("gradesList cant be null");
         
         this.gradesList = new ArrayList<Integer>(gradesList);
-    }
-    public void setMaxGrade(int maxGrade) {
-        this.maxGrade = maxGrade;
-    }
-    public void setMinGrade(int minGrade) {
-        this.minGrade = minGrade;
     }
 
     public ArrayList<Integer> getGrades() {
