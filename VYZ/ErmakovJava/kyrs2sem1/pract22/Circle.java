@@ -1,6 +1,5 @@
 package VYZ.ErmakovJava.kyrs2sem1.pract22;
 
-// Круг
 public class Circle extends Figure {
     private double radius;
     
