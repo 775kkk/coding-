@@ -1,6 +1,6 @@
 package VYZ.ErmakovJava.kyrs2sem1.pract5;
 
-public class Decimal {
+public class Decimal extends Number{
     private final int numerator;//числитель
     private final int denominator;//знаменатель
 
@@ -25,10 +25,34 @@ public class Decimal {
         return numerator;
     }
 
-    public double getValue(){
+    @Override
+    public int intValue() {
+        return numerator/denominator;
+    }
+    @Override
+    public float floatValue() {
+        return numerator/denominator;
+    }
+    @Override
+    public double doubleValue(){
         return numerator/denominator;
     }
     
+    @Override
+    public long longValue() {
+        return numerator/denominator;
+    }
+
+    @Override
+    public short shortValue() {
+        return super.shortValue();
+    }
+    @Override
+    public byte byteValue() {
+        return super.byteValue();
+    }
+
+
     // public void trimDecimal(){
     //     int tempNok = Math.abs(this.getDenominator());
     //     int temp = Math.abs(this.getNumerator());
