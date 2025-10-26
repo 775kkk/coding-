@@ -1,4 +1,4 @@
-package VYZ.ErmakovJava.kyrs2sem1.pract22;
+package VYZ.ErmakovJava.kyrs2sem1.geometrics.data;
 
 import java.util.ArrayList;
 import java.util.List;

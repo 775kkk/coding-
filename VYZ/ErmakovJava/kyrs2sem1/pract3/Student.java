@@ -12,14 +12,17 @@ public class Student {
         boolean rule(int gradePoint);
 
         static GradesPolicy DEFAULT(){
-            return gradePoint -> gradePoint>=1 && gradePoint<=5;
+            return gradePoint -> true;
         }
     }
 
 
     public Student(String studentName, ArrayList<Integer> gradesList,GradesPolicy gradesPolicy){
         this.studentName = Objects.requireNonNull(studentName);
-        this.gradesList = (gradesList != null) ? new ArrayList<Integer>(gradesList) : null;
+        // this.gradesList = (gradesList != null) ? new ArrayList<Integer>(gradesList) : null;
+        for (int i = 0; i < gradesList.size; i++) {
+            
+        }
         this.gradesPolicy = gradesPolicy;
     }
     public Student(String studentName, int... args){

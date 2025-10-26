@@ -1,4 +1,6 @@
-package VYZ.ErmakovJava.kyrs2sem1.pract22;
+package VYZ.ErmakovJava.kyrs2sem1.animals.realization;
+
+import VYZ.ErmakovJava.kyrs2sem1.animals.interfaces.Bird;
 
 public class Parrot extends Bird {
 

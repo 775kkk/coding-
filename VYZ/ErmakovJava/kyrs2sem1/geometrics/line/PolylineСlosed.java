@@ -1,10 +1,9 @@
-package VYZ.ErmakovJava.kyrs2sem1.pract21;
+package VYZ.ErmakovJava.kyrs2sem1.geometrics.line;
 
 import java.util.List;
 
-import VYZ.ErmakovJava.kyrs2sem1.GeomEngineering;
+import VYZ.ErmakovJava.kyrs2sem1.geometrics.GeomEngineering;
 import VYZ.ErmakovJava.kyrs2sem1.pract1.Tochka;
-import VYZ.ErmakovJava.kyrs2sem1.pract3.Polyline;
 
 public class PolylineСlosed extends Polyline{
 

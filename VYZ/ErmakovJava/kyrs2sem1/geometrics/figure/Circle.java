@@ -1,4 +1,6 @@
-package VYZ.ErmakovJava.kyrs2sem1.pract22;
+package VYZ.ErmakovJava.kyrs2sem1.geometrics.figure;
+
+import VYZ.ErmakovJava.kyrs2sem1.geometrics.figure.interfaces.Figure;
 
 public class Circle extends Figure {
     private double radius;

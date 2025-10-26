@@ -1,4 +1,4 @@
-package VYZ.ErmakovJava.kyrs2sem1.pract22;
+package VYZ.ErmakovJava.kyrs2sem1.geometrics.figure;
 
 public class Square extends Rectangle {
     

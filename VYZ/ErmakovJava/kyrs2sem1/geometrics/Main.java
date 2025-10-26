@@ -1,4 +1,9 @@
-package VYZ.ErmakovJava.kyrs2sem1.pract22;
+package VYZ.ErmakovJava.kyrs2sem1.geometrics;
+
+import VYZ.ErmakovJava.kyrs2sem1.geometrics.data.ColorPoint;
+import VYZ.ErmakovJava.kyrs2sem1.geometrics.data.CoordsPoint;
+import VYZ.ErmakovJava.kyrs2sem1.geometrics.data.Point;
+import VYZ.ErmakovJava.kyrs2sem1.geometrics.data.SizedPoint;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,8 +1,12 @@
-package VYZ.ErmakovJava.kyrs2sem1.pract22;
+package VYZ.ErmakovJava.kyrs2sem1.geometrics.figure;
 
 import java.util.List;
 
-public class Rectangle extends Figure{
+import VYZ.ErmakovJava.kyrs2sem1.geometrics.figure.interfaces.Figure;
+// import VYZ.ErmakovJava.kyrs2sem1.geometrics.figure.interfaces.GettingsPolyline;implements GettingsPolyline
+// import VYZ.ErmakovJava.kyrs2sem1.geometrics.line.Polyline;
+
+public class Rectangle extends Figure {
     private int a;
     private int b;
     
@@ -41,7 +45,12 @@ public class Rectangle extends Figure{
     }
     @Override
     public double perimeter() {
-        return a+b+a+b;        
+        return a+b+a+b;
     }
+
+    // @Override
+    // public Polyline getPolyline(){
+    //     return Polyline();
+    // }
 
 }

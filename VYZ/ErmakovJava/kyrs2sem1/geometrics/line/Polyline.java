@@ -1,9 +1,9 @@
-package VYZ.ErmakovJava.kyrs2sem1.pract3;
+package VYZ.ErmakovJava.kyrs2sem1.geometrics.line;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import VYZ.ErmakovJava.kyrs2sem1.GeomEngineering;
+import VYZ.ErmakovJava.kyrs2sem1.geometrics.GeomEngineering;
 import VYZ.ErmakovJava.kyrs2sem1.pract1.Tochka;
 
 public class Polyline {

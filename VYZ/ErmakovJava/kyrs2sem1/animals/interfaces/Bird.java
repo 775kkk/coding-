@@ -1,4 +1,4 @@
-package VYZ.ErmakovJava.kyrs2sem1.pract22;
+package VYZ.ErmakovJava.kyrs2sem1.animals.interfaces;
 
 public abstract class Bird {
     protected String name;

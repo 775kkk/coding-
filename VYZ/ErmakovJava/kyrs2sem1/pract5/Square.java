@@ -3,8 +3,8 @@ package VYZ.ErmakovJava.kyrs2sem1.pract5;
 import java.util.ArrayList;
 import java.util.List;
 
+import VYZ.ErmakovJava.kyrs2sem1.geometrics.GeomEngineering;
 import VYZ.ErmakovJava.kyrs2sem1.pract1.Tochka;
-import VYZ.ErmakovJava.kyrs2sem1.GeomEngineering;
 
 public class Square {
     private List<Tochka> vertexOfSquareList;

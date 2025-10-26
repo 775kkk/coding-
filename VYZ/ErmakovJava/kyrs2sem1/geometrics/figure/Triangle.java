@@ -1,7 +1,9 @@
-package VYZ.ErmakovJava.kyrs2sem1.pract22;
+package VYZ.ErmakovJava.kyrs2sem1.geometrics.figure;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import VYZ.ErmakovJava.kyrs2sem1.geometrics.figure.interfaces.Figure;
 
 public class Triangle extends Figure {
     private List<Double> degreList;

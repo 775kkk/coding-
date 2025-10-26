@@ -1,4 +1,4 @@
-package VYZ.ErmakovJava.kyrs2sem1.pract5;
+package VYZ.ErmakovJava.kyrs2sem1.gunpower;
 
 public class Pistol {
     private int bullet;

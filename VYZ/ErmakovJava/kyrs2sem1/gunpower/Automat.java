@@ -1,6 +1,4 @@
-package VYZ.ErmakovJava.kyrs2sem1.pract21;
-
-import VYZ.ErmakovJava.kyrs2sem1.pract5.Pistol;
+package VYZ.ErmakovJava.kyrs2sem1.gunpower;
 
 public class Automat extends Pistol{
     private final int rateOfFire;

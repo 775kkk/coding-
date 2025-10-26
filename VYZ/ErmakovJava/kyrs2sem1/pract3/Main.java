@@ -2,6 +2,7 @@ package VYZ.ErmakovJava.kyrs2sem1.pract3;
 
 import java.util.Arrays;
 
+import VYZ.ErmakovJava.kyrs2sem1.geometrics.line.Polyline;
 import VYZ.ErmakovJava.kyrs2sem1.pract1.Tochka;
 
 public class Main {

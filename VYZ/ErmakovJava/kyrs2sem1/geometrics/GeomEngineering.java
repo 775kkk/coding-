@@ -1,4 +1,4 @@
-package VYZ.ErmakovJava.kyrs2sem1;
+package VYZ.ErmakovJava.kyrs2sem1.geometrics;
 
 import java.util.Arrays;
 import java.util.List;
@@ -6,9 +6,9 @@ import java.util.Objects;
 import java.util.OptionalInt;
 import java.util.function.ToDoubleFunction;
 
+import VYZ.ErmakovJava.kyrs2sem1.geometrics.line.Polyline;
 import VYZ.ErmakovJava.kyrs2sem1.pract1.Tochka;
 import VYZ.ErmakovJava.kyrs2sem1.pract2.Line;
-import VYZ.ErmakovJava.kyrs2sem1.pract3.Polyline;
 
 public final class GeomEngineering {
     private GeomEngineering(){}

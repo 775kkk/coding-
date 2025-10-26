@@ -1,4 +1,4 @@
-package VYZ.ErmakovJava.kyrs2sem1.pract22;
+package VYZ.ErmakovJava.kyrs2sem1.geometrics.figure.interfaces;
 
 public abstract class Figure {
     private static int count=0;
