@@ -34,8 +34,8 @@ public class Decimal extends Number{
         return numerator/denominator;
     }
     @Override
-    public double doubleValue(){
-        return numerator/denominator;
+    public double doubleValue() {
+        return (double) numerator / denominator;
     }
     
     @Override
@@ -45,11 +45,11 @@ public class Decimal extends Number{
 
     @Override
     public short shortValue() {
-        return super.shortValue();
+        return (short) (numerator / denominator);
     }
     @Override
     public byte byteValue() {
-        return super.byteValue();
+        return (byte) (numerator / denominator);
     }
 
 
