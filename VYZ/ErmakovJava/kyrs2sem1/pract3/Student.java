@@ -20,9 +20,17 @@ public class Student {
     public Student(String studentName, ArrayList<Integer> gradesList,GradesPolicy gradesPolicy){
         this.studentName = Objects.requireNonNull(studentName);
         // this.gradesList = (gradesList != null) ? new ArrayList<Integer>(gradesList) : null;
-        for (int i = 0; i < gradesList.size; i++) {
-            
+        // Применяем политику валидации при добавлении оценок
+        if (gradesList != null) {
+            for (Integer grade : gradesList) {
+                if (gradesPolicy.rule(grade)) {
+                    this.gradesList.add(grade);
+                }
+            }
+        } else{
+            gradesList = new ArrayList<>();
         }
+        
         this.gradesPolicy = gradesPolicy;
     }
     public Student(String studentName, int... args){
@@ -38,8 +46,21 @@ public class Student {
     }
     public void setGrades(ArrayList<Integer> gradesList) {
         if (gradesList == null) throw new NullPointerException("gradesList cant be null");
-        
-        this.gradesList = new ArrayList<Integer>(gradesList);
+        this.gradesList = new ArrayList<Integer>();
+        // Применяем политику валидации
+        for (Integer grade : gradesList) {
+            if (this.gradesPolicy.rule(grade)) {
+                this.gradesList.add(grade);
+            }
+        }
+    }
+
+    public void addGrade(int grade) {
+        if (this.gradesPolicy.rule(grade)) {
+            this.gradesList.add(grade);
+        } else {
+            throw new IllegalArgumentException("Оценка " + grade + " не соответствует политике валидации");
+        }
     }
 
     public ArrayList<Integer> getGrades() {
@@ -70,6 +91,12 @@ public class Student {
             grades+=grade;
         }
         return (double)grades/gradesList.size();
+    }
+    public GradesPolicy getGradesPolicy() {
+        return gradesPolicy;
+    }
+    public void setGradesPolicy(GradesPolicy gradesPolicy) {
+        this.gradesPolicy = gradesPolicy;
     }
 
     private void trimGradeList(int min,int max){
