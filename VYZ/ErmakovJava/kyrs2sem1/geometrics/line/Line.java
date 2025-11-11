@@ -1,6 +1,6 @@
-package VYZ.ErmakovJava.kyrs2sem1.pract2;
+package VYZ.ErmakovJava.kyrs2sem1.geometrics.line;
 
-import VYZ.ErmakovJava.kyrs2sem1.pract1.Tochka;
+import VYZ.ErmakovJava.kyrs2sem1.geometrics.Tochka;
 
 public class Line {
     private Tochka tochkaA;

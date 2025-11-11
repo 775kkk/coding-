@@ -1,4 +1,4 @@
-package VYZ.ErmakovJava.kyrs2sem1.pract1;
+package VYZ.ErmakovJava.kyrs2sem1.geometrics;
 
 public final class Tochka {
     private int X;

@@ -3,7 +3,7 @@ package VYZ.ErmakovJava.kyrs2sem1.geometrics.line;
 import java.util.List;
 
 import VYZ.ErmakovJava.kyrs2sem1.geometrics.GeomEngineering;
-import VYZ.ErmakovJava.kyrs2sem1.pract1.Tochka;
+import VYZ.ErmakovJava.kyrs2sem1.geometrics.Tochka;
 
 public class PolylineСlosed extends Polyline{
 

@@ -1,6 +1,7 @@
 package VYZ.ErmakovJava.kyrs2sem1.pract2;
 
-import VYZ.ErmakovJava.kyrs2sem1.pract1.Tochka;
+import VYZ.ErmakovJava.kyrs2sem1.geometrics.Tochka;
+import VYZ.ErmakovJava.kyrs2sem1.geometrics.line.Line;
 
 public class Main {
 

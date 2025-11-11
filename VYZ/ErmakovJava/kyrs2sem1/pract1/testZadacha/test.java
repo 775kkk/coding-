@@ -1,8 +1,8 @@
 package VYZ.ErmakovJava.kyrs2sem1.pract1.testZadacha;
 
+import VYZ.ErmakovJava.kyrs2sem1.geometrics.Tochka;
 import VYZ.ErmakovJava.kyrs2sem1.pract1.Dom;
 import VYZ.ErmakovJava.kyrs2sem1.pract1.FIO113;
-import VYZ.ErmakovJava.kyrs2sem1.pract1.Tochka;
 import VYZ.ErmakovJava.kyrs2sem1.pract1.human112;
 import VYZ.ErmakovJava.kyrs2sem1.pract1.time114;
 

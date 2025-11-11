@@ -6,9 +6,8 @@ import java.util.Objects;
 import java.util.OptionalInt;
 import java.util.function.ToDoubleFunction;
 
+import VYZ.ErmakovJava.kyrs2sem1.geometrics.line.Line;
 import VYZ.ErmakovJava.kyrs2sem1.geometrics.line.Polyline;
-import VYZ.ErmakovJava.kyrs2sem1.pract1.Tochka;
-import VYZ.ErmakovJava.kyrs2sem1.pract2.Line;
 
 public final class GeomEngineering {
     private GeomEngineering(){}
