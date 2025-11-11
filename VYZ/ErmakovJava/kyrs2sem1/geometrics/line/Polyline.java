@@ -22,6 +22,9 @@ public class Polyline {
     public Polyline(String lineName){
         this(lineName, new ArrayList<Tochka>());
     }
+    public Polyline(List<Tochka> polylineVerticesList){
+        this("", polylineVerticesList);
+    }
 
     public Polyline(String lineName, int[]... argsOfArgs){
         this(lineName);
@@ -89,6 +92,10 @@ public class Polyline {
             start.setX(start.getX() + x);
             start.setY(start.getY() + y);
         }
+    }
+
+    public int getCountVertices(){
+        return this.polylineVerticesList.size();
     }
 
     public double getLineLong(){

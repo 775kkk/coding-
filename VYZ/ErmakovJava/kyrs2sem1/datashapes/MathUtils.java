@@ -5,7 +5,7 @@ import VYZ.ErmakovJava.kyrs2sem1.pract5.Decimal;
 public class MathUtils {
     private MathUtils(){}
 
-    public static double sum(Number... numbers) {
+    public static double sum(Number... numbers) {я
         double result = 0.0;
         for (Number number : numbers) {
             result += number.doubleValue();
