@@ -1,4 +1,4 @@
-package VYZ.ErmakovJava.kyrs2sem1.pract5;
+package VYZ.ErmakovJava.kyrs2sem1.datashapes;
 
 public class Decimal extends Number{
     private final int numerator;//числитель
