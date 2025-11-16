@@ -1,68 +1,81 @@
 package VYZ.ErmakovJava.kyrs2sem1.pract3;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+
 
 public class Student {
     private String studentName;
-    private ArrayList<Integer> gradesList;
+    private List<Integer> gradesList;
     private GradesPolicy gradesPolicy;
     @FunctionalInterface
     public interface GradesPolicy {
         boolean rule(int gradePoint);
 
-        static GradesPolicy DEFAULT(){
+        static GradesPolicy ALWAYS_TRUE(){
             return gradePoint -> true;
         }
     }
 
-
-    public Student(String studentName, ArrayList<Integer> gradesList,GradesPolicy gradesPolicy){
-        this.studentName = Objects.requireNonNull(studentName);
-        // this.gradesList = (gradesList != null) ? new ArrayList<Integer>(gradesList) : null;
-        // Применяем политику валидации при добавлении оценок
-        if (gradesList != null) {
+    //проверка входящего списка оценок
+    private boolean isValidGradesList(List<Integer> gradesList){
+        return gradesList != null && !gradesList.isEmpty();
+    }
+    private void cheсkRule(int grade){
+        if (this.gradesPolicy.rule(grade)) {
+            return;
+        }
+        throw new IllegalGradeException("invalid grade " + grade + " for student " + studentName);
+    }
+    public void addGrades(List<Integer> gradesList){
+        if (isValidGradesList(gradesList)) {
             for (Integer grade : gradesList) {
-                if (gradesPolicy.rule(grade)) {
-                    this.gradesList.add(grade);
+                if (grade != null) {
+                    this.addGrades(grade);
                 }
             }
-        } else{
-            gradesList = new ArrayList<>();
         }
-        
-        this.gradesPolicy = gradesPolicy;
     }
-    public Student(String studentName, int... args){
-        this(studentName, convertIntArrayToArrayList(args), GradesPolicy.DEFAULT());
-    }
-    public Student(String studentName){
-        this(studentName, new ArrayList<Integer>(), GradesPolicy.DEFAULT());
-    }
-    public void setStudentName(String studentName){
-        if (studentName == null) throw new NullPointerException("studentName cant be null");
-        
-        this.studentName = studentName;
-    }
-    public void setGrades(ArrayList<Integer> gradesList) {
-        if (gradesList == null) throw new NullPointerException("gradesList cant be null");
-        this.gradesList = new ArrayList<Integer>();
-        // Применяем политику валидации
-        for (Integer grade : gradesList) {
-            if (this.gradesPolicy.rule(grade)) {
+    public void addGrades(int... grades){
+        for (int grade : grades) {
+                cheсkRule(grade);//this.gradesPolicy.rule(grade)
                 this.gradesList.add(grade);
             }
-        }
     }
 
-    public void addGrade(int grade) {
-        if (this.gradesPolicy.rule(grade)) {
-            this.gradesList.add(grade);
-        } else {
-            throw new IllegalArgumentException("Оценка " + grade + " не соответствует политике валидации");
-        }
+    public Student(String studentName, List<Integer> gradesList, GradesPolicy gradesPolicy){
+        this.studentName = Objects.requireNonNull(studentName, "studentName cannot be null");
+        this.gradesPolicy = (gradesPolicy!=null) ? gradesPolicy : GradesPolicy.ALWAYS_TRUE();
+        this.gradesList = new ArrayList<>();
+        this.addGrades(gradesList);
+    }
+    public Student(String studentName, List<Integer> gradesList){
+        this(studentName, gradesList, null);
+    }
+    public Student(String studentName){
+        this(studentName, null, null);
+    }
+    public Student(String studentName, GradesPolicy gradesPolicy){
+        this(studentName,null, gradesPolicy);
     }
 
+    // labyda
+
+    public void setGrades(ArrayList<Integer> gradesList){
+        this.gradesList = new ArrayList<>();
+        this.addGrades(gradesList);
+    }
+    public void setGrades(int... grades){
+        this.gradesList = new ArrayList<>();
+        this.addGrades(grades);
+    }
+    public void addGrade(int... grades){
+        this.addGrades(grades);
+    }
+    public void addGrade(ArrayList<Integer> gradesList){
+        this.addGrades(gradesList);
+    }
     public ArrayList<Integer> getGrades() {
         if (this.gradesList==null) {
             return new ArrayList<Integer>();
@@ -72,21 +85,9 @@ public class Student {
     public String getStudentName() {
         return studentName;
     }
-
-    private static ArrayList<Integer> convertIntArrayToArrayList(int[] args) {
-        if (args == null) return new ArrayList<Integer>();
-        
-        ArrayList<Integer> newGradesList = new ArrayList<Integer>();
-        for (int value : args) {
-            newGradesList.add(value);
-        }
-        return newGradesList;
-    }
     public double getAverageGrade(){
         if (this.gradesList.isEmpty()) return 0.0;
         int grades=0;
-        // for (int i = 0; i < gradesList.size(); i++) {
-
         for (int grade : gradesList){
             grades+=grade;
         }
@@ -98,19 +99,21 @@ public class Student {
     public void setGradesPolicy(GradesPolicy gradesPolicy) {
         this.gradesPolicy = gradesPolicy;
     }
-
-    private void trimGradeList(int min,int max){
-        for (int i = 0; i < this.gradesList.size(); i++) {
-            if (this.gradesList.get(i)<min) {
-                this.gradesList.set(i, min);
-            }
-            if (this.gradesList.get(i) >max) {
-                this.gradesList.set(i, max);
-            }
-        }
-    }
     @Override
     public String toString() {
-        return studentName+":"+gradesList;
+        return "Student{name='" + studentName + "', grades=" + gradesList + "}";
     }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student2 = (Student) o;
+        return Objects.equals(studentName, student2.studentName);
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(studentName);
+    }
+
 }
+
