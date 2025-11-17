@@ -26,7 +26,7 @@ public class Student {
         if (this.gradesPolicy.rule(grade)) {
             return;
         }
-        throw new IllegalGradeException("invalid grade " + grade + " for student " + studentName);
+        throw new IllegalGradeException(studentName);
     }
     public void addGrades(List<Integer> gradesList){
         if (isValidGradesList(gradesList)) {
@@ -61,8 +61,7 @@ public class Student {
     }
 
     // labyda
-
-    public void setGrades(ArrayList<Integer> gradesList){
+    public void setGrades(List<Integer> gradesList){
         this.gradesList = new ArrayList<>();
         this.addGrades(gradesList);
     }
@@ -73,7 +72,7 @@ public class Student {
     public void addGrade(int... grades){
         this.addGrades(grades);
     }
-    public void addGrade(ArrayList<Integer> gradesList){
+    public void addGrade(List<Integer> gradesList){
         this.addGrades(gradesList);
     }
     public ArrayList<Integer> getGrades() {
