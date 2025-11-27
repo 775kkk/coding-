@@ -16,7 +16,7 @@ public class Polyline {
         if (polylineVerticesList==null) {
             this.polylineVerticesList = new ArrayList<Tochka>();
         } else{
-            this.polylineVerticesList = polylineVerticesList;
+            this.polylineVerticesList = new ArrayList<>(polylineVerticesList);
         }
     }
     public Polyline(String lineName){
@@ -24,6 +24,7 @@ public class Polyline {
     }
     public Polyline(List<Tochka> polylineVerticesList){
         this("", polylineVerticesList);
+        
     }
 
     public Polyline(String lineName, int[]... argsOfArgs){
@@ -105,5 +106,70 @@ public class Polyline {
     @Override
     public String toString() {
         return lineName + "; Vertices:" + this.polylineVerticesList;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        
+        Polyline polyline = (Polyline) o;
+        List<Tochka> thisPoints = this.polylineVerticesList;
+        List<Tochka> otherPoints = polyline.polylineVerticesList;
+        
+        if (thisPoints.size() != otherPoints.size()) {
+            return false;
+        }
+        
+        if (thisPoints.isEmpty()) {
+            return true;
+        }
+        
+        // чекаем прямые списки и реверснутый второй
+        boolean forwardValid = true;
+        boolean reverseValid = true;
+        
+        for (int i = 0; i < thisPoints.size(); i++) {
+            Tochka thisPoint = thisPoints.get(i);// базовый
+            Tochka otherForwardPoint = otherPoints.get(i);// второй
+            Tochka otherReversePoint = otherPoints.get(otherPoints.size() - 1 - i);// обратынй второй
+            
+            // прямой
+            if (forwardValid && !thisPoint.equals(otherForwardPoint)) {
+                forwardValid = false;
+            }
+            
+            // обратный
+            if (reverseValid && !thisPoint.equals(otherReversePoint)) {
+                reverseValid = false;
+            }
+            
+            // оба варианта в гвне ливаем
+            if (!forwardValid && !reverseValid) {
+                return false;
+            }
+        }
+        
+        return forwardValid || reverseValid;
+    }
+
+    @Override
+    public int hashCode() {
+        if (polylineVerticesList == null || polylineVerticesList.isEmpty()) {
+            return 0;
+        }
+        
+        // вычисляем хэш для прямого и обратного порядка, берем минимальный
+        int forwardHash = 1;
+        int reverseHash = 1;
+        
+        for (int i = 0; i < polylineVerticesList.size(); i++) {
+            Tochka point = polylineVerticesList.get(i);
+            Tochka reversePoint = polylineVerticesList.get(polylineVerticesList.size() - 1 - i);
+            forwardHash = 31 * forwardHash + point.hashCode();
+            reverseHash = 31 * reverseHash + reversePoint.hashCode();
+        }
+        
+        return Math.min(forwardHash, reverseHash);
     }
 }

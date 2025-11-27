@@ -107,11 +107,11 @@ public class Student {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Student student2 = (Student) o;
-        return Objects.equals(studentName, student2.studentName);
+        return Objects.equals(studentName, student2.studentName) && Math.abs(student2.getAverageGrade() - this.getAverageGrade()) < 1e-10;
     }
     @Override
     public int hashCode() {
-        return Objects.hash(studentName);
+        return Objects.hash(studentName, Double.hashCode(getAverageGrade()));
     }
 
 }

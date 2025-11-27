@@ -2,7 +2,9 @@ package VYZ.ErmakovJava.kyrs2sem1.pract3;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 
 public class Road {
     private String roadName;// дефолт роаднейма будет соедененное название двух городов
@@ -103,7 +105,7 @@ public class Road {
         // }
         for (int i = 0; i < this.linkedCitiesList.size(); i++) {
             if (i== this.linkedCitiesList.size()-1) {
-                retStr+=" "+this.linkedCitiesList.get(i).getCityName();            
+                retStr+=" "+this.linkedCitiesList.get(i).getCityName();
             }else{
                 retStr+=" "+this.linkedCitiesList.get(i).getCityName()+",";
             }
@@ -116,5 +118,21 @@ public class Road {
     @Override
     public String toString() {
         return "Road "+this.roadName+"; Cities:"+getCityNamesFromCityListToString();
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        
+        Road road = (Road) o;
+        
+        return costRoute == road.costRoute &&
+            Objects.equals(roadName, road.roadName) &&
+            new HashSet<>(linkedCitiesList).equals(new HashSet<>(road.linkedCitiesList));
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(roadName, costRoute, new HashSet<>(linkedCitiesList));
     }
 }

@@ -1,6 +1,6 @@
 package VYZ.ErmakovJava.kyrs2sem1.datashapes;
 
-public class Decimal extends Number{
+public class Decimal extends Number implements Cloneable{
     private final int numerator;//числитель
     private final int denominator;//знаменатель
 
@@ -94,4 +94,23 @@ public class Decimal extends Number{
     public String toString() {
         return this.numerator+"/"+this.denominator;
     }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Decimal decimal = (Decimal) o;
+        return (numerator  == decimal.numerator) && (decimal.denominator == denominator);
+    }
+
+    @Override
+    public int hashCode() {
+        return 31 * numerator + denominator;
+    }
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return new Decimal(numerator, denominator);
+    }
 }
+
+

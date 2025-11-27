@@ -1,7 +1,9 @@
 package VYZ.ErmakovJava.kyrs2sem1.pract3;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 
 public class City {
     private String cityName;
@@ -84,6 +86,22 @@ public class City {
     @Override
     public String toString() {
         return "Cities "+this.cityName+"; Roads:"+getRoadNamesFromRoadListToString();
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        
+        City city = (City) o;
+        
+        return Objects.equals(cityName, city.cityName) &&
+            new HashSet<>(roadList).equals(new HashSet<>(city.roadList));
+    }
+
+    @Override
+    public int hashCode() {
+        // не зависит от порядка
+        return Objects.hash(cityName, new HashSet<>(roadList));
     }
 
 }

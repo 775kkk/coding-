@@ -2,7 +2,7 @@ package VYZ.ErmakovJava.kyrs2sem1.geometrics.line;
 
 import VYZ.ErmakovJava.kyrs2sem1.geometrics.Tochka;
 
-public class Line {
+public class Line implements Cloneable{
     private Tochka tochkaA;
     private Tochka tochkaB;
 
@@ -12,6 +12,9 @@ public class Line {
     }
     public Line(int[] tochka1, int[] tochka2){//вместо точка коллекцию?
         this(new Tochka(tochka1), new Tochka(tochka2));// чтобы не плодить сущности лишний раз
+    }
+    public Line(Line line){
+        this(line.tochkaA,line.tochkaB);
     }
     public void setLine(Tochka tochka1, Tochka tochka2){
         if (tochka1 == null || tochka2 == null) {
@@ -40,5 +43,27 @@ public class Line {
     @Override
     public String toString() {
         return "Line{" + String.valueOf(tochkaA) + " -> " + String.valueOf(tochkaB) + "}";
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        
+        Line line = (Line) o;
+        
+        return (tochkaA.equals(line.tochkaA) && tochkaB.equals(line.tochkaB)) ||
+            (tochkaA.equals(line.tochkaB) && tochkaB.equals(line.tochkaA));
+    }
+
+    @Override
+    public int hashCode() {
+        int hashA = tochkaA != null ? tochkaA.hashCode() : 0;
+        int hashB = tochkaB != null ? tochkaB.hashCode() : 0;
+        return hashA + hashB;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return new Line(this);
     }
 }
