@@ -6,7 +6,7 @@ import java.util.List;
 import VYZ.ErmakovJava.kyrs2sem1.geometrics.GeomEngineering;
 import VYZ.ErmakovJava.kyrs2sem1.geometrics.Tochka;
 
-public class Polyline {
+public class Polyline extends Object{
     private String lineName;
     private List<Tochka> polylineVerticesList;
 
@@ -125,7 +125,7 @@ public class Polyline {
             return true;
         }
         
-        // чекаем прямые списки и реверснутый второй
+        // чекаем прямые списки и реверснутый второй 1 2 3 4  1 2 3 4
         boolean forwardValid = true;
         boolean reverseValid = true;
         
@@ -171,5 +171,17 @@ public class Polyline {
         }
         
         return Math.min(forwardHash, reverseHash);
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        try {
+            Polyline polyline = (Polyline) super.clone();
+            polyline.setPolylineVerticesList(this.getPolylineVerticesList());
+            return polyline;
+            
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
     }
 }

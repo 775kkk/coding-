@@ -59,11 +59,17 @@ public class Line implements Cloneable{
     public int hashCode() {
         int hashA = tochkaA != null ? tochkaA.hashCode() : 0;
         int hashB = tochkaB != null ? tochkaB.hashCode() : 0;
-        return hashA + hashB;
+        return (hashA + hashB);
     }
 
     @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return new Line(this);
+    protected Object clone() {
+        try {
+            Line retLine = (Line) super.clone();
+            retLine.setLine(this.tochkaA, this.tochkaB);
+            return retLine;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
     }
 }

@@ -73,6 +73,11 @@ public final class Tochka implements Cloneable {
     }
     @Override
     protected Object clone() throws CloneNotSupportedException {
-        return new Tochka(this);
+        try {
+            return (Tochka) super.clone();
+            
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
     }
 }

@@ -108,8 +108,12 @@ public class Decimal extends Number implements Cloneable{
         return 31 * numerator + denominator;
     }
     @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return new Decimal(numerator, denominator);
+    protected Object clone(){
+        try {
+            return (Decimal) super.clone();
+        } catch (Exception e) {
+            throw new AssertionError();
+        }
     }
 }
 
