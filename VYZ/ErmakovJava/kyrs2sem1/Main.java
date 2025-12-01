@@ -7,9 +7,9 @@ import java.util.concurrent.ThreadLocalRandom;
 import VYZ.ErmakovJava.kyrs2sem1.electronicsystems.exceptions.ConnectionLostException;
 import VYZ.ErmakovJava.kyrs2sem1.electronicsystems.exceptions.ResourceClosedException;
 import VYZ.ErmakovJava.kyrs2sem1.electronicsystems.networks.Connection;
+import VYZ.ErmakovJava.kyrs2sem1.geometrics.Tochka;
 import VYZ.ErmakovJava.kyrs2sem1.pract3.IllegalGradeException;
 import VYZ.ErmakovJava.kyrs2sem1.pract3.Student;
-import VYZ.ErmakovJava.kyrs2sem1.pract3.Student.GradesPolicy;
 
 public class Main {
     public static void readData() {//4.2.1
@@ -56,41 +56,66 @@ public class Main {
 
     //4.2.3
     public static String addRandomGrade(List<Student> students) {
-    int grade = ThreadLocalRandom.current().nextInt(1, 11);
-    // сейвим оценки студентов
-    List<List<Integer>> backups = new ArrayList<>();
-    for (Student s : students) {
-        backups.add(s.getGrades());
-    }
-
-    try {
-        // добавляем всем
+        int grade = ThreadLocalRandom.current().nextInt(1, 11);
+        // сейвим оценки студентов
+        List<List<Integer>> backups = new ArrayList<>();
         for (Student s : students) {
-            s.addGrade(grade); // если студент не принимает — бросит IllegalGradeException
+            backups.add(s.getGrades());
         }
-    } catch (IllegalGradeException e) {// получаем по лбу
-        //фиксим косяки так как получили по лбу
-        for (int i = 0; i < students.size(); i++) {
-            students.get(i).setGrades(backups.get(i));
+
+        try {
+            // добавляем всем
+            for (Student s : students) {
+                s.addGrade(grade); // если студент не принимает — бросит IllegalGradeException
+            }
+        } catch (IllegalGradeException e) {// получаем по лбу
+            //фиксим косяки так как получили по лбу
+            for (int i = 0; i < students.size(); i++) {
+                students.get(i).setGrades(backups.get(i));
+            }
+            return "оценка " + grade + " не добавлена никому: студент "
+                    + e.getMessage() + " не принимает такую оценку";
         }
-        return "оценка " + grade + " не добавлена никому: студент "
-                + e.getMessage() + " не принимает такую оценку";
+
+        return "оценка " + grade + " успешно добавлена всем студентам";
     }
 
-    return "оценка " + grade + " успешно добавлена всем студентам";
-}
+    public static double findMax(List<Box<? extends Number>> boxs) {//  6.2.2
+        if (boxs.isEmpty()) {
+            throw new IllegalArgumentException("cписок пуст");
+        }
+        double maxBox = Double.NEGATIVE_INFINITY;
+        for (int i = 0; i < boxs.size(); i++) {
+            Number currValue = boxs.get(i).getObj();
+            if (currValue == null) {
+                throw new IllegalArgumentException("хранится null");
+            }
+            double currDoublee = currValue.doubleValue();
+            if (currDoublee > maxBox) {
+                maxBox = currDoublee;
+            }
+        }
+        return maxBox;
+    }
+
+    public static void nachaloOtscheta(Box<? super Tochka> box) {//  6.2.3
+        int x = ThreadLocalRandom.current().nextInt(-100, 101);
+        int y = ThreadLocalRandom.current().nextInt(-100, 101);
+        int z = ThreadLocalRandom.current().nextInt(-100, 101);
+
+        box.setObj(new Tochka(x, y, z));
+    }
+
+    public static void fill(List<? super Integer> list) {// 6.2.4
+        for (int i = 1; i <= 100; i++) {
+            list.add(i);
+        }
+    }
 
 
     
     public static void main(String[] args) {
-        // readData();
-        // System.out.println(operationStrings("1", "dddd dd", "3","6"));
-
-        Student s1 = new Student("Петров", List.of(5, 4, 5), GradesPolicy.ALWAYS_TRUE());
-        Student s2 = new Student("Иванов", List.of(3, 2), grade -> grade >= 2);
-        Student s3 = new Student("Сидоров", List.of(3), grade -> grade <= 5);
-        List<Student> students = List.of(s1, s2, s3);
-        System.out.println(addRandomGrade(students));
-
+        Box<Integer> box = new Box<>(123);
+        Storage<Integer> storage = new Storage<>(null);
     }
 }

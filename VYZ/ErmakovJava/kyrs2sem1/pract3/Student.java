@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Objects;
 
 
-public class Student {
+public class Student implements VYZ.ErmakovJava.kyrs2sem1.Comparable<Student> {
     private String studentName;
     private List<Integer> gradesList;
     private GradesPolicy gradesPolicy;
@@ -112,6 +112,11 @@ public class Student {
     @Override
     public int hashCode() {
         return Objects.hash(studentName, Double.hashCode(getAverageGrade()));
+    }
+
+    @Override
+    public int compareTo(Student student) {
+        return Double.compare(this.getAverageGrade(), student.getAverageGrade());
     }
 
 }
