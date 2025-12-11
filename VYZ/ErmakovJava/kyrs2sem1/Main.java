@@ -107,9 +107,42 @@ public class Main {
     }
 
     public static void fill(List<? super Integer> list) {// 6.2.4
+        if (list == null) {
+            return;
+        }
+        if (list.isEmpty()) {
+            return;
+        }
         for (int i = 1; i <= 100; i++) {
             list.add(i);
         }
+    }
+    public static <T, A> List<A> method(List<T> t, Applyable<T,A> a){//6.3.1
+        List<A> ret = new ArrayList<>() ;
+        for (T te : t) {
+            ret.add(a.Apply(te));
+        }
+        return ret;
+    }
+    public static <T> List<T> filter(List<T> tList, Testyable<T> t){//6.3.2
+        List<T> ret = new ArrayList<>() ;
+        for (T et : tList) {
+            if (!t.test(et)) {
+                ret.add(et);
+            }
+        }
+        return ret;
+    }
+    public static <T> T reduce(List<T> tList, ReduceInstruction<T> reduce){//6.3.3
+        return reduce.Reduce(tList);
+    }
+
+    public static <P,T> List<P> collect(P sposob, T... argsT){//6.3.4
+        List<P> ret = new ArrayList<>(); 
+        for (T t : argsT) {
+            ret.add((P) t);
+        }
+        return ret;
     }
 
 
@@ -117,5 +150,17 @@ public class Main {
     public static void main(String[] args) {
         Box<Integer> box = new Box<>(123);
         Storage<Integer> storage = new Storage<>(null);
+        Testyable<String> testString = new Testyable<>() {
+            public boolean test(String a){
+                if (a.length()<=3) {
+                    return true;
+                }
+                return false;
+            }
+        };
+        List<String> a = new ArrayList<>();
+        a.add("bbrbrbr");
+        a.add("b33r3r3brbrbr");
+        List<String> b = Filter(a, testString);
     }
 }
