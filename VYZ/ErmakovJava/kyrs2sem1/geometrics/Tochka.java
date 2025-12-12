@@ -24,9 +24,6 @@ public final class Tochka implements Cloneable {
         );
     }
 
-    // private int getValidCoordinate(int){
-    // }
-// setters
     public void setX(int X){
         this.X = X;
     }
@@ -36,7 +33,7 @@ public final class Tochka implements Cloneable {
     public void setZ(int Z){
         this.Z = Z;
     }
-// getters
+
     public int getX(){
         return this.X;
     }

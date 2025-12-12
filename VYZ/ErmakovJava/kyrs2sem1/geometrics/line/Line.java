@@ -1,17 +1,18 @@
 package VYZ.ErmakovJava.kyrs2sem1.geometrics.line;
 
 import VYZ.ErmakovJava.kyrs2sem1.geometrics.Tochka;
+import VYZ.ErmakovJava.kyrs2sem1.geometrics.figure.interfaces.GetLongs;
 
-public class Line implements Cloneable{
+public class Line implements Cloneable, GetLongs {
     private Tochka tochkaA;
     private Tochka tochkaB;
 
-    public Line(Tochka a, Tochka b){// вместо точка коллекцию?
+    public Line(Tochka a, Tochka b){
         this.tochkaA= new Tochka(a);
         this.tochkaB= new Tochka(b);
     }
-    public Line(int[] tochka1, int[] tochka2){//вместо точка коллекцию?
-        this(new Tochka(tochka1), new Tochka(tochka2));// чтобы не плодить сущности лишний раз
+    public Line(int[] tochka1, int[] tochka2){
+        this(new Tochka(tochka1), new Tochka(tochka2));
     }
     public Line(Line line){
         this(line.tochkaA,line.tochkaB);
@@ -37,9 +38,24 @@ public class Line implements Cloneable{
     public Tochka getB() { return new Tochka(tochkaB); }
     
     public boolean isEmpty() {
-        return (tochkaA == null || tochkaB == null); 
+        return (tochkaA == null || tochkaB == null);
     }
 
+    @Override
+    public double getLong() {
+        double dx = tochkaA.getX() - tochkaB.getX();
+        double dy = tochkaA.getY() - tochkaB.getY();
+        double dz = tochkaA.getZ() - tochkaB.getZ();
+        
+        return Math.sqrt(dx * dx + dy * dy + dz * dz);
+    }
+    public static double getLineLong(Tochka a, Tochka b) {
+        double dx = a.getX() - b.getX();
+        double dy = a.getY() - b.getY();
+        double dz = a.getZ() - b.getZ();
+        
+        return Math.sqrt(dx * dx + dy * dy + dz * dz);
+    }
     @Override
     public String toString() {
         return "Line{" + String.valueOf(tochkaA) + " -> " + String.valueOf(tochkaB) + "}";

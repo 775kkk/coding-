@@ -16,13 +16,19 @@ public class MathUtils {
             } else if (number instanceof BigInteger) {
                 result = result.add(new BigDecimal((BigInteger) number));
             } else if (number instanceof Decimal) {
-                // Для вашего класса Decimal
                 Decimal decimal = (Decimal) number;
                 result = result.add(BigDecimal.valueOf(decimal.doubleValue()));
             }
-            // добавьте другие типы по необходимости
         }
         return result;
+    }
+
+    public static BigDecimal sumStrings(String... strings) {
+        Number[] adapted = new Number[strings.length];
+        for (int i = 0; i < strings.length; i++) {
+            adapted[i] = new StringNumber(strings[i]);
+        }
+        return sum(adapted);
     }
 
     public static void main(String[] args) {

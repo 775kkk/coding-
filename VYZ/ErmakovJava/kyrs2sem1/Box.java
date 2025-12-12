@@ -10,9 +10,6 @@ public final class Box<O> {
     }
 
     public void setObj(O obj) {
-        if (!this.isEmpty()) {
-            throw new IllegalStateException();
-        }
         this.obj = obj;
     }
 
@@ -25,4 +22,22 @@ public final class Box<O> {
     public boolean isEmpty(){
         return Objects.isNull(obj);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Box<?> other = (Box<?>) o;
+        return Objects.equals(this.obj, other.obj);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(obj);
+    }
+    @Override
+    public String toString() {
+        return obj == null ? "null" : obj.toString();
+    }
+    
 }

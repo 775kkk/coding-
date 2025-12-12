@@ -3,10 +3,10 @@ package VYZ.ErmakovJava.kyrs2sem1.geometrics.line;
 import java.util.ArrayList;
 import java.util.List;
 
-import VYZ.ErmakovJava.kyrs2sem1.geometrics.GeomEngineering;
 import VYZ.ErmakovJava.kyrs2sem1.geometrics.Tochka;
+import VYZ.ErmakovJava.kyrs2sem1.geometrics.figure.interfaces.GetLongs;
 
-public class Polyline extends Object{
+public class Polyline extends Object implements GetLongs {
     private String lineName;
     private List<Tochka> polylineVerticesList;
 
@@ -59,7 +59,11 @@ public class Polyline extends Object{
         this.lineName = lineName;
     }
     public void setPolylineVerticesList(List<Tochka> polylineVerticesList) {
-        this.polylineVerticesList = new ArrayList<Tochka>(polylineVerticesList);
+        if (polylineVerticesList == null) {
+            this.polylineVerticesList = new ArrayList<>();
+        } else {
+            this.polylineVerticesList = new ArrayList<>(polylineVerticesList);
+        }
     }
     public void addVertices(Tochka tochka){
         this.polylineVerticesList.add(tochka);
@@ -98,9 +102,27 @@ public class Polyline extends Object{
     public int getCountVertices(){
         return this.polylineVerticesList.size();
     }
-
-    public double getLineLong(){
-        return GeomEngineering.getLineLong(this,false);
+    @Override
+    public double getLong(){
+        double retResult=0;
+        List<Tochka> pointsList = this.getPolylineVerticesList();
+        if (pointsList.size()<2) {
+            return 0;
+        }
+        for (int i = 1; i < pointsList.size(); i++) {
+            retResult+=getLineLong(pointsList.get(i-1),pointsList.get(i));
+        }
+        // if (endPolicy) {
+        //     retResult+=getLineLong(pointsList.get(0),pointsList.get(pointsList.size()-1));
+        // }
+        return retResult;
+    }
+    public static double getLineLong(Tochka a, Tochka b) {
+        double dx = a.getX() - b.getX();
+        double dy = a.getY() - b.getY();
+        double dz = a.getZ() - b.getZ();
+        
+        return Math.sqrt(dx * dx + dy * dy + dz * dz);
     }
 
     @Override
