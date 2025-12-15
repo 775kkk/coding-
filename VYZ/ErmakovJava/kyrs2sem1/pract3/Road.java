@@ -15,7 +15,7 @@ public class Road {
     private String roadNameCounted(String roadName){
         if (roadName==null){
             if (this.linkedCitiesList.size() >=2) {
-                return 
+                return
                 this.linkedCitiesList.get(0).getCityName()+" - "
                 +this.linkedCitiesList.get(1).getCityName();
             }
@@ -23,10 +23,11 @@ public class Road {
                 return this.linkedCitiesList.get(0).getCityName();
             }
         }
-        return roadName;   
+        return roadName;
     }
 
     public Road(String roadName,  int costRoute,List<City> linkedCitiesList){
+        if (costRoute<0) throw new IllegalArgumentException("costRoute < 0");
         this.linkedCitiesList = linkedCitiesList!=null ? new ArrayList<City>(linkedCitiesList) : new ArrayList<City>();
         this.roadName = roadNameCounted(roadName);
         this.costRoute = costRoute;
@@ -71,7 +72,7 @@ public class Road {
     }
 
     public void addCityToCityList(City city){
-        this.linkedCitiesList.add(new City(city));
+        this.linkedCitiesList.add(city);
     }
     public void addCityToCityList(City... argsOfCities){
         for (City city : argsOfCities) {

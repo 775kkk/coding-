@@ -10,6 +10,7 @@ public class City {
     private List<Road> roadList;
 
     public City(String cityName,List<Road> roadList){
+        if (cityName==null) throw new IllegalArgumentException("cityName == null");
         this.cityName = cityName;
         this.roadList = (roadList != null) ? new ArrayList<Road>(roadList) : new ArrayList<Road>();
     }
@@ -24,7 +25,8 @@ public class City {
         this.cityName = cityName;
     }
     public void setRoadList(List<Road> roadList) {
-        for (Road road : roadList) {
+        if (roadList==null) throw new IllegalArgumentException("roadList == null");
+        for (Road road : this.roadList) {
             road.removeCityFromCityListByObject(this);
         }
         this.roadList = new ArrayList<Road>(roadList);
@@ -48,6 +50,18 @@ public class City {
         for (Road road : argsOfRoads) {
             this.addNewRoad(road);
         }
+    }
+
+    public List<City> neighbors(){// все города связанных дорог
+        HashSet<City> ret = new HashSet<City>();
+        for (Road road : roadList) {
+            for (City city : road.getLinkedCitiesList()) {
+                if (!this.equals(city)) {
+                    ret.add(city);
+                }
+            }
+        }
+        return new ArrayList<City>(ret);
     }
 
     public Road getRoadOnIndex(int index){// НЕ КОПИЯ
@@ -93,15 +107,12 @@ public class City {
         if (o == null || getClass() != o.getClass()) return false;
         
         City city = (City) o;
-        
-        return Objects.equals(cityName, city.cityName) &&
-            new HashSet<>(roadList).equals(new HashSet<>(city.roadList));
+        return Objects.equals(cityName, city.cityName);
     }
 
     @Override
     public int hashCode() {
-        // не зависит от порядка
-        return Objects.hash(cityName, new HashSet<>(roadList));
+        return Objects.hash(cityName);
     }
 
 }

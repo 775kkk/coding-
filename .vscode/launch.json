@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "BlokaDemoMain",
+            "request": "launch",
+            "mainClass": "VYZ.ErmakovJava.kyrs2sem1.bloka.BlokaDemoMain",
+            "projectName": "coding-_75e97bf8"
+        },
+        {
+            "type": "java",
             "name": "Main",
             "request": "launch",
             "mainClass": "VYZ.ErmakovJava.kyrs2sem1.streambeta.Main",
