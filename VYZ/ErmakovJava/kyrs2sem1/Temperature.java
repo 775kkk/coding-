@@ -10,6 +10,16 @@ public class Temperature {
         Тепло,
         Unnormal
     }
+    public enum TemperatureT{
+        TEMPERATURE_COLD(-50,10);
+        int from;
+        int to;
+
+        TemperatureT(int from, int to){
+            this.to = to;
+            this.from = from;
+        }
+    }
     
     private static Status generateStatus(int temperatureValue){
         if(temperatureValue <-50 || temperatureValue >10){

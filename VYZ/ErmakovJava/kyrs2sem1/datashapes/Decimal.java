@@ -4,7 +4,7 @@ public class Decimal extends Number implements Cloneable{
     private final int numerator;//числитель
     private final int denominator;//знаменатель
 
-    public Decimal(int numerator, int denominator){
+    private Decimal(int numerator, int denominator){
         if (denominator == 0) {
             throw new IllegalArgumentException("denominator cannot be 0 ; x/0 unreal!");
         }
@@ -114,6 +114,16 @@ public class Decimal extends Number implements Cloneable{
         } catch (Exception e) {
             throw new AssertionError();
         }
+    }
+
+    public class DecimalBuilder {
+    
+        private DecimalBuilder() {
+        }
+        public static Decimal of(int numerator, int denominator){
+            return new Decimal(numerator,denominator);
+        }
+
     }
 }
 
