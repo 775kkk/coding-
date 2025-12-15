@@ -9,7 +9,7 @@ import VYZ.ErmakovJava.kyrs2sem1.electronicsystems.exceptions.ResourceClosedExce
 import VYZ.ErmakovJava.kyrs2sem1.electronicsystems.networks.Connection;
 import VYZ.ErmakovJava.kyrs2sem1.geometrics.Tochka;
 import VYZ.ErmakovJava.kyrs2sem1.pract3.IllegalGradeException;
-import VYZ.ErmakovJava.kyrs2sem1.pract3.Student;
+import VYZ.ErmakovJava.kyrs2sem1.yniversitet.Student;
 
 public class Main {
     public static void readData() {//4.2.1

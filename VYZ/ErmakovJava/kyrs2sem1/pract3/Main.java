@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 import VYZ.ErmakovJava.kyrs2sem1.geometrics.Tochka;
 import VYZ.ErmakovJava.kyrs2sem1.geometrics.line.Polyline;
+import VYZ.ErmakovJava.kyrs2sem1.yniversitet.Student;
 
 public class Main {
     public static void main(String[] args) {
