@@ -8,6 +8,20 @@
             "type": "java",
             "name": "Main",
             "request": "launch",
+            "mainClass": "VYZ.ErmakovJava.kyrs2sem1.streambeta.Main",
+            "projectName": "coding-_75e97bf8"
+        },
+        {
+            "type": "java",
+            "name": "main",
+            "request": "launch",
+            "mainClass": "VYZ.ErmakovJava.kyrs2sem1.karate.main",
+            "projectName": "coding-_75e97bf8"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
             "mainClass": "VYZ.ErmakovJava.kyrs2sem1.Main",
             "projectName": "coding-_2787040b"
         },
