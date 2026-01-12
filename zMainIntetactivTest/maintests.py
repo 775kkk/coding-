@@ -25,3 +25,4 @@ def resultDZ(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,b1,b2,b3,b4,b5,b6,b7,b8,b9,b10):
     return ret
 
 print(resultDZ(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20))
+dsdasdsadasa
