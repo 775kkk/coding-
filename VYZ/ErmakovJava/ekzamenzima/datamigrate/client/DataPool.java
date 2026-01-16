@@ -1,39 +1,47 @@
 package VYZ.ErmakovJava.ekzamenzima.datamigrate.client;
 
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
+import VYZ.ErmakovJava.ekzamenzima.datamigrate.client.pipeline.ExecuteException;
+import VYZ.ErmakovJava.ekzamenzima.datamigrate.client.pipeline.ProcedureInterface;
+import VYZ.ErmakovJava.ekzamenzima.datamigrate.client.pipeline.inputlistener.InputListener;
 import VYZ.ErmakovJava.ekzamenzima.datamigrate.parser.ParserInterface;
 import VYZ.ErmakovJava.ekzamenzima.datamigrate.parser.exception.ParseException;
 
-public class DataPool<T> {
-    // слушает данные // по порту...
+public class DataPool<T,S> {
+    private List<ProcedureInterface<T>> procedures = new ArrayList<>();
+    public DataPool() {}
 
-    public void  start(ParserInterface<T> parser) {
-        System.out.println("DataPool started...");
-
-        Scanner scanner = new Scanner(System.in);
+    public void start(InputListener<S> inputListener, ParserInterface<T,S> parser) {
         try{
-            while (true) {
-                // принимаем данные из поста парсим их в дто чтото с ними делаем и отправляем далее
-                String line = scanner.nextLine();
-                System.out.println("prinito!: " + line);
-                T dto = parser.parse(line);
-                // маппим ту джисон но встроенного ту джесон почемуто нету  у джваы
-                System.out.println("Parsed DTO: " + dto.toString());
-                // класс отправки jsona - пост в другой сервис
+            while (true) {// гет дата
+                S item = inputListener.run();
+                try {
+                    T parsedItem = parser.parse(item);
+                    for (ProcedureInterface<T> procedure : procedures) {
+                    parsedItem = procedure.execute(parsedItem);   /// тут как обычно очень много туда сюда и спорно но я ничего не знаю я глупенький и то и се и фильтр и редюсе и то и се ештваи клеш просто
+                    }
+                    
+                } catch (ParseException e) {
+                    System.err.println("Failed to parse line: " + e.getMessage());
+                }catch (ExecuteException e) {
+                    System.err.println("Failed to execute procedure: " + e.getMessage());
+                }
+                catch (Exception e) {
+                    System.err.println("Unexpected error: " + e.getMessage());
+                }finally {
+                    if (inputListener.isClosed()) {
+                        break;
+                    }
+                }
             }
-        } catch (IllegalStateException ise) {
-            System.out.println("Scanner closed");
-        }
-        catch (ParseException pe) {
-            System.out.println("Parse exception: " + pe.getMessage());
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-        finally {
-            scanner.close();
+        } finally {
+            inputListener.close();
         }
     }
-
+    
+    public void addProcedure(ProcedureInterface<T> procedure) {
+        this.procedures.add(procedure);
+    }
 }
