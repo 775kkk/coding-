@@ -8,6 +8,13 @@
             "type": "java",
             "name": "Main",
             "request": "launch",
+            "mainClass": "VYZ.ErmakovJava.kyrstwosemtwo.Main",
+            "projectName": "coding-_75e97bf8"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
             "mainClass": "VYZ.ErmakovJava.ekzamenzima.datamigrate.Main",
             "projectName": "coding-_75e97bf8"
         },
