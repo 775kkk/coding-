@@ -9,6 +9,13 @@
             "name": "Main",
             "request": "launch",
             "mainClass": "VYZ.ErmakovJava.kyrstwosemtwo.Main",
+            "projectName": "coding-_d4610ddc"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "VYZ.ErmakovJava.kyrstwosemtwo.Main",
             "projectName": "coding-_75e97bf8"
         },
         {

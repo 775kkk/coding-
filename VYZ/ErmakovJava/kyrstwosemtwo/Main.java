@@ -2,6 +2,7 @@ package VYZ.ErmakovJava.kyrstwosemtwo;
 
 import VYZ.ErmakovJava.kyrs2sem1.geometrics.Tochka;
 import VYZ.ErmakovJava.kyrs2sem1.geometrics.line.Line;
+import VYZ.ErmakovJava.kyrstwosemtwo.annotations.ValidateTool;
 
 public class Main {
 
@@ -28,16 +29,19 @@ public class Main {
         }
 
         //8.1.4
+        @ValidateTool
         private static void nblank(Test value) {
             if (value.s == null || value.s.isBlank()) {
                 throw new IllegalArgumentException("Test.s is blank");
             }
         }
 
+        @ValidateTool
         private static boolean x(Test value) {
             return value.x > 0;
         }
 
+        @ValidateTool
         private static void nblank(Testt value) {
             if (value.s == null || value.s.isBlank()) {
                 throw new IllegalStateException("Testt.s is blank");

@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import VYZ.ErmakovJava.kyrs2sem1.geometrics.line.Line;
+import VYZ.ErmakovJava.kyrstwosemtwo.annotations.ValidateTool;
 
 public class Reflection {
     
@@ -40,13 +41,13 @@ public class Reflection {
         if (kit == null) throw new IllegalArgumentException("kit == null");
 
         boolean foundAny = false;
-
+        // List<Method> methods = в стриму все нижнее охото
         for (Method method : kit.getDeclaredMethods()) {
             
-            if (method.getParameterCount() != 1) {// один парамтер
+            if (!method.isAnnotationPresent(ValidateTool.class)) {
                 continue;
             }
-
+                
             Class<?> parametsType = method.getParameterTypes()[0];
             if (!parametsType.isAssignableFrom(item.getClass())) {// принимает
                 continue;
@@ -68,13 +69,15 @@ public class Reflection {
                     "cant access validator met: " + method.getName(), e
                 );
             }
-        }
-
-        if (!foundAny) {
-            throw new IllegalArgumentException(
-                "methkods not found " + kit.getName()
-            );
+            if (!foundAny) {
+                throw new IllegalArgumentException(
+                    "methkods not found " + kit.getName()
+                );
+            }
+            
         }
     }
+
+
 
 }
